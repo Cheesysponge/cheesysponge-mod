@@ -1,22 +1,22 @@
-{
+ {
 	"schemaVersion": 1,
 	"id": "cheesysponge",
 	"version": "${version}",
 	"name": "cheesysponge",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Me!"
+		"Cheesysponge"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/cheesysponge/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"name.cheesysponge.ExampleMod"
+			"name.cheesysponge.SpongeMod"
 		]
 	},
 	"mixins": [
