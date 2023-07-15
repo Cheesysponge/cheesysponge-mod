@@ -1,4 +1,13 @@
 {
   "item.cheesysponge.sponge_ingot": "Sponge Ingot",
-  "item.cheesysponge.cheesy_sponge": "Cheesy Sponge"
+  "item.cheesysponge.cheesy_sponge": "Cheesy Sponge",
+  "item.cheesysponge.raw_cheesy_sponge": "Raw Cheesy Sponge",
+  "block.cheesysponge.cheesysponge_block": "Cheesy Sponge Block",
+  "block.cheesysponge.cheesysponge_ore": "Cheesy Sponge Ore",
+  "block.cheesysponge.deepslate_cheesysponge_ore": "Deepslate Cheesysponge Ore",
+  "itemGroup.cheesysponge.cheesy_sponge": "Cheeesy Sponge Tab",
+  "item.cheesysponge.sponge_rod.no_valuables": "No Valuables Found",
+  "item.cheesysponge.cheesy_sponge_rod": "Cheesy Sponge Rod"
+
+
 }

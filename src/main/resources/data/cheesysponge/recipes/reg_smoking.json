@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "cheesysponge:cheesysponge_ore"
+  },
+  "result": "cheesysponge:raw_cheesy_sponge",
+  "experience": 10.35,
+  "cookingtime": 1
+}

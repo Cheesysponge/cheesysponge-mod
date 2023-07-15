@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "copper_ingot",
+  "ingredients": [
+    {
+      "item": "cheesysponge:cheesysponge_block"
+    }
+  ],
+  "result": {
+    "item": "cheesysponge:cheesy_sponge",
+    "count": 9
+  }
+}

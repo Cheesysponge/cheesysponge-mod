@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "cheesysponge:raw_cheesy_sponge"
+  },
+  "result": "cheesysponge:cheesy_sponge",
+  "experience": 0.35,
+  "cookingtime": 20
+}

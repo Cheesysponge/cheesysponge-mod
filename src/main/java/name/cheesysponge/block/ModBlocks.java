@@ -1,6 +1,7 @@
 package name.cheesysponge.block;
 
 import name.cheesysponge.SpongeMod;
+import name.cheesysponge.item.ModItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -14,7 +15,11 @@ import net.minecraft.util.registry.Registry;
 public class ModBlocks {
 
     public static final Block CHEESYSPONGE_BLOCK = registerBlock("cheesysponge_block",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(5f).requiresTool()), ItemGroup.MISC);
+            new Block(FabricBlockSettings.of(Material.SPONGE).strength(8f).requiresTool().luminance(200)), ModItemGroup.CHEESY_SPONGE);
+    public static final Block CHEESYSPONGE_ORE = registerBlock("cheesysponge_ore",
+            new Block(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block DEEPSLATE_CHEESYSPONGE_ORE = registerBlock("deepslate_cheesysponge_ore",
+            new Block(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group){
         registerBlockItem(name, block , group);
