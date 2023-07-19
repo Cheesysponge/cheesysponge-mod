@@ -2,12 +2,18 @@
   "item.cheesysponge.sponge_ingot": "Sponge Ingot",
   "item.cheesysponge.cheesy_sponge": "Cheesy Sponge",
   "item.cheesysponge.raw_cheesy_sponge": "Raw Cheesy Sponge",
+  "item.cheesysponge.burning_cheese": "Burning Cheese",
   "block.cheesysponge.cheesysponge_block": "Cheesy Sponge Block",
+  "block.cheesysponge.cheesy_block": "Cheesy Block",
   "block.cheesysponge.cheesysponge_ore": "Cheesy Sponge Ore",
   "block.cheesysponge.deepslate_cheesysponge_ore": "Deepslate Cheesysponge Ore",
-  "itemGroup.cheesysponge.cheesy_sponge": "Cheeesy Sponge Tab",
+  "block.cheesysponge.cheesy_sponge_button": "Cheesy Sponge Button",
+  "itemGroup.cheesysponge.cheesy_sponge": "Cheesy Sponge Tab",
   "item.cheesysponge.sponge_rod.no_valuables": "No Valuables Found",
-  "item.cheesysponge.cheesy_sponge_rod": "Cheesy Sponge Rod"
+  "item.cheesysponge.cheesy_sponge_rod": "Cheesy Sponge Rod",
+  "item.cheesysponge.sponge_rod.tooltip.shift": "Right Click to find valuables unders this block",
+  "item.cheesysponge.sponge_rod.tooltip": "Press §e§lSHIFT§r for more information",
+  "tooltip.cheesysponge.cheesysponge_block": "A Very Useful Block"
 
 
 }

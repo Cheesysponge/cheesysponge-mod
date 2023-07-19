@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+   "ingredients": [
+    {
+      "item": "cheesysponge:cheesysponge_block"
+    },
+    {
+      "item": "minecraft:lava_bucket"
+    }
+  ],
+  "result": {
+    "item": "cheesysponge:burning_cheese",
+    "count": 2
+  }
+}

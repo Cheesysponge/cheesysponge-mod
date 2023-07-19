@@ -3,6 +3,7 @@
   "values": [
     "cheesysponge:cheesysponge_ore",
     "cheesysponge:deepslate_cheesysponge_ore",
-    "cheesysponge:cheesysponge_block"
+    "cheesysponge:cheesysponge_block",
+    "cheesysponge:cheesy_block"
   ]
 }

@@ -3,13 +3,21 @@ package name.cheesysponge.item.custom;
 import name.cheesysponge.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class SpongeRodItem extends Item {
     public SpongeRodItem(Settings settings) {
@@ -51,7 +59,32 @@ public class SpongeRodItem extends Item {
     }
 
     private boolean isValuableBlock(Block block) {
-        return block == Blocks.COAL_ORE || block == Blocks.COPPER_ORE
-                || block == Blocks.DIAMOND_ORE || block == Blocks.IRON_ORE;
+        return block == Blocks.SPONGE || block == Blocks.DIAMOND_ORE
+                || block == Blocks.DEEPSLATE_DIAMOND_ORE
+                || block == Blocks.WET_SPONGE || block == ModBlocks.DEEPSLATE_CHEESYSPONGE_ORE
+                || block == ModBlocks.CHEESYSPONGE_ORE
+                || block == ModBlocks.CHEESYSPONGE_BLOCK
+                || block == Blocks.DIAMOND_BLOCK
+                || block == Blocks.ANCIENT_DEBRIS
+                || block == Blocks.NETHERITE_BLOCK
+                || block == Blocks.RAW_IRON_BLOCK
+                || block == Blocks.DEEPSLATE_EMERALD_ORE
+                || block == Blocks.CHEST
+                || block == Blocks.ENDER_CHEST
+                || block == Blocks.GOLD_BLOCK
+                || block == Blocks.EMERALD_ORE
+                || block == Blocks.GOLD_ORE
+                || block == Blocks.DEEPSLATE_GOLD_ORE
+                || block == Blocks.CRYING_OBSIDIAN
+                || block == Blocks.BEACON;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if(Screen.hasShiftDown()){
+            tooltip.add(new TranslatableText("item.cheesysponge.sponge_rod.tooltip.shift"));
+        } else {
+            tooltip.add(new TranslatableText("item.cheesysponge.sponge_rod.tooltip"));
+        }
     }
 }
