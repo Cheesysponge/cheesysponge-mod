@@ -24,23 +24,32 @@ import java.util.List;
 public class ModBlocks {
 
     public static final Block CHEESYSPONGE_BLOCK = registerBlock("cheesysponge_block",
-            new Block(FabricBlockSettings.of(Material.SPONGE).strength(8f).requiresTool().luminance(200)), ModItemGroup.CHEESY_SPONGE, "tooltip.cheesysponge.cheesysponge_block");
+            new Block(FabricBlockSettings.of(Material.SPONGE).strength(8f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE, "tooltip.cheesysponge.cheesysponge_block");
     public static final Block CHEESYSPONGE_ORE = registerBlock("cheesysponge_ore",
-            new Block(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+            new Block(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block DEEPSLATE_CHEESYSPONGE_ORE = registerBlock("deepslate_cheesysponge_ore",
-            new Block(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+            new Block(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_BLOCK = registerBlock("cheesy_block",
-            new CheesyBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+            new CheesyBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_BUTTON = registerBlock("cheesy_sponge_button",
-            new StoneButtonBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+            new StoneButtonBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_PRESSURE_PLATE = registerBlock("cheesy_sponge_pressure_plate",
-            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING ,FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING ,FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_FENCE = registerBlock("cheesy_sponge_fence",
-            new FenceBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+            new FenceBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_FENCE_GATE = registerBlock("cheesy_sponge_fence_gate",
-            new FenceGateBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+            new FenceGateBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_WALL = registerBlock("cheesy_sponge_wall",
-            new WallBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+            new WallBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
+
+    public static final Block CHEESY_SPONGE_SLAB = registerBlock("cheesy_sponge_slab",
+            new SlabBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
+    public static final Block CHEESY_SPONGE_STAIRS = registerBlock("cheesy_sponge_stairs",
+            new StairsBlock(ModBlocks.CHEESYSPONGE_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
+    public static final Block CHEESY_SPONGE_DOOR = registerBlock("cheesy_sponge_door",
+            new DoorBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block CHEESY_SPONGE_TRAPDOOR = registerBlock("cheesy_sponge_trapdoor",
+            new TrapdoorBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().nonOpaque().luminance(16)), ModItemGroup.CHEESY_SPONGE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
         registerBlockItem(name, block, group, tooltipKey);
