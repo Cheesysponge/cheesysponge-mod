@@ -1,12 +1,11 @@
 package name.cheesysponge.item;
 
 import name.cheesysponge.SpongeMod;
-import name.cheesysponge.item.custom.SpongeRodItem;
-import net.fabricmc.fabric.api.item.v1.CustomDamageHandler;
+import name.cheesysponge.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.*;
+import net.minecraft.util.Arm;
 import net.minecraft.util.Identifier;
 
 import net.minecraft.util.Rarity;
@@ -19,6 +18,20 @@ public class ModItems {
     public static final Item RAW_CHEESY_SPONGE = registerItem("raw_cheesy_sponge", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(12)));
     public static final Item CHEESY_SPONGE_ROD = registerItem("cheesy_sponge_rod", new SpongeRodItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1).maxDamage(100)));
     public static final Item BURNING_CHEESE = registerItem("burning_cheese", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(2).food(ModFoodComponents.BURNING_CHEESE)));
+    public static final Item CHEESY_SPONGE_SWORD = registerItem("cheesy_sponge_sword", new SwordItem(ModToolMaterials.CHEESYSPONGE,4,-2.3f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+    public static final Item CHEESY_SPONGE_AXE = registerItem("cheesy_sponge_axe", new ModAxeItem(ModToolMaterials.CHEESYSPONGE,6,-2.9f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+
+    public static final Item CHEESY_SPONGE_PICKAXE = registerItem("cheesy_sponge_pickaxe", new ModPickaxeItem(ModToolMaterials.CHEESYSPONGE,1,-2.8f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+
+    public static final Item CHEESY_SPONGE_HOE = registerItem("cheesy_sponge_hoe", new ModHoeItem(ModToolMaterials.CHEESYSPONGE,4,20f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+    public static final Item CHEESY_SPONGE_SHOVEL = registerItem("cheesy_sponge_shovel", new ShovelItem(ModToolMaterials.CHEESYSPONGE,1,-3f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+    public static final Item CHEESY_SPONGE_MAGIC_SWORD = registerItem("cheesy_sponge_magic_sword", new ModSlownessSwordItem(ModToolMaterials.CHEESYSPONGE,4,-2.3f,new FabricItemSettings().rarity(Rarity.EPIC).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+
+    public static final Item CHEESY_SPONGE_HELMET = registerItem("cheesy_sponge_helmet", new ArmorItem(ModArmorMaterials.CHEESY_SPONGE, EquipmentSlot.HEAD,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+    public static final Item CHEESY_SPONGE_CHESTPLATE = registerItem("cheesy_sponge_chestplate", new ArmorItem(ModArmorMaterials.CHEESY_SPONGE, EquipmentSlot.CHEST,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+    public static final Item CHEESY_SPONGE_LEGGINGS = registerItem("cheesy_sponge_leggings", new ArmorItem(ModArmorMaterials.CHEESY_SPONGE, EquipmentSlot.LEGS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+    public static final Item CHEESY_SPONGE_BOOTS = registerItem("cheesy_sponge_boots", new ArmorItem(ModArmorMaterials.CHEESY_SPONGE, EquipmentSlot.FEET,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(SpongeMod.MOD_ID, name), item);

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "cheesysponge:block/cheesysponge_block",
+    "top": "cheesysponge:block/cheesysponge_block",
+    "side": "cheesysponge:block/cheesysponge_block"
+  }
+}

@@ -4,6 +4,14 @@
     "cheesysponge:cheesysponge_ore",
     "cheesysponge:deepslate_cheesysponge_ore",
     "cheesysponge:cheesysponge_block",
-    "cheesysponge:cheesy_block"
+    "cheesysponge:cheesy_block",
+    "cheesysponge:cheesy_sponge_door",
+    "cheesysponge:cheesy_sponge_slab",
+    "cheesysponge:cheesy_sponge_stairs",
+    "cheesysponge:cheesy_sponge_fence",
+    "cheesysponge:cheesy_sponge_wall",
+    "cheesysponge:cheesy_sponge_button",
+    "cheesysponge:cheesy_sponge_pressure_plate",
+    "cheesysponge:cheesy_sponge_fence_gate"
   ]
 }

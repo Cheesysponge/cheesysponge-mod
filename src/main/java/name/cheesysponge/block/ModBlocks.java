@@ -32,7 +32,7 @@ public class ModBlocks {
     public static final Block CHEESY_BLOCK = registerBlock("cheesy_block",
             new CheesyBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_BUTTON = registerBlock("cheesy_sponge_button",
-            new StoneButtonBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
+            new StoneButtonBlock(FabricBlockSettings.of(Material.SPONGE).strength(1f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_PRESSURE_PLATE = registerBlock("cheesy_sponge_pressure_plate",
             new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING ,FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_FENCE = registerBlock("cheesy_sponge_fence",

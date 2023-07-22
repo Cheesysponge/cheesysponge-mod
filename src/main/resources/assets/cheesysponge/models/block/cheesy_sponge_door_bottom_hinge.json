@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_rh",
+  "textures": {
+    "top": "cheesysponge:block/cheesy_sponge_door_top",
+    "bottom": "cheesysponge:block/cheesy_sponge_door_bottom"
+  }
+}

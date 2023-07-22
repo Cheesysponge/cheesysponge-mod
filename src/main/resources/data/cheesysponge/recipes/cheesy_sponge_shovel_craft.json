@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " W ",
+    " W "
+  ],
+  "key": {
+    "#": {
+      "item": "cheesysponge:cheesysponge_block"
+    },
+    "W": {
+      "item": "cheesysponge:cheesy_sponge_rod"
+    }
+  },
+  "result": {
+    "item": "cheesysponge:cheesy_sponge_shovel"
+  }
+}

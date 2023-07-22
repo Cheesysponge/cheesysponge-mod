@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"name.cheesysponge.SpongeMod"
+		],
+		"client": [
+			"name.cheesysponge.CheesyClientMod"
 		]
 	},
 	"mixins": [

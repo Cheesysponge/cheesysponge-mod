@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "cheesysponge:item/cheesy_sponge_hoe"
+  }
+}

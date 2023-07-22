@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "cheesysponge:block/cheesy_sponge_slab"
+    },
+    "type=double": {
+      "model": "cheesysponge:block/cheesysponge_block"
+    },
+    "type=top": {
+      "model": "cheesysponge:block/cheesy_sponge_slab_top"
+    }
+  }
+}

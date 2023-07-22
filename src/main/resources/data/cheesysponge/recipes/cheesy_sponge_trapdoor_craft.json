@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cheesysponge:cheesy_sponge_door"
+    }
+  ],
+  "result": {
+    "item": "cheesysponge:cheesy_sponge_trapdoor",
+    "count": 2
+  }
+}
