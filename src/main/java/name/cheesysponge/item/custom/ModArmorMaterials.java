@@ -1,5 +1,6 @@
-package name.cheesysponge.item;
+package name.cheesysponge.item.custom;
 
+import name.cheesysponge.item.ModItems;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;

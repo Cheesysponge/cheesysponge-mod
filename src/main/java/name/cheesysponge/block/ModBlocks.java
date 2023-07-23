@@ -2,9 +2,11 @@ package name.cheesysponge.block;
 
 import name.cheesysponge.SpongeMod;
 import name.cheesysponge.block.custom.CheesyBlock;
+import name.cheesysponge.block.custom.CheesySpongeLampBlock;
 import name.cheesysponge.item.ModItemGroup;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -50,6 +52,12 @@ public class ModBlocks {
             new DoorBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().luminance(16).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_TRAPDOOR = registerBlock("cheesy_sponge_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().nonOpaque().luminance(16)), ModItemGroup.CHEESY_SPONGE);
+    public static final Block CHEESY_SPONGE_FLOWER = registerBlock("cheesy_sponge_flower",
+            new FlowerBlock(StatusEffects.HEALTH_BOOST,1000,FabricBlockSettings.copy(Blocks.DANDELION).strength(3f).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block POTTED_CHEESY_SPONGE_FLOWER = registerBlockWithoutBlockItem("potted_cheesy_sponge_flower",
+            new FlowerPotBlock(ModBlocks.CHEESY_SPONGE_FLOWER,FabricBlockSettings.copy(Blocks.POTTED_ALLIUM).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block CHEESY_SPONGE_LAMP = registerBlock("cheesy_sponge_lamp",
+            new CheesySpongeLampBlock(FabricBlockSettings.of(Material.SPONGE).strength(8f).requiresTool().luminance((state) -> state.get(CheesySpongeLampBlock.CLICKED) ? 15 : 0)), ModItemGroup.CHEESY_SPONGE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
         registerBlockItem(name, block, group, tooltipKey);
@@ -68,6 +76,9 @@ public class ModBlocks {
 
     private static Block registerBlock(String name, Block block, ItemGroup group){
         registerBlockItem(name, block , group);
+        return Registry.register(Registry.BLOCK, new Identifier(SpongeMod.MOD_ID, name), block);
+    }
+    private static Block registerBlockWithoutBlockItem(String name, Block block, ItemGroup group){
         return Registry.register(Registry.BLOCK, new Identifier(SpongeMod.MOD_ID, name), block);
     }
 

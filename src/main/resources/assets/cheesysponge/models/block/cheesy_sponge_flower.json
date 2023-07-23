@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "cheesysponge:block/cheesy_sponge_flower"
+  }
+}

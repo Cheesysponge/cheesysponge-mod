@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cheesysponge:cheesy_sponge_flower"
+    }
+  ],
+  "result": {
+    "item": "cheesysponge:cheesy_sponge",
+    "count": 1
+  }
+}
