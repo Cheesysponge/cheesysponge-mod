@@ -1,0 +1,6 @@
+{
+  "parent": "cheesysponge:item/cheese_bow",
+  "textures": {
+    "layer0": "cheesysponge:item/cheese_bow_pulling_1"
+  }
+}

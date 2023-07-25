@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "age=0": { "model": "cheesysponge:block/sponge_weed0" },
+    "age=1": { "model": "cheesysponge:block/sponge_weed1" },
+    "age=2": { "model": "cheesysponge:block/sponge_weed2" },
+    "age=3": { "model": "cheesysponge:block/sponge_weed3" },
+    "age=4": { "model": "cheesysponge:block/sponge_weed4" },
+    "age=5": { "model": "cheesysponge:block/sponge_weed5" },
+    "age=6": { "model": "cheesysponge:block/sponge_weed6" },
+    "age=7": { "model": "cheesysponge:block/sponge_weed7" }
+  }
+}

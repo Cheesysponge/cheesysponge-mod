@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "cheesysponge:block/sponge_weed6"
+  }
+}

@@ -1,6 +1,8 @@
 package name.cheesysponge.item.custom;
 
 import name.cheesysponge.block.ModBlocks;
+import name.cheesysponge.item.ModItems;
+import name.cheesysponge.util.InventoryUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
@@ -9,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -37,6 +40,10 @@ public class SpongeRodItem extends Item {
                 if(isValuableBlock(blockBelow)) {
                     outputValuableCoordinates(positionClicked.down(i), player, blockBelow);
                     foundBlock = true;
+
+                    if(InventoryUtil.hasPlayerStackInInventory(player, ModItems.DATA_TABLET)) {
+                        addNbtToDataTablet(player, positionClicked.add(0, -i, 0), blockBelow);
+                    }
                     break;
                 }
             }
@@ -50,6 +57,16 @@ public class SpongeRodItem extends Item {
                 (player) -> player.sendToolBreakStatus(player.getActiveHand()));
 
         return super.useOnBlock(context);
+    }
+    private void addNbtToDataTablet(PlayerEntity player, BlockPos pos, Block blockBelow) {
+        ItemStack dataTablet =
+                player.getInventory().getStack(InventoryUtil.getFirstInventoryIndex(player, ModItems.DATA_TABLET));
+
+        NbtCompound nbtData = new NbtCompound();
+        nbtData.putString("cheesysponge.last_ore", "Found " + blockBelow.asItem().getName().getString() + " at (" +
+                pos.getX() + ", "+ pos.getY() + ", "+ pos.getZ() + ")");
+
+        dataTablet.setNbt(nbtData);
     }
 
 

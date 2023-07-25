@@ -3,6 +3,7 @@ package name.cheesysponge.block;
 import name.cheesysponge.SpongeMod;
 import name.cheesysponge.block.custom.CheesyBlock;
 import name.cheesysponge.block.custom.CheesySpongeLampBlock;
+import name.cheesysponge.block.custom.SpongeWeedBlock;
 import name.cheesysponge.item.ModItemGroup;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
@@ -58,6 +59,10 @@ public class ModBlocks {
             new FlowerPotBlock(ModBlocks.CHEESY_SPONGE_FLOWER,FabricBlockSettings.copy(Blocks.POTTED_ALLIUM).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_LAMP = registerBlock("cheesy_sponge_lamp",
             new CheesySpongeLampBlock(FabricBlockSettings.of(Material.SPONGE).strength(8f).requiresTool().luminance((state) -> state.get(CheesySpongeLampBlock.CLICKED) ? 15 : 0)), ModItemGroup.CHEESY_SPONGE);
+    public static final Block CHEESY_SPONGE_GLASS = registerBlock("cheesy_sponge_glass",
+            new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(3f).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block SPONGE_WEED = registerBlockWithoutBlockItem("sponge_weed",
+            new SpongeWeedBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
         registerBlockItem(name, block, group, tooltipKey);
