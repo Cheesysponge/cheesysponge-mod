@@ -2,6 +2,7 @@ package name.cheesysponge;
 
 import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.item.ModItems;
+import name.cheesysponge.painting.ModPaintings;
 import name.cheesysponge.util.ModRegistries;
 import net.fabricmc.api.ModInitializer;
 
@@ -19,6 +20,8 @@ public class 	SpongeMod implements ModInitializer {
 	public void onInitialize() {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
+		ModPaintings.registerPaintings();
 
 		ModRegistries.registerModStuffs();
 
