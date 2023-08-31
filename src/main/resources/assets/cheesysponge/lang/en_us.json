@@ -43,5 +43,8 @@
   "item.cheesysponge.sponge_seeds": "Sponge Seeds",
   "block.cheesysponge.sponge_weed": "Sponge Weed",
 
-  "item.cheesysponge.cheese_bow": "Cheese Bow"
+  "item.cheesysponge.cheese_bow": "Cheese Bow",
+
+  "item.cheesysponge.hype_music_disc": "Hype Music Disc",
+  "item.cheesysponge.hype_music_disc.desc": "Hype Music (Royalty Free)"
 }

@@ -3,6 +3,7 @@ package name.cheesysponge.item;
 import name.cheesysponge.SpongeMod;
 import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.item.custom.*;
+import name.cheesysponge.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
@@ -33,7 +34,8 @@ public class ModItems {
     public static final Item CHEESY_SPONGE_BOOTS = registerItem("cheesy_sponge_boots", new ModArmorItem(ModArmorMaterials.CHEESY_SPONGE, EquipmentSlot.FEET,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
     public static final Item DATA_TABLET = registerItem("data_tablet", new DataTabletItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
     public static final Item SPONGE_SEEDS = registerItem("sponge_seeds", new AliasedBlockItem(ModBlocks.SPONGE_WEED, new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE)));
-    public static final Item CHEESE_BOW = registerItem("cheese_bow", new CheeseBowItem(new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxDamage(1000).group(ModItemGroup.CHEESY_SPONGE)));
+    public static final Item CHEESE_BOW = registerItem("cheese_bow", new CheeseBowItem(new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1).group(ModItemGroup.CHEESY_SPONGE)));
+    public static final Item HYPE_MUSIC_DISC = registerItem("hype_music_disc", new ModMusicDiscItem(7, ModSounds.HYPE_MUSIC,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxDamage(1000).group(ModItemGroup.CHEESY_SPONGE)));
 
 
     private static Item registerItem(String name, Item item) {

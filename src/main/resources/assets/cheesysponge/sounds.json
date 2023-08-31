@@ -1,0 +1,46 @@
+{
+  "sponge_rod_found_block": {
+    "subtitle": "cheesysponge.sponge_rod_found_block",
+    "sounds": [
+      "cheesysponge:sponge_rod_found_block"
+    ]
+  },
+  "cheesy_sponge_lamp_break": {
+    "subtitle": "cheesysponge.cheesy_sponge_lamp_break",
+    "sounds": [
+      "cheesysponge:cheesy_sponge_lamp_break"
+    ]
+  },
+  "cheesy_sponge_lamp_step": {
+    "subtitle": "cheesysponge.cheesy_sponge_lamp_step",
+    "sounds": [
+      "cheesysponge:cheesy_sponge_lamp_step"
+    ]
+  },
+  "cheesy_sponge_lamp_place": {
+    "subtitle": "cheesysponge.cheesy_sponge_lamp_place",
+    "sounds": [
+      "cheesysponge:cheesy_sponge_lamp_place"
+    ]
+  },
+  "cheesy_sponge_lamp_hit": {
+    "subtitle": "cheesysponge.cheesy_sponge_lamp_hit",
+    "sounds": [
+      "cheesysponge:cheesy_sponge_lamp_hit"
+    ]
+  },
+  "cheesy_sponge_lamp_fall": {
+    "subtitle": "cheesysponge.cheesy_sponge_lamp_fall",
+    "sounds": [
+      "cheesysponge:cheesy_sponge_lamp_fall"
+    ]
+  },
+  "hype_music":{
+    "sounds": [
+      {
+        "name": "cheesysponge:hype_music",
+        "stream": true
+      }
+    ]
+  }
+}

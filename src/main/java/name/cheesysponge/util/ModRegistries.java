@@ -1,22 +1,42 @@
 package name.cheesysponge.util;
 
 import name.cheesysponge.SpongeMod;
+import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.command.ReturnHomeCommand;
 import name.cheesysponge.command.SetHomeCommand;
 import name.cheesysponge.event.ModPlayerEventCopyFrom;
 import name.cheesysponge.item.ModItems;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 
 public class ModRegistries {
     public static void registerModStuffs(){
         registerFuels();
         registerCommands();
         registerEvents();
+        registerStrippables();
+        registerFlammableBlock();
 
     }
 
+
+    private static void registerStrippables() {
+        StrippableBlockRegistry.register(ModBlocks.SPONGE_LOG, ModBlocks.STRIPPED_SPONGE_LOG);
+        StrippableBlockRegistry.register(ModBlocks.SPONGE_WOOD, ModBlocks.STRIPPED_SPONGE_WOOD);
+    }
+
+    private static void registerFlammableBlock() {
+        FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
+
+        instance.add(ModBlocks.SPONGE_LOG, 5, 5);
+        instance.add(ModBlocks. STRIPPED_SPONGE_LOG, 5, 5);
+        instance.add(ModBlocks.SPONGE_WOOD, 5, 5);
+        instance.add(ModBlocks.STRIPPED_SPONGE_WOOD, 5, 5);
+        instance.add(ModBlocks.SPONGE_PLANKS, 5, 20);
+    }
     private static void registerFuels() {
         SpongeMod.LOGGER.info("Registering Fuels for " + SpongeMod.MOD_ID);
         FuelRegistry registry = FuelRegistry.INSTANCE;

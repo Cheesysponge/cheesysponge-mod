@@ -5,6 +5,7 @@ import name.cheesysponge.block.custom.CheesyBlock;
 import name.cheesysponge.block.custom.CheesySpongeLampBlock;
 import name.cheesysponge.block.custom.SpongeWeedBlock;
 import name.cheesysponge.item.ModItemGroup;
+import name.cheesysponge.sound.ModSounds;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.effect.StatusEffects;
@@ -58,11 +59,21 @@ public class ModBlocks {
     public static final Block POTTED_CHEESY_SPONGE_FLOWER = registerBlockWithoutBlockItem("potted_cheesy_sponge_flower",
             new FlowerPotBlock(ModBlocks.CHEESY_SPONGE_FLOWER,FabricBlockSettings.copy(Blocks.POTTED_ALLIUM).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_LAMP = registerBlock("cheesy_sponge_lamp",
-            new CheesySpongeLampBlock(FabricBlockSettings.of(Material.SPONGE).strength(8f).requiresTool().luminance((state) -> state.get(CheesySpongeLampBlock.CLICKED) ? 15 : 0)), ModItemGroup.CHEESY_SPONGE);
+            new CheesySpongeLampBlock(FabricBlockSettings.of(Material.SPONGE).strength(8f).requiresTool().sounds(ModSounds.CHEESY_SPONGE_SOUNDS).luminance((state) -> state.get(CheesySpongeLampBlock.CLICKED) ? 15 : 0)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_GLASS = registerBlock("cheesy_sponge_glass",
             new GlassBlock(FabricBlockSettings.copy(Blocks.GLASS).strength(3f).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
     public static final Block SPONGE_WEED = registerBlockWithoutBlockItem("sponge_weed",
             new SpongeWeedBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block SPONGE_LOG = registerBlock("sponge_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block SPONGE_WOOD = registerBlock("sponge_wood",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block STRIPPED_SPONGE_LOG = registerBlock("stripped_sponge_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block STRIPPED_SPONGE_WOOD = registerBlock("stripped_sponge_log",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block SPONGE_PLANKS = registerBlock("sponge_planks",
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
         registerBlockItem(name, block, group, tooltipKey);

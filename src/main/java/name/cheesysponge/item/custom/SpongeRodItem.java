@@ -2,6 +2,7 @@ package name.cheesysponge.item.custom;
 
 import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.item.ModItems;
+import name.cheesysponge.sound.ModSounds;
 import name.cheesysponge.util.InventoryUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -12,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -44,6 +46,10 @@ public class SpongeRodItem extends Item {
                     if(InventoryUtil.hasPlayerStackInInventory(player, ModItems.DATA_TABLET)) {
                         addNbtToDataTablet(player, positionClicked.add(0, -i, 0), blockBelow);
                     }
+
+                    context.getWorld().playSound(player, positionClicked, ModSounds.SPONGE_ROD_FOUND_BLOCK,
+                            SoundCategory.BLOCKS, 1f, 1f);
+
                     break;
                 }
             }
