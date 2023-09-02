@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "cheesysponge:block/sponge_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "cheesysponge:block/sponge_wood"
+    },
+    "axis=z": {
+      "model": "cheesysponge:block/sponge_wood",
+      "x": 90
+    }
+  }
+}

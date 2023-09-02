@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "cheesysponge:block/stripped_sponge_top",
+    "side": "cheesysponge:block/stripped_sponge_log"
+  }
+}

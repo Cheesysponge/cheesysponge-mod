@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-
+    "cheesysponge:sponge_log",
+    "cheesysponge:sponge_planks",
+    "cheesysponge:sponge_wood",
+    "cheesysponge:stripped_sponge_wood",
+    "cheesysponge:stripped_sponge_log"
   ]
 }

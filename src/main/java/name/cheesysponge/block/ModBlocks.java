@@ -70,10 +70,10 @@ public class ModBlocks {
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
     public static final Block STRIPPED_SPONGE_LOG = registerBlock("stripped_sponge_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
-    public static final Block STRIPPED_SPONGE_WOOD = registerBlock("stripped_sponge_log",
+    public static final Block STRIPPED_SPONGE_WOOD = registerBlock("stripped_sponge_wood",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
     public static final Block SPONGE_PLANKS = registerBlock("sponge_planks",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS).strength(2.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
         registerBlockItem(name, block, group, tooltipKey);
