@@ -4,6 +4,8 @@ import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.item.ModItems;
 import name.cheesysponge.painting.ModPaintings;
 import name.cheesysponge.util.ModRegistries;
+import name.cheesysponge.world.feature.ModConfiguredFeatures;
+import name.cheesysponge.world.gen.ModWorldGen;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -18,12 +20,16 @@ public class 	SpongeMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
+		ModConfiguredFeatures.registerConfiguredFeatures();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 
 		ModPaintings.registerPaintings();
 
 		ModRegistries.registerModStuffs();
+
+		ModWorldGen.generateModWorldGen();
 
 
 	}

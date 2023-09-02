@@ -25,10 +25,12 @@
   "block.cheesysponge.sponge_planks": "Sponge Planks",
   "block.cheesysponge.stripped_sponge_log": "Stripped Sponge Log",
   "block.cheesysponge.stripped_sponge_wood": "Stripped Sponge Log",
+  "block.cheesysponge.sponge_leaves": "Sponge Leaves",
+  "block.cheesysponge.sponge_sapling": "Sponge Sapling",
   "itemGroup.cheesysponge.cheesy_sponge": "Cheesy Sponge Tab",
   "item.cheesysponge.sponge_rod.no_valuables": "No Valuables Found",
   "item.cheesysponge.cheesy_sponge_rod": "Cheesy Sponge Rod",
-  "item.cheesysponge.sponge_rod.tooltip.shift": "Right Click to find valuables unders this block",
+  "item.cheesysponge.sponge_rod.tooltip.shift": "Right Click to find valuables under this block",
   "item.cheesysponge.sponge_rod.tooltip": "Press §e§lSHIFT§r for more information",
   "tooltip.cheesysponge.cheesysponge_block": "A Very Useful Block",
 

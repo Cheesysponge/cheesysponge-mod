@@ -31,11 +31,12 @@ public class ModRegistries {
     private static void registerFlammableBlock() {
         FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
 
-        instance.add(ModBlocks.SPONGE_LOG, 5, 5);
-        instance.add(ModBlocks. STRIPPED_SPONGE_LOG, 5, 5);
-        instance.add(ModBlocks.SPONGE_WOOD, 5, 5);
-        instance.add(ModBlocks.STRIPPED_SPONGE_WOOD, 5, 5);
-        instance.add(ModBlocks.SPONGE_PLANKS, 5, 20);
+        instance.add(ModBlocks.SPONGE_LOG, 1, 1);
+        instance.add(ModBlocks. STRIPPED_SPONGE_LOG, 1, 1);
+        instance.add(ModBlocks.SPONGE_WOOD, 1, 1);
+        instance.add(ModBlocks.STRIPPED_SPONGE_WOOD, 1, 1);
+        instance.add(ModBlocks.SPONGE_PLANKS, 1, 4);
+        instance.add(ModBlocks.SPONGE_LEAVES, 6, 12);
     }
     private static void registerFuels() {
         SpongeMod.LOGGER.info("Registering Fuels for " + SpongeMod.MOD_ID);

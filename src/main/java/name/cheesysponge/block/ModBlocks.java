@@ -3,9 +3,11 @@ package name.cheesysponge.block;
 import name.cheesysponge.SpongeMod;
 import name.cheesysponge.block.custom.CheesyBlock;
 import name.cheesysponge.block.custom.CheesySpongeLampBlock;
+import name.cheesysponge.block.custom.ModSaplingBlock;
 import name.cheesysponge.block.custom.SpongeWeedBlock;
 import name.cheesysponge.item.ModItemGroup;
 import name.cheesysponge.sound.ModSounds;
+import name.cheesysponge.world.feature.tree.SpongeSaplingGenerator;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.effect.StatusEffects;
@@ -74,6 +76,10 @@ public class ModBlocks {
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
     public static final Block SPONGE_PLANKS = registerBlock("sponge_planks",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_PLANKS).strength(2.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block SPONGE_LEAVES = registerBlock("sponge_leaves",
+            new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).strength(2.0f).requiresTool().nonOpaque()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block SPONGE_SAPLING = registerBlock("sponge_sapling",
+            new ModSaplingBlock(new SpongeSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING).strength(2.0f).requiresTool().nonOpaque()), ModItemGroup.CHEESY_SPONGE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
         registerBlockItem(name, block, group, tooltipKey);
