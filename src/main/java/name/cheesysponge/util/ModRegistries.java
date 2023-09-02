@@ -8,6 +8,7 @@ import name.cheesysponge.event.ModPlayerEventCopyFrom;
 import name.cheesysponge.item.ModItems;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
@@ -19,6 +20,7 @@ public class ModRegistries {
         registerEvents();
         registerStrippables();
         registerFlammableBlock();
+        registerCustomTrades();
 
     }
 
@@ -54,6 +56,8 @@ public class ModRegistries {
     }
 
 
-
+    private static void registerCustomTrades(){
+        TradeOfferHelper.registerVillagerOffers();
+    }
 
 }

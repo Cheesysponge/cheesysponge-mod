@@ -57,7 +57,7 @@ public class ModBlocks {
     public static final Block CHEESY_SPONGE_TRAPDOOR = registerBlock("cheesy_sponge_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.of(Material.SPONGE).strength(3f).requiresTool().nonOpaque().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_FLOWER = registerBlock("cheesy_sponge_flower",
-            new FlowerBlock(StatusEffects.HEALTH_BOOST,1000,FabricBlockSettings.copy(Blocks.DANDELION).strength(3f).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
+            new FlowerBlock(StatusEffects.HEALTH_BOOST,1000,FabricBlockSettings.copy(Blocks.DANDELION).strength(3f).nonOpaque().requiresTool()), ModItemGroup.CHEESY_SPONGE);
     public static final Block POTTED_CHEESY_SPONGE_FLOWER = registerBlockWithoutBlockItem("potted_cheesy_sponge_flower",
             new FlowerPotBlock(ModBlocks.CHEESY_SPONGE_FLOWER,FabricBlockSettings.copy(Blocks.POTTED_ALLIUM).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_LAMP = registerBlock("cheesy_sponge_lamp",

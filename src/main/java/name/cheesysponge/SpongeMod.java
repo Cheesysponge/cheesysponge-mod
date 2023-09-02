@@ -3,6 +3,7 @@ package name.cheesysponge;
 import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.item.ModItems;
 import name.cheesysponge.painting.ModPaintings;
+import name.cheesysponge.util.ModLootTableModifiers;
 import name.cheesysponge.util.ModRegistries;
 import name.cheesysponge.world.feature.ModConfiguredFeatures;
 import name.cheesysponge.world.gen.ModWorldGen;
@@ -20,7 +21,6 @@ public class 	SpongeMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
 		ModConfiguredFeatures.registerConfiguredFeatures();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
@@ -28,7 +28,7 @@ public class 	SpongeMod implements ModInitializer {
 		ModPaintings.registerPaintings();
 
 		ModRegistries.registerModStuffs();
-
+		ModLootTableModifiers.modifyLootTables();
 		ModWorldGen.generateModWorldGen();
 
 

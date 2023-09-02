@@ -35,7 +35,15 @@ public class ModConfiguredFeatures {
             ConfiguredFeatures.register("cheesy_sponge_flower", Feature.FLOWER,
                     ConfiguredFeatures.createRandomPatchFeatureConfig(1, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
                             new SimpleBlockFeatureConfig(BlockStateProvider.of(name.cheesysponge.block.ModBlocks.CHEESY_SPONGE_FLOWER)))));
+    public static final List<OreFeatureConfig.Target> OVERWORLD_CHEESYSPONGE_ORES = List.of(
+            OreFeatureConfig.createTarget(OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
+                    name.cheesysponge.block.ModBlocks.CHEESYSPONGE_ORE.getDefaultState()),
+            OreFeatureConfig.createTarget(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES,
+                    name.cheesysponge.block.ModBlocks.DEEPSLATE_CHEESYSPONGE_ORE.getDefaultState()));
 
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> CHEESYSPONGE_ORE =
+            ConfiguredFeatures.register("cheesysponge_ore",Feature.ORE,
+                    new OreFeatureConfig(OVERWORLD_CHEESYSPONGE_ORES, 6, 0.5f));
 
     public static void registerConfiguredFeatures() {
         System.out.println("Registering ModConfiguredFeatures for " + SpongeMod.MOD_ID);
