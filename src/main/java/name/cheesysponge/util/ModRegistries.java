@@ -12,6 +12,11 @@ import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.village.TradeOffer;
+import net.minecraft.village.VillagerProfession;
 
 public class ModRegistries {
     public static void registerModStuffs(){
@@ -56,8 +61,23 @@ public class ModRegistries {
     }
 
 
-    private static void registerCustomTrades(){
-        TradeOfferHelper.registerVillagerOffers();
+    private static void registerCustomTrades() {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 3,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 5),
+                            new ItemStack(Items.SPONGE,5),
+                            new ItemStack(ModItems.SPONGE_SEEDS, 12),
+                            6,12,0.02f));
+                });
+
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.TOOLSMITH, 4,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 60),
+                            new ItemStack(ModItems.CHEESY_SPONGE_PICKAXE, 1),
+                            2,17,0.09f));
+                });
     }
 
 }
