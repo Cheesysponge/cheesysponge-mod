@@ -1,5 +1,6 @@
 package name.cheesysponge.item.custom;
 
+import name.cheesysponge.effect.ModEffects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -16,7 +17,7 @@ public class ModSlownessSwordItem extends SwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         target.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,20,1),attacker);
-        attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 2000));
+        attacker.addStatusEffect(new StatusEffectInstance(ModEffects.CHEESE, 20));
         return super.postHit(stack, target, attacker);
     }
 }
