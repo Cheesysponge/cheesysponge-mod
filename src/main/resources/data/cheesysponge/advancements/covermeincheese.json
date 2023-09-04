@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:cheesy_sponge_chestplate"
+    },
+    "title": "Powerful Gear",
+    "description": "Lucky to Have it",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:cheesyspongeblock",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:cheesy_sponge_chestplate",
+              "cheesysponge:cheesy_sponge_leggings",
+              "cheesysponge:cheesy_sponge_boots",
+              "cheesysponge:cheesy_sponge_helmet"
+
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

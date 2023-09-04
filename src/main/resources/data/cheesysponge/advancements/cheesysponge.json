@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:cheesy_sponge"
+    },
+    "title": "A World of Cheese",
+    "description": "And Sponges!",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "background": "cheesysponge:textures/block/cheesysponge_block.png"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:cheesy_sponge"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

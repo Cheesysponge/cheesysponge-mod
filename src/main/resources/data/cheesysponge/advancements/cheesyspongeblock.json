@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:cheesysponge_block"
+    },
+    "title": "Compacting Cheesy Sponges",
+    "description": "The Power Lies In the Cheesy Sponges!",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:cheesysponge",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:cheesysponge_block"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

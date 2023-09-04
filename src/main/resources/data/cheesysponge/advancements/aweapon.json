@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:cheesy_sponge_hoe"
+    },
+    "title": "A Weapon To End Them All",
+    "description": "Too Powerful",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:cheesyspongerod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:cheesy_sponge_hoe"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

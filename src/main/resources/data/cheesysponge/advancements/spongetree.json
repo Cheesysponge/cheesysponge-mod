@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:sponge_log"
+    },
+    "title": "A Sponge Tree?",
+    "description": "I Wonder What This Can Do",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:cheesyspongeflower",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:sponge_log"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

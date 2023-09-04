@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:cheesy_sponge_rod"
+    },
+    "title": "Cheesy Sponge Rod",
+    "description": "Time to Find Some Precious Ores",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:cheesyspongeblock",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:cheesy_sponge_rod"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

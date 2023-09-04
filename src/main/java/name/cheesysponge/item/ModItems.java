@@ -37,6 +37,7 @@ public class ModItems {
     public static final Item CHEESE_BOW = registerItem("cheese_bow", new CheeseBowItem(new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1).group(ModItemGroup.CHEESY_SPONGE)));
     public static final Item HYPE_MUSIC_DISC = registerItem("hype_music_disc", new ModMusicDiscItem(7, ModSounds.HYPE_MUSIC,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxDamage(1000).group(ModItemGroup.CHEESY_SPONGE)));
 
+    public static final Item CHEESY_SPONGE_STAFF = registerItem("cheesy_sponge_staff", new ModSlownessSwordItem(ModToolMaterials.CHEESYSPONGE,4,-2.3f,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1).group(ModItemGroup.CHEESY_SPONGE)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(SpongeMod.MOD_ID, name), item);

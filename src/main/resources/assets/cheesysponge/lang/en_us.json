@@ -27,6 +27,7 @@
   "block.cheesysponge.stripped_sponge_wood": "Stripped Sponge Log",
   "block.cheesysponge.sponge_leaves": "Sponge Leaves",
   "block.cheesysponge.sponge_sapling": "Sponge Sapling",
+  "block.cheesysponge.cheese_blaster": "Cheese Blaster",
   "itemGroup.cheesysponge.cheesy_sponge": "Cheesy Sponge Tab",
   "item.cheesysponge.sponge_rod.no_valuables": "No Valuables Found",
   "item.cheesysponge.cheesy_sponge_rod": "Cheesy Sponge Rod",
@@ -51,7 +52,13 @@
   "block.cheesysponge.sponge_weed": "Sponge Weed",
 
   "item.cheesysponge.cheese_bow": "Cheese Bow",
+  "item.cheesysponge.cheesy_sponge_staff": "Cheesy Sponge Staff",
 
   "item.cheesysponge.hype_music_disc": "Hype Music Disc",
-  "item.cheesysponge.hype_music_disc.desc": "Hype Music (Royalty Free)"
+  "item.cheesysponge.hype_music_disc.desc": "Hype Music (Royalty Free)",
+
+  "item.minecraft.potion.effect.cheese_potion": "Cheese Potion",
+  "item.minecraft.splash_potion.effect.cheese_potion": "Splash Potion of Cheese",
+  "item.minecraft.lingering_potion.effect.cheese_potion": "Lingering Potion of Cheese",
+  "effect.cheesysponge.cheese": "Cheese"
 }

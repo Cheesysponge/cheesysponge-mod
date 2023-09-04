@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:cheesy_sponge_flower"
+    },
+    "title": "A Flower of Cheesy Sponge?",
+    "description": "I Wonder What This Can Do",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:cheesysponge",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:cheesy_sponge_flower"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

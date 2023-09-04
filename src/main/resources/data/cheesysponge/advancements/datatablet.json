@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:data_tablet"
+    },
+    "title": "Data Tablet?",
+    "description": "Time to Store Some Positions",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:cheesyspongerod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:data_tablet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

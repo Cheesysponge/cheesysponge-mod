@@ -1,8 +1,10 @@
 package name.cheesysponge;
 
 import name.cheesysponge.block.ModBlocks;
+import name.cheesysponge.effect.ModEffects;
 import name.cheesysponge.item.ModItems;
 import name.cheesysponge.painting.ModPaintings;
+import name.cheesysponge.potion.ModPotions;
 import name.cheesysponge.util.ModLootTableModifiers;
 import name.cheesysponge.util.ModRegistries;
 import name.cheesysponge.world.feature.ModConfiguredFeatures;
@@ -30,6 +32,8 @@ public class 	SpongeMod implements ModInitializer {
 		ModRegistries.registerModStuffs();
 		ModLootTableModifiers.modifyLootTables();
 		ModWorldGen.generateModWorldGen();
+		ModEffects.registerEffects();
+		ModPotions.registerPotions();
 
 
 	}

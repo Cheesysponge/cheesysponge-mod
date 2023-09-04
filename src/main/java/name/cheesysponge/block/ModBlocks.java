@@ -1,10 +1,7 @@
 package name.cheesysponge.block;
 
 import name.cheesysponge.SpongeMod;
-import name.cheesysponge.block.custom.CheesyBlock;
-import name.cheesysponge.block.custom.CheesySpongeLampBlock;
-import name.cheesysponge.block.custom.ModSaplingBlock;
-import name.cheesysponge.block.custom.SpongeWeedBlock;
+import name.cheesysponge.block.custom.*;
 import name.cheesysponge.item.ModItemGroup;
 import name.cheesysponge.sound.ModSounds;
 import name.cheesysponge.world.feature.tree.SpongeSaplingGenerator;
@@ -18,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -32,9 +30,9 @@ public class ModBlocks {
     public static final Block CHEESYSPONGE_BLOCK = registerBlock("cheesysponge_block",
             new Block(FabricBlockSettings.of(Material.SPONGE).strength(8f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE, "tooltip.cheesysponge.cheesysponge_block");
     public static final Block CHEESYSPONGE_ORE = registerBlock("cheesysponge_ore",
-            new Block(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
+            new OreBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16), UniformIntProvider.create(2,6)), ModItemGroup.CHEESY_SPONGE);
     public static final Block DEEPSLATE_CHEESYSPONGE_ORE = registerBlock("deepslate_cheesysponge_ore",
-            new Block(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
+            new OreBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16), UniformIntProvider.create(2,6)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_BLOCK = registerBlock("cheesy_block",
             new CheesyBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_BUTTON = registerBlock("cheesy_sponge_button",
@@ -80,6 +78,8 @@ public class ModBlocks {
             new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).strength(2.0f).requiresTool().nonOpaque()), ModItemGroup.CHEESY_SPONGE);
     public static final Block SPONGE_SAPLING = registerBlock("sponge_sapling",
             new ModSaplingBlock(new SpongeSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING).strength(2.0f).requiresTool().nonOpaque()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block CHEESE_BLASTER = registerBlock("cheese_blaster",
+            new CheeseBlasterBlock(FabricBlockSettings.of(Material.SPONGE).strength(2.0f).requiresTool().nonOpaque()), ModItemGroup.CHEESY_SPONGE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
         registerBlockItem(name, block, group, tooltipKey);

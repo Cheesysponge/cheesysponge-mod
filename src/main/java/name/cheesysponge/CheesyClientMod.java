@@ -18,6 +18,8 @@ public class CheesyClientMod implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SPONGE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SPONGE_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHEESE_BLASTER , RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHEESE_BLASTER, RenderLayer.getTranslucent());
         ModModelPredicateProvider.registerModModels();
     }
 }

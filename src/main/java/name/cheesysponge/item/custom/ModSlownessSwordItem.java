@@ -15,7 +15,7 @@ public class ModSlownessSwordItem extends SwordItem {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,10,1),attacker);
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,20,1),attacker);
         attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 2000));
         return super.postHit(stack, target, attacker);
     }

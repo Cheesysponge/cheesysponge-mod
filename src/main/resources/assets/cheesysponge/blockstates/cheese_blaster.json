@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "cheesysponge:block/cheese_blaster" },
+    "facing=east": { "model": "cheesysponge:block/cheese_blaster", "y": 90 },
+    "facing=south": { "model": "cheesysponge:block/cheese_blaster", "y": 180 },
+    "facing=west": { "model": "cheesysponge:block/cheese_blaster", "y": 270 }
+  }
+}
