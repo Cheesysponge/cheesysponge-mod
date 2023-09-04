@@ -79,7 +79,7 @@ public class ModBlocks {
     public static final Block SPONGE_SAPLING = registerBlock("sponge_sapling",
             new ModSaplingBlock(new SpongeSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING).strength(2.0f).requiresTool().nonOpaque()), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESE_BLASTER = registerBlock("cheese_blaster",
-            new CheeseBlasterBlock(FabricBlockSettings.of(Material.SPONGE).strength(2.0f).requiresTool().nonOpaque()), ModItemGroup.CHEESY_SPONGE);
+            new CheeseBlasterBlock(FabricBlockSettings.copy(Blocks.FURNACE).strength(2.0f).requiresTool().nonOpaque()), ModItemGroup.CHEESY_SPONGE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
         registerBlockItem(name, block, group, tooltipKey);
