@@ -1,0 +1,14 @@
+{
+  "type": "cheesysponge:cheese_blaster",
+  "ingredients": [
+    {
+      "item": "cheesysponge:sponge_log"
+    },
+    {
+      "item": "cheesysponge:cheesy_sponge_sword"
+    }
+  ],
+  "output": {
+    "item": "cheesysponge:cheesy_sponge_staff"
+  }
+}

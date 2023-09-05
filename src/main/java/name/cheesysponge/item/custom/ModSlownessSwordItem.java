@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 
-public class ModSlownessSwordItem extends SwordItem {
+public class ModSlownessSwordItem extends SwordItem{
     public ModSlownessSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
@@ -17,7 +17,7 @@ public class ModSlownessSwordItem extends SwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         target.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,20,1),attacker);
-        attacker.addStatusEffect(new StatusEffectInstance(ModEffects.CHEESE, 20));
+        attacker.addStatusEffect(new StatusEffectInstance(ModEffects.CHEESE, 10));
         return super.postHit(stack, target, attacker);
     }
 }
