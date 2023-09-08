@@ -104,18 +104,6 @@
 			}
 		},
 		{
-			"from": [6, 9, 7],
-			"to": [8, 11, 9],
-			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#1"}
-			}
-		},
-		{
 			"from": [6, 13, 7],
 			"to": [8, 15, 9],
 			"faces": {
@@ -442,39 +430,39 @@
 					"name": "group",
 					"origin": [0, 0, 0],
 					"color": 0,
-					"children": [5, 6, 7, 8, 9, 10, 11]
+					"children": [5, 6, 7, 8, 9, 10]
 				},
 				{
 					"name": "Handle",
 					"origin": [8, 8, 8],
 					"color": 0,
 					"children": [
+						11,
 						12,
 						13,
 						14,
 						15,
-						16,
 						{
 							"name": "Handle",
 							"origin": [8, 8, 8],
 							"color": 0,
 							"children": [
+								16,
 								17,
 								18,
 								19,
 								20,
-								21,
 								{
 									"name": "Handle",
 									"origin": [8, 8, 8],
 									"color": 0,
-									"children": [22, 23, 24, 25, 26]
+									"children": [21, 22, 23, 24, 25]
 								},
 								{
 									"name": "Handle",
 									"origin": [8, 8, 8],
 									"color": 0,
-									"children": [27, 28, 29, 30, 31]
+									"children": [26, 27, 28, 29, 30]
 								}
 							]
 						}

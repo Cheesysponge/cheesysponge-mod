@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "D#D",
+    "#W#",
+    "D#D"
+  ],
+  "key": {
+    "#": {
+      "item": "cheesysponge:cheesysponge_block"
+    },
+    "D": {
+      "item": "cheesysponge:cheesy_sponge_glass"
+    },
+    "W": {
+      "item": "cheesysponge:cheesy_sponge_flower"
+    }
+  },
+  "result": {
+    "item": "cheesysponge:cheese_blaster"
+  }
+}

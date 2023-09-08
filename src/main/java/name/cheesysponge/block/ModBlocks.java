@@ -2,9 +2,13 @@ package name.cheesysponge.block;
 
 import name.cheesysponge.SpongeMod;
 import name.cheesysponge.block.custom.*;
+import name.cheesysponge.block.entity.ModSignTypes;
+import name.cheesysponge.effect.ModEffects;
 import name.cheesysponge.item.ModItemGroup;
+import name.cheesysponge.item.ModItems;
 import name.cheesysponge.sound.ModSounds;
 import name.cheesysponge.world.feature.tree.SpongeSaplingGenerator;
+import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.effect.StatusEffects;
@@ -15,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.ModStatus;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
@@ -80,6 +85,12 @@ public class ModBlocks {
             new ModSaplingBlock(new SpongeSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING).strength(2.0f).requiresTool().nonOpaque()), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESE_BLASTER = registerBlock("cheese_blaster",
             new CheeseBlasterBlock(FabricBlockSettings.of(Material.SPONGE).strength(2.0f).requiresTool().nonOpaque()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block SPONGE_WOOD_SIGN_BLOCK = registerBlockWithoutBlockItem("sponge_wood_sign",
+            new SignBlock(FabricBlockSettings.copy(Blocks.OAK_SIGN), ModSignTypes.SPONGE_WOOD), ModItemGroup.CHEESY_SPONGE);
+
+    public static final Block SPONGE_WOOD_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("sponge_wood_wall_sign",
+            new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), ModSignTypes.SPONGE_WOOD), ModItemGroup.CHEESY_SPONGE);
+
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
         registerBlockItem(name, block, group, tooltipKey);

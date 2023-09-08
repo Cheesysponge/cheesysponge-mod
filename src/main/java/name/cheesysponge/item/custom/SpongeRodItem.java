@@ -2,6 +2,7 @@ package name.cheesysponge.item.custom;
 
 import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.item.ModItems;
+import name.cheesysponge.particle.ModParticles;
 import name.cheesysponge.sound.ModSounds;
 import name.cheesysponge.util.InventoryUtil;
 import net.minecraft.block.Block;
@@ -47,6 +48,8 @@ public class SpongeRodItem extends Item {
                         addNbtToDataTablet(player, positionClicked.add(0, -i, 0), blockBelow);
                     }
 
+                    spawnFoundParticles(context, positionClicked);
+
                     context.getWorld().playSound(player, positionClicked, ModSounds.SPONGE_ROD_FOUND_BLOCK,
                             SoundCategory.BLOCKS, 1f, 1f);
 
@@ -63,6 +66,15 @@ public class SpongeRodItem extends Item {
                 (player) -> player.sendToolBreakStatus(player.getActiveHand()));
 
         return super.useOnBlock(context);
+    }
+    private void spawnFoundParticles(ItemUsageContext pContext, BlockPos positionClicked) {
+        for(int i = 0; i < 360; i++) {
+            if(i % 20 == 0) {
+                pContext.getWorld().addParticle(ModParticles.CHEESE_PARTICLE,
+                        positionClicked.getX() + 0.5d, positionClicked.getY() + 1, positionClicked.getZ() + 0.5d,
+                        Math.cos(i) * 0.25d, 0.15d, Math.sin(i) * 0.25d);
+            }
+        }
     }
     private void addNbtToDataTablet(PlayerEntity player, BlockPos pos, Block blockBelow) {
         ItemStack dataTablet =

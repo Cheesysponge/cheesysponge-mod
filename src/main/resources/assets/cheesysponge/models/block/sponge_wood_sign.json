@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/oak_sign",
+  "textures": {
+    "particle": "cheesysponge:block/sponge_planks"
+  }
+}

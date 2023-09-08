@@ -1,0 +1,14 @@
+{
+  "type": "cheesysponge:cheese_blaster",
+  "ingredients": [
+    {
+      "item": "minecraft:bow"
+    },
+    {
+      "item": "cheesysponge:cheesy_sponge"
+    }
+  ],
+  "output": {
+    "item": "cheesysponge:cheese_bow"
+  }
+}

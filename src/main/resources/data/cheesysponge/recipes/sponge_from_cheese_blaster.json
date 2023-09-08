@@ -1,0 +1,14 @@
+{
+  "type": "cheesysponge:cheese_blaster",
+  "ingredients": [
+    {
+      "item": "cheesysponge:sponge_ingot"
+    },
+    {
+      "item": "cheesysponge:sponge_ingot"
+    }
+  ],
+  "output": {
+    "item": "minecraft:sponge"
+  }
+}

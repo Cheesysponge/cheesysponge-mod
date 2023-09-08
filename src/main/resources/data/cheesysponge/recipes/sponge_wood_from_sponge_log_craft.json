@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "cheesysponge:sponge_log"
+    }
+  },
+  "result": {
+    "item": "cheesysponge:sponge_wood",
+    "count": 3
+  }
+}

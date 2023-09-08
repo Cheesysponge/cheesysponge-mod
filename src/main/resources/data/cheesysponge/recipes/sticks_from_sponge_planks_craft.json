@@ -1,19 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " ##",
-    "#X#",
-    "## "
+    "#",
+    "#"
   ],
   "key": {
     "#": {
       "item": "cheesysponge:sponge_planks"
-    },
-    "X": {
-      "item": "cheesysponge:cheesysponge_block"
     }
   },
   "result": {
-    "item": "cheesysponge:cheesy_sponge_rod"
+    "item": "minecraft:stick",
+    "count": 4
   }
 }

@@ -23,7 +23,7 @@ public class ModLootTableModifiers {
             if(GRASS_BLOCK_ID.equals(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.35f)) // Drops 35% of the time
+                        .conditionally(RandomChanceLootCondition.builder(0.05f)) // Drops 35% of the time
                         .with(ItemEntry.builder(ModItems.SPONGE_SEEDS))
                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
                 supplier.withPool(poolBuilder.build());

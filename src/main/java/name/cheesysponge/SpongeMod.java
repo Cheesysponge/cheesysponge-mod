@@ -5,6 +5,7 @@ import name.cheesysponge.block.entity.ModBlockEntities;
 import name.cheesysponge.effect.ModEffects;
 import name.cheesysponge.item.ModItems;
 import name.cheesysponge.painting.ModPaintings;
+import name.cheesysponge.particle.ModParticles;
 import name.cheesysponge.potion.ModPotions;
 import name.cheesysponge.recipe.ModRecipes;
 import name.cheesysponge.screen.ModScreenHandlers;
@@ -42,6 +43,8 @@ public class 	SpongeMod implements ModInitializer {
 		ModBlockEntities.registerAllBlockEntities();
 		ModScreenHandlers.registerAllScreenHandlers();
 		ModRecipes.registerRecipes();
+
+		ModParticles.registerParticles();
 
 
 

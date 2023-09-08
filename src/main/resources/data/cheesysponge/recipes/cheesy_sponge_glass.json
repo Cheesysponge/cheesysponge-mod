@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "cheesysponge:cheesysponge_block"
+  },
+  "result": "cheesysponge:cheesy_sponge_glass",
+  "experience": 0.35,
+  "cookingtime": 200
+}

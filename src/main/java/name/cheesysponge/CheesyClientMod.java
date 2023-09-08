@@ -1,11 +1,14 @@
 package name.cheesysponge;
 
 import name.cheesysponge.block.ModBlocks;
+import name.cheesysponge.particle.ModParticles;
+import name.cheesysponge.particle.custom.CheeseParticle;
 import name.cheesysponge.screen.CheeseBlasterScreen;
 import name.cheesysponge.screen.ModScreenHandlers;
 import name.cheesysponge.util.ModModelPredicateProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 
@@ -26,5 +29,7 @@ public class CheesyClientMod implements ClientModInitializer {
         ModModelPredicateProvider.registerModModels();
 
         ScreenRegistry.register(ModScreenHandlers.CHEESE_BLASTER_SCREEN_HANDLER, CheeseBlasterScreen::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.CHEESE_PARTICLE, CheeseParticle.Factory::new);
+
     }
 }
