@@ -4,6 +4,7 @@ import name.cheesysponge.SpongeMod;
 import name.cheesysponge.block.custom.*;
 import name.cheesysponge.block.entity.ModSignTypes;
 import name.cheesysponge.effect.ModEffects;
+import name.cheesysponge.fluid.ModFluids;
 import name.cheesysponge.item.ModItemGroup;
 import name.cheesysponge.item.ModItems;
 import name.cheesysponge.sound.ModSounds;
@@ -90,12 +91,15 @@ public class ModBlocks {
 
     public static final Block SPONGE_WOOD_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("sponge_wood_wall_sign",
             new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), ModSignTypes.SPONGE_WOOD), ModItemGroup.CHEESY_SPONGE);
-
+    public static final Block CHEESE_FLUID_BLOCK = registerBlockWithoutBlockItem("cheese_fluid_block",
+            new ModFluidBlock(ModFluids.CHEESE_STILL, FabricBlockSettings.of(Material.WATER)
+                    .noCollision().nonOpaque().dropsNothing()), ModItemGroup.CHEESY_SPONGE);
 
     private static Block registerBlock(String name, Block block, ItemGroup group, String tooltipKey) {
         registerBlockItem(name, block, group, tooltipKey);
         return Registry.register(Registry.BLOCK, new Identifier(SpongeMod.MOD_ID, name), block);
     }
+
 
     private static Item registerBlockItem(String name, Block block, ItemGroup group, String tooltipKey) {
         return Registry.register(Registry.ITEM, new Identifier(SpongeMod.MOD_ID, name),

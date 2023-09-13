@@ -1,0 +1,6 @@
+{
+  "parent": "cheesysponge:item/cheese_gun",
+  "textures": {
+    "layer0": "cheesysponge:item/cheese_gun_standby"
+  }
+}

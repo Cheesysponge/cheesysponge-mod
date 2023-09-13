@@ -3,6 +3,7 @@ package name.cheesysponge;
 import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.block.entity.ModBlockEntities;
 import name.cheesysponge.effect.ModEffects;
+import name.cheesysponge.enchantment.ModEnchantments;
 import name.cheesysponge.item.ModItems;
 import name.cheesysponge.painting.ModPaintings;
 import name.cheesysponge.particle.ModParticles;
@@ -45,6 +46,7 @@ public class 	SpongeMod implements ModInitializer {
 		ModRecipes.registerRecipes();
 
 		ModParticles.registerParticles();
+		ModEnchantments.registerModEnchantments();
 
 
 

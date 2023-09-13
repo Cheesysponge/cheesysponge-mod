@@ -1,0 +1,14 @@
+{
+  "type": "cheesysponge:cheese_blaster",
+  "ingredients": [
+    {
+      "item": "minecraft:lava_bucket"
+    },
+    {
+      "item": "cheesysponge:burning_cheese"
+    }
+  ],
+  "output": {
+    "item": "cheesysponge:cheese_bucket"
+  }
+}

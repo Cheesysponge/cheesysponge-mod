@@ -1,9 +1,11 @@
 {
-  "item.cheesysponge.sponge_ingot": "Sponge Ingot",
+  "item.cheesysponge.sponge_ingot": "Sponge Clump",
   "item.cheesysponge.cheesy_sponge": "Cheesy Sponge",
   "item.cheesysponge.raw_cheesy_sponge": "Raw Cheesy Sponge",
   "item.cheesysponge.burning_cheese": "Burning Cheese",
-  "item.cheesysponge.sponge_wood_sign": "Sponge Wood Sign",
+  "item.cheesysponge.cheese_gun": "Cheese Gun",
+  "block.cheesysponge.sponge_wood_sign": "Sponge Wood Sign",
+  "item.cheesysponge.cheese_bucket": "Cheese Bucket",
   "block.cheesysponge.cheesysponge_block": "Cheesy Sponge Block",
   "block.cheesysponge.cheesy_block": "Cheesy Block",
   "block.cheesysponge.cheesysponge_ore": "Cheesy Sponge Ore",
@@ -29,7 +31,7 @@
   "block.cheesysponge.sponge_leaves": "Sponge Leaves",
   "block.cheesysponge.sponge_sapling": "Sponge Sapling",
   "block.cheesysponge.cheese_blaster": "Cheese Blaster",
-  "itemGroup.cheesysponge.cheesy_sponge": "Cheesy Sponge Tab",
+  "itemGroup.cheesysponge.cheesy_sponge": "Cheesy & Sponge",
   "item.cheesysponge.sponge_rod.no_valuables": "No Valuables Found",
   "item.cheesysponge.cheesy_sponge_rod": "Cheesy Sponge Rod",
   "item.cheesysponge.sponge_rod.tooltip.shift": "Right Click to find valuables under this block",
@@ -39,7 +41,7 @@
   "item.cheesysponge.cheesy_sponge_pickaxe": "Cheesy Sponge Pickaxe",
   "item.cheesysponge.cheesy_sponge_axe": "Cheesy Sponge Axe",
   "item.cheesysponge.cheesy_sponge_shovel": "Cheesy Sponge Shovel",
-  "item.cheesysponge.cheesy_sponge_hoe": "Cheesy Sponge Hoe",
+  "item.cheesysponge.cheesy_sponge_hoe": "Cheesy Sponge Scythe",
   "item.cheesysponge.cheesy_sponge_sword": "Cheesy Sponge Sword",
   "item.cheesysponge.cheesy_sponge_magic_sword": "Cheesy Sponge Magic Sword",
 
@@ -61,5 +63,7 @@
   "item.minecraft.potion.effect.cheese_potion": "Cheese Potion",
   "item.minecraft.splash_potion.effect.cheese_potion": "Splash Potion of Cheese",
   "item.minecraft.lingering_potion.effect.cheese_potion": "Lingering Potion of Cheese",
-  "effect.cheesysponge.cheese": "Cheese"
+  "effect.cheesysponge.cheese": "Cheese",
+
+  "enchantment.cheesysponge.lightning_striker": "Cheese Striker"
 }

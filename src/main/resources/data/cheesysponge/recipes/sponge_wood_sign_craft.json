@@ -2,16 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "###",
-    "# #",
-    "###"
+    "###",
+    " W "
   ],
   "key": {
     "#": {
       "item": "cheesysponge:sponge_planks"
+    },
+    "W": {
+      "item": "cheesysponge:cheesy_sponge_rod"
     }
   },
   "result": {
-    "item": "minecraft:chest",
-    "count": 2
+    "item": "cheesysponge:sponge_wood_sign"
   }
 }

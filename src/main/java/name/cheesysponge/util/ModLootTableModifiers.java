@@ -23,7 +23,7 @@ public class ModLootTableModifiers {
             if(GRASS_BLOCK_ID.equals(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.05f)) // Drops 35% of the time
+                        .conditionally(RandomChanceLootCondition.builder(0.01f)) // Drops 5% of the time
                         .with(ItemEntry.builder(ModItems.SPONGE_SEEDS))
                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
                 supplier.withPool(poolBuilder.build());
@@ -41,9 +41,9 @@ public class ModLootTableModifiers {
             if(CREEPER_ID.equals(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.5f)) // Drops 50% of the time
+                        .conditionally(RandomChanceLootCondition.builder(0.1f)) // Drops 10% of the time
                         .with(ItemEntry.builder(ModItems.BURNING_CHEESE))
-                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
                 supplier.withPool(poolBuilder.build());
             }
         }));

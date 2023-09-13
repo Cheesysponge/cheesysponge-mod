@@ -9,7 +9,7 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum ModToolMaterials implements ToolMaterial {
-    CHEESYSPONGE(MiningLevels.NETHERITE, 1690, 13.0f, 4f, 38, () -> Ingredient.ofItems(ModItems.BURNING_CHEESE));
+    CHEESYSPONGE(MiningLevels.DIAMOND, 1600, 14.0f, 3.5f, 30, () -> Ingredient.ofItems(ModItems.CHEESY_SPONGE));
 
     private final int miningLevel;
     private final int itemDurability;

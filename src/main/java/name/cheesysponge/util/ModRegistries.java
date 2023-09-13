@@ -49,7 +49,7 @@ public class ModRegistries {
         SpongeMod.LOGGER.info("Registering Fuels for " + SpongeMod.MOD_ID);
         FuelRegistry registry = FuelRegistry.INSTANCE;
 
-        registry.add(ModItems.BURNING_CHEESE, 200000);
+        registry.add(ModItems.BURNING_CHEESE, 20000);
     }
     private static void registerCommands() {
         CommandRegistrationCallback.EVENT.register(SetHomeCommand::register);
@@ -65,10 +65,10 @@ public class ModRegistries {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 3,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 5),
+                            new ItemStack(Items.EMERALD, 1),
                             new ItemStack(Items.SPONGE,5),
-                            new ItemStack(ModItems.SPONGE_SEEDS, 12),
-                            6,12,0.02f));
+                            new ItemStack(ModItems.SPONGE_SEEDS, 64),
+                            6,102,0.02f));
                 });
 
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.TOOLSMITH, 4,

@@ -51,7 +51,7 @@ public class CheeseBowItem extends RangedWeaponItem implements Vanishable {
             int j;
             ArrowItem arrowItem = (ArrowItem)(itemStack.getItem() instanceof ArrowItem ? itemStack.getItem() : Items.ARROW);
             PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, itemStack, playerEntity);
-            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 10.0f, 1.0f);
+            persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0f, f * 9.0f, 1.0f);
             if (f == 1.0f) {
                 persistentProjectileEntity.setCritical(true);
             }
