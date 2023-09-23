@@ -1,6 +1,8 @@
 package name.cheesysponge;
 
 import name.cheesysponge.block.ModBlocks;
+import name.cheesysponge.entity.ModEntities;
+import name.cheesysponge.entity.client.CheeseRenderer;
 import name.cheesysponge.fluid.ModFluids;
 import name.cheesysponge.particle.ModParticles;
 import name.cheesysponge.particle.custom.CheeseParticle;
@@ -12,6 +14,7 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 
@@ -42,6 +45,7 @@ public class CheesyClientMod implements ClientModInitializer {
                 new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL,
                         SimpleFluidRenderHandler.WATER_FLOWING,
                         SimpleFluidRenderHandler.WATER_OVERLAY, 0xe9860c));
+        EntityRendererRegistry.register(ModEntities.CHEESE, CheeseRenderer::new);
 
     }
 }

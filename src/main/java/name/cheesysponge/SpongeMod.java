@@ -13,12 +13,14 @@ import name.cheesysponge.screen.ModScreenHandlers;
 import name.cheesysponge.screen.slot.ModResultSlot;
 import name.cheesysponge.util.ModLootTableModifiers;
 import name.cheesysponge.util.ModRegistries;
+import name.cheesysponge.villager.ModVillagers;
 import name.cheesysponge.world.feature.ModConfiguredFeatures;
 import name.cheesysponge.world.gen.ModWorldGen;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import software.bernie.geckolib3.GeckoLib;
 
 public class 	SpongeMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -47,6 +49,9 @@ public class 	SpongeMod implements ModInitializer {
 
 		ModParticles.registerParticles();
 		ModEnchantments.registerModEnchantments();
+		GeckoLib.initialize();
+
+		ModVillagers.setupPOIs();
 
 
 

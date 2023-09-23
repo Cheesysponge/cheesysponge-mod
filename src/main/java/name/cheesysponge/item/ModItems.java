@@ -2,6 +2,7 @@ package name.cheesysponge.item;
 
 import name.cheesysponge.SpongeMod;
 import name.cheesysponge.block.ModBlocks;
+import name.cheesysponge.entity.ModEntities;
 import name.cheesysponge.fluid.ModFluids;
 import name.cheesysponge.item.custom.*;
 import name.cheesysponge.sound.ModSounds;
@@ -46,6 +47,10 @@ public class ModItems {
             new BucketItem(ModFluids.CHEESE_STILL, new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(1).food(ModFoodComponents.LIQUID_CHEESE)));
     public static final Item CHEESE_GUN = registerItem("cheese_gun",
             new CheeseGunItem(new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
+
+    public static final Item CHEESE_SPAWN_EGG = registerItem("cheese_spawn_egg",
+            new SpawnEggItem(ModEntities.CHEESE,0xe2ff3d, 0xfcba03,
+                    new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(64)));
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(SpongeMod.MOD_ID, name), item);
     }

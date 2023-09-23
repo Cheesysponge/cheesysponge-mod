@@ -4,6 +4,7 @@
   "item.cheesysponge.raw_cheesy_sponge": "Raw Cheesy Sponge",
   "item.cheesysponge.burning_cheese": "Burning Cheese",
   "item.cheesysponge.cheese_gun": "Cheese Gun",
+  "item.cheesysponge.cheese_spawn_egg": "Cheese Spawn Egg",
   "block.cheesysponge.sponge_wood_sign": "Sponge Wood Sign",
   "item.cheesysponge.cheese_bucket": "Cheese Bucket",
   "block.cheesysponge.cheesysponge_block": "Cheesy Sponge Block",
@@ -65,5 +66,10 @@
   "item.minecraft.lingering_potion.effect.cheese_potion": "Lingering Potion of Cheese",
   "effect.cheesysponge.cheese": "Cheese",
 
-  "enchantment.cheesysponge.lightning_striker": "Cheese Striker"
+  "enchantment.cheesysponge.lightning_striker": "Cheese Striker",
+
+
+  "entity.cheesysponge.cheese":"Cheese Monster",
+  "entity.minecraft.villager.blastmaster": "Blastmaster"
+
 }
