@@ -68,12 +68,13 @@ import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.TurtleEntity;
 
 
-public class CheeseEntity extends TameableEntity implements IAnimatable, Angerable {
+public class CheeseBossEntity extends TameableEntity implements IAnimatable, Angerable {
     private AnimationFactory factory = new AnimationFactory(this);
 
-    public CheeseEntity(EntityType<? extends TameableEntity> entityType, World world) {
+    public CheeseBossEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
     }
+
     private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(WolfEntity.class, TrackedDataHandlerRegistry.INTEGER);
     public static final Predicate<LivingEntity> FOLLOW_TAMED_PREDICATE = entity -> {
         EntityType<?> entityType = entity.getType();
@@ -87,11 +88,11 @@ public class CheeseEntity extends TameableEntity implements IAnimatable, Angerab
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return ModEntities.CHEESE.create(world);
+        return ModEntities.CHEESE_BOSS.create(world);
     }
 
     @Override
-    public boolean isBreedingItem(ItemStack stack){
+    public boolean isBreedingItem(ItemStack stack) {
         return stack.getItem() == ModItems.SPONGE_INGOT;
     }
 
@@ -102,6 +103,7 @@ public class CheeseEntity extends TameableEntity implements IAnimatable, Angerab
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 2.0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4f);
     }
+
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
@@ -128,32 +130,31 @@ public class CheeseEntity extends TameableEntity implements IAnimatable, Angerab
         this.targetSelector.add(8, new UniversalAngerGoal<>(this, true));
 
 
-        this.targetSelector.add(1,new AnimalMateGoal(this,1.0));
+        this.targetSelector.add(1, new AnimalMateGoal(this, 1.0));
     }
 
 
-
-
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
+        boolean bl = target.damage(DamageSource.mob(this), (float) ((int) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         if (bl) {
             this.applyDamageEffects(this, target);
         }
 
         return bl;
     }
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.cheese.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.cheeseBoss.jumping", true));
             return PlayState.CONTINUE;
         }
 
-        if (this.isSitting()){
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.cheese.sitting", true));
+        if (this.isSitting()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.cheeseBoss.resting", true));
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.cheese.idle", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.cheeseBoss.resting", true));
         return PlayState.CONTINUE;
     }
 
@@ -189,14 +190,15 @@ public class CheeseEntity extends TameableEntity implements IAnimatable, Angerab
     }
 
     private static final TrackedData<Boolean> SITTING =
-            DataTracker.registerData(CheeseEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+            DataTracker.registerData(CheeseBossEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
     @Override
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
         ItemStack itemstack = player.getStackInHand(hand);
         Item item = itemstack.getItem();
 
         Item itemForTaming = ModItems.CHEESY_SPONGE;
-        if (isBreedingItem(itemstack)){
+        if (isBreedingItem(itemstack)) {
             return super.interactMob(player, hand);
         }
 
@@ -212,7 +214,7 @@ public class CheeseEntity extends TameableEntity implements IAnimatable, Angerab
                     super.setOwner(player);
                     this.navigation.recalculatePath();
                     this.setTarget(null);
-                    this.world.sendEntityStatus(this, (byte)7);
+                    this.world.sendEntityStatus(this, (byte) 7);
                     setSit(true);
                 }
 
@@ -220,7 +222,7 @@ public class CheeseEntity extends TameableEntity implements IAnimatable, Angerab
             }
         }
 
-        if(isTamed() && !this.world.isClient() && hand == Hand.MAIN_HAND) {
+        if (isTamed() && !this.world.isClient() && hand == Hand.MAIN_HAND) {
             setSit(!isSitting());
             return ActionResult.SUCCESS;
         }
@@ -247,11 +249,11 @@ public class CheeseEntity extends TameableEntity implements IAnimatable, Angerab
         if (tamed) {
             getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(80.0D);
             getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).setBaseValue(4D);
-            getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue((double)0.5f);
+            getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue((double) 0.5f);
         } else {
             getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(80.0D);
             getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE).setBaseValue(4D);
-            getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue((double)0.5f);
+            getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED).setBaseValue((double) 0.5f);
         }
     }
 
@@ -302,5 +304,4 @@ public class CheeseEntity extends TameableEntity implements IAnimatable, Angerab
     public void chooseRandomAngerTime() {
         this.setAngerTime(ANGER_TIME_RANGE.get(this.random));
     }
-
 }

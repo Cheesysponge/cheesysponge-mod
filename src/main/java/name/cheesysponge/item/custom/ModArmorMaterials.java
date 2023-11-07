@@ -11,7 +11,7 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    CHEESY_SPONGE("cheesy_sponge", 34, new int[]{3, 6, 8, 3}, 30, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0f, 0.2f, () -> Ingredient.ofItems(ModItems.CHEESY_SPONGE));
+    CHEESY_SPONGE("cheesy_sponge", 34, new int[]{3, 6, 8, 3}, 30, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0f, 0.2f, () -> Ingredient.ofItems(ModItems.CHEESY_SPONGE));
 
     private static final int[] BASE_DURABILITY;
     private final String name;

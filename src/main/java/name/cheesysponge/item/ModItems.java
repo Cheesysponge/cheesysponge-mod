@@ -51,6 +51,9 @@ public class ModItems {
     public static final Item CHEESE_SPAWN_EGG = registerItem("cheese_spawn_egg",
             new SpawnEggItem(ModEntities.CHEESE,0xe2ff3d, 0xfcba03,
                     new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(64)));
+    public static final Item CHEESE_BOSS_SPAWN_EGG = registerItem("cheese_boss_spawn_egg",
+            new SpawnEggItem(ModEntities.CHEESE_BOSS,0xe2ff3d, 0xfcba03,
+                    new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(64)));
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(SpongeMod.MOD_ID, name), item);
     }
