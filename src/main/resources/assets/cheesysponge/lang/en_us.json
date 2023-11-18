@@ -5,6 +5,7 @@
   "item.cheesysponge.burning_cheese": "Burning Cheese",
   "item.cheesysponge.cheese_gun": "Cheese Gun",
   "item.cheesysponge.cheese_spawn_egg": "Cheese Spawn Egg",
+  "item.cheesysponge.cheese_boss_spawn_egg": "Cheese Boss Spawn Egg",
   "block.cheesysponge.sponge_wood_sign": "Sponge Wood Sign",
   "item.cheesysponge.cheese_bucket": "Cheese Bucket",
   "block.cheesysponge.cheesysponge_block": "Cheesy Sponge Block",
@@ -70,6 +71,7 @@
 
 
   "entity.cheesysponge.cheese":"Cheese Monster",
+  "entity.cheesysponge.cheese_boss":"Cheese Boss",
   "entity.minecraft.villager.blastmaster": "Blastmaster"
 
 }

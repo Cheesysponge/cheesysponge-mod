@@ -12,7 +12,7 @@ import software.bernie.geckolib3.model.provider.data.EntityModelData;
 public class CheeseBossModel extends AnimatedGeoModel<CheeseBossEntity> {
     @Override
     public Identifier getModelLocation(CheeseBossEntity object) {
-        return new Identifier(SpongeMod.MOD_ID, "geo/cheeseBoss.geo.json");
+        return new Identifier(SpongeMod.MOD_ID, "geo/cheeseboss.geo.json");
     }
 
     @Override
@@ -22,7 +22,7 @@ public class CheeseBossModel extends AnimatedGeoModel<CheeseBossEntity> {
 
     @Override
     public Identifier getAnimationFileLocation(CheeseBossEntity animatable) {
-        return new Identifier(SpongeMod.MOD_ID, "animations/cheese.animation.json");
+        return new Identifier(SpongeMod.MOD_ID, "animations/cheeseboss.animation.json");
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })

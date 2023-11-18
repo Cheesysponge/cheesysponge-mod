@@ -14,9 +14,9 @@ public class ModEntities {
     public static final EntityType<CheeseEntity> CHEESE = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(SpongeMod.MOD_ID, "cheese"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CheeseEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.4f, 0.3f)).build());
+                    .dimensions(EntityDimensions.fixed(0.7f, 0.7f)).build());
     public static final EntityType<CheeseBossEntity> CHEESE_BOSS = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(SpongeMod.MOD_ID, "cheese_boss"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CheeseBossEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.4f, 0.3f)).build());
+                    .dimensions(EntityDimensions.fixed(1.0f, 0.7f)).build());
 }
