@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:cheese_gun"
+    },
+    "title": "Time to call in the big guns",
+    "description": "Obtain a cheese gun",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:aweapon",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:cheese_gun"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
