@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.Predicate;
 
-public class CheeseGunItem extends RangedWeaponItem implements Vanishable {
+public class CheeseGunItem extends CrossbowItem implements Vanishable {
     private static final String CHARGED_KEY = "Charged";
     private static final String CHARGED_PROJECTILES_KEY = "ChargedProjectiles";
     private static final int field_30866 = 25;
@@ -360,5 +360,9 @@ public class CheeseGunItem extends RangedWeaponItem implements Vanishable {
     @Override
     public int getRange() {
         return 20;
+    }
+    @Override
+    public int getEnchantability() {
+        return 10; // Set this value according to your desired enchantability
     }
 }

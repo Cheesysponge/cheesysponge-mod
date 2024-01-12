@@ -1,5 +1,7 @@
 package name.cheesysponge.item.custom;
 
+
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -16,7 +18,7 @@ import net.minecraft.world.World;
 
 import java.util.function.Predicate;
 
-public class CheeseBowItem extends RangedWeaponItem implements Vanishable {
+public class CheeseBowItem extends BowItem implements Vanishable {
     public static final int field_30855 = 20;
     public static final int RANGE = 35;
 
@@ -118,5 +120,10 @@ public class CheeseBowItem extends RangedWeaponItem implements Vanishable {
     @Override
     public int getRange() {
         return 35;
+    }
+
+    @Override
+    public int getEnchantability() {
+        return 10;
     }
 }

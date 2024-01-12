@@ -15,9 +15,13 @@ import net.minecraft.world.biome.Biome;
 public class ModEntitySpawn {
     public static void addEntitySpawn() {
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS),
-                SpawnGroup.CREATURE, ModEntities.CHEESE, 500, 2, 5);
+                SpawnGroup.CREATURE, ModEntities.CHEESE, 500, 3, 5);
 
         SpawnRestrictionAccessor.callRegister(ModEntities.CHEESE, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, TameableEntity::isValidNaturalSpawn);
 
+        BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.JUNGLE),
+                SpawnGroup.CREATURE, ModEntities.CHEESE_BOSS, 300, 1, 1);
+
+        SpawnRestrictionAccessor.callRegister(ModEntities.CHEESE_BOSS, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, TameableEntity::isValidNaturalSpawn);
     }
 }

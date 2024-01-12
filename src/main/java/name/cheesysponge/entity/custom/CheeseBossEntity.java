@@ -88,7 +88,7 @@ public class CheeseBossEntity extends TameableEntity implements IAnimatable{
 
     public static final Predicate<LivingEntity> FOLLOW_TAMED_PREDICATE = entity -> {
         EntityType<?> entityType = entity.getType();
-        return entityType == EntityType.SHEEP || entityType == EntityType.RABBIT || entityType == EntityType.FOX;
+        return entityType == EntityType.SHEEP || entityType == EntityType.RABBIT || entityType == EntityType.FOX || entityType == EntityType.ZOMBIE || entityType == EntityType.CREEPER || entityType == EntityType.END_CRYSTAL || entityType == EntityType.PLAYER || entityType == EntityType.TNT_MINECART || entityType == EntityType.SKELETON || entityType == EntityType.IRON_GOLEM || entityType == EntityType.CAT || entityType == EntityType.PIGLIN || entityType == EntityType.HUSK ||entityType == EntityType.STRAY;
     };
 
     @Override
@@ -347,5 +347,7 @@ public class CheeseBossEntity extends TameableEntity implements IAnimatable{
     public void ignite() {
         this.dataTracker.set(IGNITED, true);
     }
+
+
 
 }
