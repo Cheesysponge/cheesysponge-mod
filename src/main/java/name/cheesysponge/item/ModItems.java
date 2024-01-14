@@ -19,7 +19,7 @@ public class ModItems {
     public static final Item SPONGE_INGOT = registerItem("sponge_ingot", new Item(new FabricItemSettings().food(ModFoodComponents.SPONGE_CLUMP).group(ModItemGroup.CHEESY_SPONGE)));
     public static final Item CHEESY_SPONGE = registerItem("cheesy_sponge", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(12)));
     public static final Item RAW_CHEESY_SPONGE = registerItem("raw_cheesy_sponge", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(12)));
-    public static final Item CHEESY_SPONGE_ROD = registerItem("cheesy_sponge_rod", new SpongeRodItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1).maxDamage(200)));
+    public static final Item CHEESY_SPONGE_ROD = registerItem("cheesy_sponge_rod", new SpongeRodItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1).maxDamage(400)));
     public static final Item BURNING_CHEESE = registerItem("burning_cheese", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(5).food(ModFoodComponents.BURNING_CHEESE)));
     public static final Item CHEESY_SPONGE_SWORD = registerItem("cheesy_sponge_sword", new SwordItem(ModToolMaterials.CHEESYSPONGE,3,-2.3f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
     public static final Item CHEESY_SPONGE_AXE = registerItem("cheesy_sponge_axe", new ModAxeItem(ModToolMaterials.CHEESYSPONGE,6,-2.9f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1)));
@@ -52,8 +52,9 @@ public class ModItems {
             new SpawnEggItem(ModEntities.CHEESE,0xe2ff3d, 0xfcba03,
                     new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(64)));
     public static final Item CHEESE_BOSS_SPAWN_EGG = registerItem("cheese_boss_spawn_egg",
-            new SpawnEggItem(ModEntities.CHEESE_BOSS,0xe2ff3d, 0xfcba03,
+            new SpawnEggItem(ModEntities.CHEESE_BOSS,0xe3ff9d, 0xfcbd13,
                     new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(64)));
+    public static final Item INVISIBLE_SHIELD = registerItem("invisible_shield", new ShieldItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1).maxDamage(1400)));
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(SpongeMod.MOD_ID, name), item);
     }
