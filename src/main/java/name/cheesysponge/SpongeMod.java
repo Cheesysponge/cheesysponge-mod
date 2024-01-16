@@ -16,13 +16,14 @@ import name.cheesysponge.util.ModRegistries;
 import name.cheesysponge.villager.ModVillagers;
 import name.cheesysponge.world.feature.ModConfiguredFeatures;
 import name.cheesysponge.world.gen.ModWorldGen;
+import name.cheesysponge.world.structure.ModStructures;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.bernie.geckolib3.GeckoLib;
 
-public class 	SpongeMod implements ModInitializer {
+public class SpongeMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors. W
@@ -53,6 +54,7 @@ public class 	SpongeMod implements ModInitializer {
 
 		ModVillagers.setupPOIs();
 
+		ModStructures.registerStructureFeatures();
 
 
 	}
