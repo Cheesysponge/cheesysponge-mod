@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "cheesysponge:block/end_cheesysponge_ore"
+  }
+}
