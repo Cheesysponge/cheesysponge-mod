@@ -14,6 +14,7 @@ import name.cheesysponge.screen.slot.ModResultSlot;
 import name.cheesysponge.util.ModLootTableModifiers;
 import name.cheesysponge.util.ModRegistries;
 import name.cheesysponge.villager.ModVillagers;
+import name.cheesysponge.world.dimension.ModDimensions;
 import name.cheesysponge.world.feature.ModConfiguredFeatures;
 import name.cheesysponge.world.gen.ModWorldGen;
 import name.cheesysponge.world.structure.ModStructures;
@@ -56,6 +57,6 @@ public class SpongeMod implements ModInitializer {
 
 		ModStructures.registerStructureFeatures();
 
-
+		ModDimensions.register();
 	}
 }

@@ -1,0 +1,18 @@
+{
+  "type": "cheesysponge:cheesedim",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "minecraft:the_void",
+      "lakes": false,
+      "features": false,
+      "layers": [
+        {
+          "block": "minecraft:sponge",
+          "height": 2
+        }
+      ],
+      "structure_overrides": []
+    }
+  }
+}

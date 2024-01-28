@@ -52,7 +52,7 @@ public class ModItems {
             new SpawnEggItem(ModEntities.CHEESE,0xe2ff3d, 0xfcba03,
                     new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(64)));
     public static final Item CHEESE_BOSS_SPAWN_EGG = registerItem("cheese_boss_spawn_egg",
-            new SpawnEggItem(ModEntities.CHEESE_BOSS,0xe3ff9d, 0xfcbd13,
+            new SpawnEggItem(ModEntities.CHEESE_BOSS,0xffc524, 0xdeff24,
                     new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(64)));
     public static final Item INVISIBLE_SHIELD = registerItem("invisible_shield", new ShieldItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1).maxDamage(1400)));
     private static Item registerItem(String name, Item item) {

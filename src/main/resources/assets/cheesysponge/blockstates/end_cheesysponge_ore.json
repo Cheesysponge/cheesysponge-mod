@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "cheesysponge:block/cheesysponge_ore"}
+    "": { "model": "cheesysponge:block/end_cheesysponge_ore"}
   }
 }

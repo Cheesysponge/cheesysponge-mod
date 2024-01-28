@@ -39,6 +39,10 @@ public class ModBlocks {
             new OreBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16), UniformIntProvider.create(2,6)), ModItemGroup.CHEESY_SPONGE);
     public static final Block DEEPSLATE_CHEESYSPONGE_ORE = registerBlock("deepslate_cheesysponge_ore",
             new OreBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16), UniformIntProvider.create(2,6)), ModItemGroup.CHEESY_SPONGE);
+    public static final Block END_CHEESYSPONGE_ORE = registerBlock("end_cheesysponge_ore",
+            new OreBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16), UniformIntProvider.create(2,6)), ModItemGroup.CHEESY_SPONGE);
+    public static final Block NETHER_CHEESYSPONGE_ORE = registerBlock("nether_cheesysponge_ore",
+            new OreBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16), UniformIntProvider.create(2,6)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_BLOCK = registerBlock("cheesy_block",
             new CheesyBlock(FabricBlockSettings.of(Material.SPONGE).strength(4f).requiresTool().luminance(16)), ModItemGroup.CHEESY_SPONGE);
     public static final Block CHEESY_SPONGE_BUTTON = registerBlock("cheesy_sponge_button",

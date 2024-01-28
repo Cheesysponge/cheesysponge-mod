@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "D#D",
+    "#W#",
+    "D#D"
+  ],
+  "key": {
+    "#": {
+      "item": "cheesysponge:cheesysponge_block"
+    },
+    "D": {
+      "item": "cheesysponge:cheesysponge"
+    },
+    "W": {
+      "item": "minecraft:shield"
+    }
+  },
+  "result": {
+    "item": "cheesysponge:invisible_shield"
+  }
+}

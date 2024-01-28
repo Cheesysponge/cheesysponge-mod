@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "cheesysponge:block/end_cheesysponge_ore"}
+    "": { "model": "cheesysponge:block/nether_cheesysponge_ore"}
   }
 }

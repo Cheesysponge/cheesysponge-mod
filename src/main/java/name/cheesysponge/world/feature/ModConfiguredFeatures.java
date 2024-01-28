@@ -3,6 +3,8 @@ package name.cheesysponge.world.feature;
 import name.cheesysponge.SpongeMod;
 
 import name.cheesysponge.block.ModBlocks;
+import net.minecraft.block.Blocks;
+import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.*;
@@ -41,9 +43,24 @@ public class ModConfiguredFeatures {
             OreFeatureConfig.createTarget(OreConfiguredFeatures.DEEPSLATE_ORE_REPLACEABLES,
                     name.cheesysponge.block.ModBlocks.DEEPSLATE_CHEESYSPONGE_ORE.getDefaultState()));
 
+    public static final List<OreFeatureConfig.Target> NETHER_CHEESYSPONGE_ORES = List.of(
+            OreFeatureConfig.createTarget(OreConfiguredFeatures.NETHERRACK,
+                    name.cheesysponge.block.ModBlocks.NETHER_CHEESYSPONGE_ORE.getDefaultState()));
+    public static final List<OreFeatureConfig.Target> END_CHEESYSPONGE_ORES = List.of(
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE),
+                    name.cheesysponge.block.ModBlocks.END_CHEESYSPONGE_ORE.getDefaultState()));
+
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> CHEESYSPONGE_ORE =
             ConfiguredFeatures.register("cheesysponge_ore",Feature.ORE,
                     new OreFeatureConfig(OVERWORLD_CHEESYSPONGE_ORES, 6, 0.5f));
+
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> NETHER_CHEESYSPONGE_ORE =
+            ConfiguredFeatures.register("nether_cheesysponge_ore",Feature.ORE,
+                    new OreFeatureConfig(NETHER_CHEESYSPONGE_ORES, 5, 0.5f));
+
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> END_CHEESYSPONGE_ORE =
+            ConfiguredFeatures.register("end_cheesysponge_ore",Feature.ORE,
+                    new OreFeatureConfig(END_CHEESYSPONGE_ORES, 5, 0.5f));
 
     public static void registerConfiguredFeatures() {
         System.out.println("Registering ModConfiguredFeatures for " + SpongeMod.MOD_ID);
