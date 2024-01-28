@@ -106,7 +106,8 @@ public class ModRegistries {
         TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER,2,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 8),
+                            new ItemStack(Items.EMERALD, 10),
+                            new ItemStack(ModBlocks.CHEESYSPONGE_BLOCK, 1),
                             new ItemStack(ModItems.HYPE_MUSIC_DISC, 1),
                             12,7,0.08f));
                     factories.add((entity, random) -> new TradeOffer(
@@ -123,9 +124,12 @@ public class ModRegistries {
         TradeOfferHelper.registerVillagerOffers(ModVillagers.BLAST_MASTER,3,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 2),
                             new ItemStack(ModItems.SPONGE_SEEDS, 4),
-                            new ItemStack(ModItems.SPONGE_SEEDS, 4),
+                            new ItemStack(ModItems.SPONGE_INGOT, 4),
+                            12,7,0.08f));
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(ModItems.HYPE_MUSIC_DISC, 1),
+                            new ItemStack(ModBlocks.CHEESYSPONGE_BLOCK, 1),
                             12,7,0.08f));
                 });
     }

@@ -86,7 +86,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
         if (CheeseGunItem.hasProjectile(stack, Items.FIREWORK_ROCKET)) {
             return 10.6f;
         }
-        return 15.15f;
+        return 13.15f;
     }
 
     @Override

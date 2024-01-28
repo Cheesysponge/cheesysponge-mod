@@ -1,6 +1,10 @@
 package name.cheesysponge.world.dimension;
 
 import name.cheesysponge.SpongeMod;
+import name.cheesysponge.block.ModBlocks;
+import name.cheesysponge.item.ModItems;
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -15,5 +19,12 @@ public class ModDimensions {
 
     public static void register(){
         SpongeMod.LOGGER.debug("😀 Registering ModDimensions for " + SpongeMod.MOD_ID + "!!!!!");
+        CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.SPONGE_LEAVES)
+                .destDimID(CHEESEDIM_DIMENSION_KEY.getValue())
+                .tintColor(227, 207, 30)
+                .lightWithItem(ModItems.CHEESY_SPONGE_STAFF)
+                .onlyLightInOverworld()
+                .registerPortal();
     }
+
 }
