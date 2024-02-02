@@ -5,6 +5,7 @@ import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.command.ReturnHomeCommand;
 import name.cheesysponge.command.SetHomeCommand;
 import name.cheesysponge.entity.ModEntities;
+import name.cheesysponge.entity.custom.CheeseBirdEntity;
 import name.cheesysponge.entity.custom.CheeseBossEntity;
 import name.cheesysponge.entity.custom.CheeseEntity;
 import name.cheesysponge.event.ModPlayerEventCopyFrom;
@@ -137,6 +138,7 @@ public class ModRegistries {
     private static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(ModEntities.CHEESE, CheeseEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.CHEESE_BOSS, CheeseBossEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.CHEESE_BIRD, CheeseBirdEntity.setAttributes());
     }
 
 

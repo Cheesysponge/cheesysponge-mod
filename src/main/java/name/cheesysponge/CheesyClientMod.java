@@ -2,6 +2,7 @@ package name.cheesysponge;
 
 import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.entity.ModEntities;
+import name.cheesysponge.entity.client.CheeseBirdRenderer;
 import name.cheesysponge.entity.client.CheeseBossRenderer;
 import name.cheesysponge.entity.client.CheeseRenderer;
 import name.cheesysponge.fluid.ModFluids;
@@ -48,6 +49,7 @@ public class CheesyClientMod implements ClientModInitializer {
                         SimpleFluidRenderHandler.WATER_OVERLAY, 0xe9860c));
         EntityRendererRegistry.register(ModEntities.CHEESE, CheeseRenderer::new);
         EntityRendererRegistry.register(ModEntities.CHEESE_BOSS, CheeseBossRenderer::new);
+        EntityRendererRegistry.register(ModEntities.CHEESE_BIRD, CheeseBirdRenderer::new);
 
     }
 }

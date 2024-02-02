@@ -1,6 +1,7 @@
 package name.cheesysponge.entity;
 
 import name.cheesysponge.SpongeMod;
+import name.cheesysponge.entity.custom.CheeseBirdEntity;
 import name.cheesysponge.entity.custom.CheeseBossEntity;
 import name.cheesysponge.entity.custom.CheeseEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -19,4 +20,8 @@ public class ModEntities {
             Registry.ENTITY_TYPE, new Identifier(SpongeMod.MOD_ID, "cheese_boss"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CheeseBossEntity::new)
                     .dimensions(EntityDimensions.fixed(1.0f, 1.0f)).build());
+    public static final EntityType<CheeseBirdEntity> CHEESE_BIRD = Registry.register(
+            Registry.ENTITY_TYPE, new Identifier(SpongeMod.MOD_ID, "cheese_bird"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CheeseBirdEntity::new)
+                    .dimensions(EntityDimensions.fixed(4.0f, 3.0f)).build());
 }

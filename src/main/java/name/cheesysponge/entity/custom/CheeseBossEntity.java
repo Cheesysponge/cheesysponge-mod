@@ -84,6 +84,7 @@ public class CheeseBossEntity extends TameableEntity implements IAnimatable{
 
     public CheeseBossEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
+        this.experiencePoints = 5;
     }
 
     public static final Predicate<LivingEntity> FOLLOW_TAMED_PREDICATE = entity -> {

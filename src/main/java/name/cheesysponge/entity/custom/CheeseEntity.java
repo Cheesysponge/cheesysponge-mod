@@ -71,6 +71,7 @@ public class CheeseEntity extends TameableEntity implements IAnimatable, Angerab
 
     public CheeseEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
+        this.experiencePoints = 5;
     }
     private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(WolfEntity.class, TrackedDataHandlerRegistry.INTEGER);
     public static final Predicate<LivingEntity> FOLLOW_TAMED_PREDICATE = entity -> {
