@@ -29,7 +29,11 @@ public class CheeseBirdModel extends AnimatedGeoModel<CheeseBirdEntity> {
     public void setLivingAnimations(CheeseBirdEntity entity, Integer uniqueID, AnimationEvent customPredicate) {
         super.setLivingAnimations(entity, uniqueID, customPredicate);
         IBone head = this.getAnimationProcessor().getBone("bone5");
-
+        //Rotates the birdy by 180 degrees (no longer needed since i fixed backward flying)
+//        IBone everything = this.getAnimationProcessor().getBone("everything");
+//        if (everything != null) {
+//            everything.setRotationX(everything.getRotationX() - 180F);
+//        }
         EntityModelData extraData = (EntityModelData) customPredicate.getExtraDataOfType(EntityModelData.class).get(0);
         if (head != null) {
             head.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));

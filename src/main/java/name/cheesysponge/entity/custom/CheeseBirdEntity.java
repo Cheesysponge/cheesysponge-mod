@@ -20,9 +20,11 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldEvents;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
@@ -47,24 +49,20 @@ public class CheeseBirdEntity extends FlyingEntity
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return FlyingEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 200.0D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 32.0f)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 18.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 4.0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
     }
     protected void initGoals() {
-        this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(3, new PounceAtTargetGoal(this, 0.4f));
-        this.goalSelector.add(7, new LookAroundGoal(this));
-        this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
-        this.targetSelector.add(6, new ActiveTargetGoal<>(this, AbstractSkeletonEntity.class, false));
-        this.goalSelector.add(1, new StartAttackGoal());
-        this.goalSelector.add(2, new SwoopMovementGoal());
-        this.goalSelector.add(3, new CircleMovementGoal());
-        this.targetSelector.add(1, new FindTargetGoal());
+        this.goalSelector.add(1, new CheeseBirdEntity.StartAttackGoal());
+        this.goalSelector.add(2, new CheeseBirdEntity.SwoopMovementGoal());
+        this.goalSelector.add(3, new CheeseBirdEntity.CircleMovementGoal());
+        this.targetSelector.add(1, new CheeseBirdEntity.FindTargetGoal());
 
     }
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.flying", true));
             return PlayState.CONTINUE;
@@ -77,7 +75,8 @@ public class CheeseBirdEntity extends FlyingEntity
 
     @Override
     public void registerControllers(AnimationData animationData) {
-
+        animationData.addAnimationController(new AnimationController(this, "controller",
+                0, this::predicate));
     }
 
     @Override
@@ -121,7 +120,7 @@ public class CheeseBirdEntity extends FlyingEntity
                     CheeseBirdEntity.this.movementType = CheeseBirdMovementType.SWOOP;
                     this.startSwoop();
                     this.cooldown = this.getTickCount((8 + CheeseBirdEntity.this.random.nextInt(4)) * 20);
-                    CheeseBirdEntity.this.playSound(SoundEvents.ENTITY_PHANTOM_SWOOP, 10.0f, 0.95f + CheeseBirdEntity.this.random.nextFloat() * 0.1f);
+                    CheeseBirdEntity.this.playSound(SoundEvents.ENTITY_DOLPHIN_ATTACK, 10.0f, 0.95f + CheeseBirdEntity.this.random.nextFloat() * 0.1f);
                 }
             }
         }
@@ -211,7 +210,7 @@ public class CheeseBirdEntity extends FlyingEntity
 
         @Override
         public void start() {
-            this.radius = 5.0f + CheeseBirdEntity.this.random.nextFloat() * 10.0f;
+            this.radius = 15.0f + CheeseBirdEntity.this.random.nextFloat() * 10.0f;
             this.yOffset = -4.0f + CheeseBirdEntity.this.random.nextFloat() * 9.0f;
             this.circlingDirection = CheeseBirdEntity.this.random.nextBoolean() ? 1.0f : -1.0f;
             this.adjustDirection();
@@ -267,9 +266,7 @@ public class CheeseBirdEntity extends FlyingEntity
     }
     class SwoopMovementGoal
             extends CheeseBirdEntity.MovementGoal {
-        private static final int CAT_CHECK_INTERVAL = 20;
-        private boolean catsNearby;
-        private int nextCatCheckAge;
+
 
         SwoopMovementGoal() {
         }
@@ -299,6 +296,35 @@ public class CheeseBirdEntity extends FlyingEntity
             }
             return true;
 
+        }
+
+        @Override
+        public void start() {
+        }
+
+        @Override
+        public void stop() {
+            CheeseBirdEntity.this.setTarget(null);
+            CheeseBirdEntity.this.movementType = CheeseBirdEntity.CheeseBirdMovementType.CIRCLE;
+        }
+
+
+        @Override
+        public void tick() {
+            LivingEntity livingEntity = CheeseBirdEntity.this.getTarget();
+            if (livingEntity == null) {
+                return;
+            }
+            CheeseBirdEntity.this.targetPosition = new Vec3d(livingEntity.getX(), livingEntity.getBodyY(0.5), livingEntity.getZ());
+            if (CheeseBirdEntity.this.getBoundingBox().expand(0.2f).intersects(livingEntity.getBoundingBox())) {
+                CheeseBirdEntity.this.tryAttack(livingEntity);
+                CheeseBirdEntity.this.movementType = CheeseBirdEntity.CheeseBirdMovementType.CIRCLE;
+                if (!CheeseBirdEntity.this.isSilent()) {
+                    CheeseBirdEntity.this.world.syncWorldEvent(WorldEvents.EYE_OF_ENDER_BREAKS, CheeseBirdEntity.this.getBlockPos(), 0);
+                }
+            } else if (CheeseBirdEntity.this.horizontalCollision || CheeseBirdEntity.this.hurtTime > 0) {
+                CheeseBirdEntity.this.movementType = CheeseBirdEntity.CheeseBirdMovementType.CIRCLE;
+            }
         }
     }
 
