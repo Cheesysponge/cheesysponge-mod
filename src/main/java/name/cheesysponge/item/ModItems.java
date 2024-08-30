@@ -54,6 +54,9 @@ public class ModItems {
     public static final Item CHEESE_BOSS_SPAWN_EGG = registerItem("cheese_boss_spawn_egg",
             new SpawnEggItem(ModEntities.CHEESE_BOSS,0xffc524, 0xdeff24,
                     new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(64)));
+    public static final Item CHEESE_BIRD_SPAWN_EGG = registerItem("cheese_bird_spawn_egg",
+            new SpawnEggItem(ModEntities.CHEESE_BIRD,0xffbd24, 0x7a5a00,
+                    new FabricItemSettings().group(ModItemGroup.CHEESY_SPONGE).maxCount(64)));
     public static final Item INVISIBLE_SHIELD = registerItem("invisible_shield", new ShieldItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().group(ModItemGroup.CHEESY_SPONGE).maxCount(1).maxDamage(1400)));
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(SpongeMod.MOD_ID, name), item);

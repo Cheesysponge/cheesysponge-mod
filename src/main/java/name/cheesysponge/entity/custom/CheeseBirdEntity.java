@@ -320,7 +320,7 @@ public class CheeseBirdEntity extends FlyingEntity
                 CheeseBirdEntity.this.tryAttack(livingEntity);
                 CheeseBirdEntity.this.movementType = CheeseBirdEntity.CheeseBirdMovementType.CIRCLE;
                 if (!CheeseBirdEntity.this.isSilent()) {
-                    CheeseBirdEntity.this.world.syncWorldEvent(WorldEvents.EYE_OF_ENDER_BREAKS, CheeseBirdEntity.this.getBlockPos(), 0);
+                    CheeseBirdEntity.this.world.syncWorldEvent(WorldEvents.BLOCK_WAXED, CheeseBirdEntity.this.getBlockPos(), 0);
                 }
             } else if (CheeseBirdEntity.this.horizontalCollision || CheeseBirdEntity.this.hurtTime > 0) {
                 CheeseBirdEntity.this.movementType = CheeseBirdEntity.CheeseBirdMovementType.CIRCLE;
