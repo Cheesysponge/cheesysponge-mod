@@ -16,7 +16,7 @@ public class CheeseBossRenderer extends GeoEntityRenderer<CheeseBossEntity> {
     }
 
     @Override
-    public Identifier getTextureLocation(CheeseBossEntity instance) {
+    public Identifier getTextureResource(CheeseBossEntity instance) {
         return new Identifier(SpongeMod.MOD_ID, "textures/entity/cheeseboss/cheeseboss.png");
     }
 

@@ -13,15 +13,14 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -29,29 +28,26 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Quaternion;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.function.Predicate;
 
 public class CheeseGunItem extends CrossbowItem implements Vanishable {
-    private static final String CHARGED_KEY = "Charged";
-    private static final String CHARGED_PROJECTILES_KEY = "ChargedProjectiles";
-    private static final int field_30866 = 25;
-    public static final int RANGE = 20;
-    private boolean charged = false;
-    private boolean loaded = false;
-    private static final float field_30867 = 0.2f;
-    private static final float field_30868 = 0.5f;
-    private static final float field_30869 = 3.15f;
-    private static final float field_30870 = 1.6f;
 
-    public CheeseGunItem(Item.Settings settings) {
+    public CheeseGunItem(Settings settings) {
         super(settings);
     }
+    private static final String CHARGED_KEY = "Charged";
+    private static final String CHARGED_PROJECTILES_KEY = "ChargedProjectiles";
+    private boolean charged = false;
+    private boolean loaded = false;
+
+
+
 
     @Override
     public Predicate<ItemStack> getHeldProjectiles() {
@@ -103,7 +99,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
     private static boolean loadProjectiles(LivingEntity shooter, ItemStack projectile) {
         int i = EnchantmentHelper.getLevel(Enchantments.MULTISHOT, projectile);
         int j = i == 0 ? 1 : 3;
-        boolean bl = shooter instanceof PlayerEntity && ((PlayerEntity) shooter).getAbilities().creativeMode;
+        boolean bl = shooter instanceof PlayerEntity && ((PlayerEntity)shooter).getAbilities().creativeMode;
         ItemStack itemStack = shooter.getArrowType(projectile);
         ItemStack itemStack2 = itemStack.copy();
         for (int k = 0; k < j; ++k) {
@@ -130,7 +126,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
         if (!(bl || creative || simulated)) {
             itemStack = projectile.split(1);
             if (projectile.isEmpty() && shooter instanceof PlayerEntity) {
-                ((PlayerEntity) shooter).getInventory().removeOne(projectile);
+                ((PlayerEntity)shooter).getInventory().removeOne(projectile);
             }
         } else {
             itemStack = projectile.copy();
@@ -151,7 +147,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
 
     private static void putProjectile(ItemStack crossbow, ItemStack projectile) {
         NbtCompound nbtCompound = crossbow.getOrCreateNbt();
-        NbtList nbtList = nbtCompound.contains(CHARGED_PROJECTILES_KEY, 9) ? nbtCompound.getList(CHARGED_PROJECTILES_KEY, 10) : new NbtList();
+        NbtList nbtList = nbtCompound.contains(CHARGED_PROJECTILES_KEY, NbtElement.LIST_TYPE) ? nbtCompound.getList(CHARGED_PROJECTILES_KEY, NbtElement.COMPOUND_TYPE) : new NbtList();
         NbtCompound nbtCompound2 = new NbtCompound();
         projectile.writeNbt(nbtCompound2);
         nbtList.add(nbtCompound2);
@@ -162,7 +158,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
         NbtList nbtList;
         ArrayList<ItemStack> list = Lists.newArrayList();
         NbtCompound nbtCompound = crossbow.getNbt();
-        if (nbtCompound != null && nbtCompound.contains(CHARGED_PROJECTILES_KEY, 9) && (nbtList = nbtCompound.getList(CHARGED_PROJECTILES_KEY, 10)) != null) {
+        if (nbtCompound != null && nbtCompound.contains(CHARGED_PROJECTILES_KEY, NbtElement.LIST_TYPE) && (nbtList = nbtCompound.getList(CHARGED_PROJECTILES_KEY, NbtElement.COMPOUND_TYPE)) != null) {
             for (int i = 0; i < nbtList.size(); ++i) {
                 NbtCompound nbtCompound2 = nbtList.getCompound(i);
                 list.add(ItemStack.fromNbt(nbtCompound2));
@@ -174,7 +170,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
     private static void clearProjectiles(ItemStack crossbow) {
         NbtCompound nbtCompound = crossbow.getNbt();
         if (nbtCompound != null) {
-            NbtList nbtList = nbtCompound.getList(CHARGED_PROJECTILES_KEY, 9);
+            NbtList nbtList = nbtCompound.getList(CHARGED_PROJECTILES_KEY, NbtElement.LIST_TYPE);
             nbtList.clear();
             nbtCompound.put(CHARGED_PROJECTILES_KEY, nbtList);
         }
@@ -191,15 +187,15 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
         }
         boolean bl = projectile.isOf(Items.FIREWORK_ROCKET);
         if (bl) {
-            projectileEntity = new FireworkRocketEntity(world, projectile, shooter, shooter.getX(), shooter.getEyeY() - (double) 0.15f, shooter.getZ(), true);
+            projectileEntity = new FireworkRocketEntity(world, projectile, shooter, shooter.getX(), shooter.getEyeY() - (double)0.15f, shooter.getZ(), true);
         } else {
             projectileEntity = CheeseGunItem.createArrow(world, shooter, crossbow, projectile);
             if (creative || simulated != 0.0f) {
-                ((PersistentProjectileEntity) projectileEntity).pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
+                ((PersistentProjectileEntity)projectileEntity).pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
             }
         }
         if (shooter instanceof CrossbowUser) {
-            CrossbowUser crossbowUser = (CrossbowUser) ((Object) shooter);
+            CrossbowUser crossbowUser = (CrossbowUser)((Object)shooter);
             crossbowUser.shoot(crossbowUser.getTarget(), crossbow, projectileEntity, simulated);
         } else {
             Vec3d vec3d = shooter.getOppositeRotationVector(1.0f);
@@ -215,7 +211,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
     }
 
     private static PersistentProjectileEntity createArrow(World world, LivingEntity entity, ItemStack crossbow, ItemStack arrow) {
-        ArrowItem arrowItem = (ArrowItem) (arrow.getItem() instanceof ArrowItem ? arrow.getItem() : Items.ARROW);
+        ArrowItem arrowItem = (ArrowItem)(arrow.getItem() instanceof ArrowItem ? arrow.getItem() : Items.ARROW);
         PersistentProjectileEntity persistentProjectileEntity = arrowItem.createArrow(world, arrow, entity);
         if (entity instanceof PlayerEntity) {
             persistentProjectileEntity.setCritical(true);
@@ -224,7 +220,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
         persistentProjectileEntity.setShotFromCrossbow(true);
         int i = EnchantmentHelper.getLevel(Enchantments.PIERCING, crossbow);
         if (i > 0) {
-            persistentProjectileEntity.setPierceLevel((byte) i);
+            persistentProjectileEntity.setPierceLevel((byte)i);
         }
         return persistentProjectileEntity;
     }
@@ -235,7 +231,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
         for (int i = 0; i < list.size(); ++i) {
             boolean bl;
             ItemStack itemStack = list.get(i);
-            boolean bl2 = bl = entity instanceof PlayerEntity && ((PlayerEntity) entity).getAbilities().creativeMode;
+            boolean bl2 = bl = entity instanceof PlayerEntity && ((PlayerEntity)entity).getAbilities().creativeMode;
             if (itemStack.isEmpty()) continue;
             if (i == 0) {
                 CheeseGunItem.shoot(world, entity, hand, stack, itemStack, fs[i], bl, speed, divergence, 0.0f);
@@ -251,7 +247,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
         CheeseGunItem.postShoot(world, entity, stack);
     }
 
-    private static float[] getSoundPitches(Random random) {
+    private static float[] getSoundPitches(net.minecraft.util.math.random.Random random) {
         boolean bl = random.nextBoolean();
         return new float[]{1.0f, CheeseGunItem.getSoundPitch(bl, random), CheeseGunItem.getSoundPitch(!bl, random)};
     }
@@ -263,7 +259,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
 
     private static void postShoot(World world, LivingEntity entity, ItemStack stack) {
         if (entity instanceof ServerPlayerEntity) {
-            ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) entity;
+            ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity)entity;
             if (!world.isClient) {
                 Criteria.SHOT_CROSSBOW.trigger(serverPlayerEntity, stack);
             }
@@ -278,7 +274,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
             int i = EnchantmentHelper.getLevel(Enchantments.QUICK_CHARGE, stack);
             SoundEvent soundEvent = this.getQuickChargeSound(i);
             SoundEvent soundEvent2 = i == 0 ? SoundEvents.ITEM_CROSSBOW_LOADING_MIDDLE : null;
-            float f = (float) (stack.getMaxUseTime() - remainingUseTicks) / (float) CheeseGunItem.getPullTime(stack);
+            float f = (float)(stack.getMaxUseTime() - remainingUseTicks) / (float)CheeseGunItem.getPullTime(stack);
             if (f < 0.2f) {
                 this.charged = false;
                 this.loaded = false;
@@ -325,7 +321,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
     }
 
     private static float getPullProgress(int useTicks, ItemStack stack) {
-        float f = (float) useTicks / (float) CheeseGunItem.getPullTime(stack);
+        float f = (float)useTicks / (float)CheeseGunItem.getPullTime(stack);
         if (f > 1.0f) {
             f = 1.0f;
         }
@@ -339,13 +335,13 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
             return;
         }
         ItemStack itemStack = list.get(0);
-        tooltip.add(new TranslatableText("item.minecraft.crossbow.projectile").append(" ").append(itemStack.toHoverableText()));
+        tooltip.add(Text.translatable("item.minecraft.crossbow.projectile").append(" ").append(itemStack.toHoverableText()));
         if (context.isAdvanced() && itemStack.isOf(Items.FIREWORK_ROCKET)) {
             ArrayList<Text> list2 = Lists.newArrayList();
             Items.FIREWORK_ROCKET.appendTooltip(itemStack, world, list2, context);
             if (!list2.isEmpty()) {
                 for (int i = 0; i < list2.size(); ++i) {
-                    list2.set(i, new LiteralText("  ").append((Text) list2.get(i)).formatted(Formatting.GRAY));
+                    list2.set(i, Text.literal("  ").append((Text)list2.get(i)).formatted(Formatting.GRAY));
                 }
                 tooltip.addAll(list2);
             }
@@ -356,7 +352,6 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
     public boolean isUsedOnRelease(ItemStack stack) {
         return stack.isOf(this);
     }
-
     @Override
     public int getRange() {
         return 20;
@@ -365,4 +360,6 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
     public int getEnchantability() {
         return 10; // Set this value according to your desired enchantability
     }
+    
+
 }

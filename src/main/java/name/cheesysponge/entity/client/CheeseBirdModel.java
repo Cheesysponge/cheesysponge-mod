@@ -10,17 +10,17 @@ import software.bernie.geckolib3.model.provider.data.EntityModelData;
 
 public class CheeseBirdModel extends AnimatedGeoModel<CheeseBirdEntity> {
     @Override
-    public Identifier getModelLocation(CheeseBirdEntity object) {
+    public Identifier getModelResource(CheeseBirdEntity object) {
         return new Identifier(SpongeMod.MOD_ID, "geo/cheesebird.geo.json");
     }
 
     @Override
-    public Identifier getTextureLocation(CheeseBirdEntity object) {
+    public Identifier getTextureResource(CheeseBirdEntity object) {
         return new Identifier(SpongeMod.MOD_ID, "textures/entity/cheesebird/cheesebird.png");
     }
 
     @Override
-    public Identifier getAnimationFileLocation(CheeseBirdEntity animatable) {
+    public Identifier getAnimationResource(CheeseBirdEntity animatable) {
         return new Identifier(SpongeMod.MOD_ID, "animations/cheesebird.animation.json");
     }
 

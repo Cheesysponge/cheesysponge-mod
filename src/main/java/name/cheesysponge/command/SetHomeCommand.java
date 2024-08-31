@@ -1,16 +1,20 @@
 package name.cheesysponge.command;
+
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import name.cheesysponge.util.IEntityDataSaver;
+import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
 public class SetHomeCommand {
-    public static void register(CommandDispatcher<ServerCommandSource> dispatcher, boolean dedicated) {
-        dispatcher.register(CommandManager.literal("home")
+    public static void register(CommandDispatcher<ServerCommandSource> serverCommandSourceCommandDispatcher,
+                                CommandRegistryAccess commandRegistryAccess,
+                                CommandManager.RegistrationEnvironment registrationEnvironment) {
+        serverCommandSourceCommandDispatcher.register(CommandManager.literal("home")
                 .then(CommandManager.literal("set").executes(SetHomeCommand::run)));
     }
 
@@ -22,8 +26,7 @@ public class SetHomeCommand {
         player.getPersistentData().putIntArray("homepos",
                 new int[] {playerPos.getX(), playerPos.getY(), playerPos.getZ() });
 
-        context.getSource().sendFeedback(new LiteralText("Set home at " + pos), true);
+        context.getSource().sendFeedback( Text.literal("Set home at " + pos), true);
         return 1;
     }
 }
-

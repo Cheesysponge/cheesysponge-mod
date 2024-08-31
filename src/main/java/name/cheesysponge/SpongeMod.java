@@ -53,7 +53,6 @@ public class SpongeMod implements ModInitializer {
 		ModEnchantments.registerModEnchantments();
 		GeckoLib.initialize();
 
-		ModVillagers.setupPOIs();
 
 		ModStructures.registerStructureFeatures();
 

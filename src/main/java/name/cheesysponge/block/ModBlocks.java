@@ -3,13 +3,12 @@ package name.cheesysponge.block;
 import name.cheesysponge.SpongeMod;
 import name.cheesysponge.block.custom.*;
 import name.cheesysponge.block.entity.ModSignTypes;
-import name.cheesysponge.effect.ModEffects;
 import name.cheesysponge.fluid.ModFluids;
 import name.cheesysponge.item.ModItemGroup;
-import name.cheesysponge.item.ModItems;
 import name.cheesysponge.sound.ModSounds;
 import name.cheesysponge.world.feature.tree.SpongeSaplingGenerator;
-import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.effect.StatusEffects;
@@ -18,15 +17,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.ModStatus;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 
 import java.util.List;
 
@@ -110,7 +105,7 @@ public class ModBlocks {
                 new BlockItem(block, new FabricItemSettings().group(group)) {
                     @Override
                     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-                        tooltip.add(new TranslatableText(tooltipKey));
+                        tooltip.add(Text.translatable(tooltipKey));
                     }
                 });
     }

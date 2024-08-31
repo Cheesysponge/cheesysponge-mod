@@ -15,9 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -58,7 +56,7 @@ public class SpongeRodItem extends Item {
             }
 
             if(!foundBlock) {
-                player.sendMessage(new TranslatableText("item.cheesysponge.sponge_rod.no_valuables"), false);
+                player.sendMessage(Text.translatable("item.cheesysponge.sponge_rod.no_valuables"), false);
             }
         }
 
@@ -89,7 +87,7 @@ public class SpongeRodItem extends Item {
 
 
     private void outputValuableCoordinates(BlockPos blockPos, PlayerEntity player, Block blockBelow) {
-        player.sendMessage(new LiteralText("Found " + blockBelow.asItem().getName().getString() + " at " +
+        player.sendMessage(Text.literal("Found " + blockBelow.asItem().getName().getString() + " at " +
                 "(" + blockPos.getX() + ", " + blockPos.getY() + "," + blockPos.getZ() + ")"), false);
     }
 
@@ -117,9 +115,9 @@ public class SpongeRodItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if(Screen.hasShiftDown()){
-            tooltip.add(new TranslatableText("item.cheesysponge.sponge_rod.tooltip.shift"));
+            tooltip.add(Text.translatable("item.cheesysponge.sponge_rod.tooltip.shift"));
         } else {
-            tooltip.add(new TranslatableText("item.cheesysponge.sponge_rod.tooltip"));
+            tooltip.add(Text.translatable("item.cheesysponge.sponge_rod.tooltip"));
         }
     }
 }
