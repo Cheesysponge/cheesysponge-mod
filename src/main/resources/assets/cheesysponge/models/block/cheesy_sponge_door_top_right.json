@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right",
+  "textures": {
+    "bottom": "minecraft:block/cheesy_sponge_door_bottom",
+    "top": "minecraft:block/cheesy_sponge_door_top"
+  }
+}
