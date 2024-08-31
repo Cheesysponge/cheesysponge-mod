@@ -9,11 +9,15 @@ import net.minecraft.entity.ai.control.MoveControl;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.*;
 
 
 import net.minecraft.entity.player.PlayerEntity;
 
+import net.minecraft.entity.projectile.FireballEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -55,6 +59,7 @@ public class CheeseBirdEntity extends FlyingEntity
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
     }
     protected void initGoals() {
+        this.goalSelector.add(1, new CheeseBirdEntity.ShootFireballGoal(this));
         this.goalSelector.add(1, new CheeseBirdEntity.StartAttackGoal());
         this.goalSelector.add(2, new CheeseBirdEntity.SwoopMovementGoal());
         this.goalSelector.add(3, new CheeseBirdEntity.CircleMovementGoal());
@@ -362,6 +367,81 @@ public class CheeseBirdEntity extends FlyingEntity
                 return CheeseBirdEntity.this.isTarget(livingEntity, TargetPredicate.DEFAULT);
             }
             return false;
+        }
+    }
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(SHOOTING, false);
+    }
+    private static final TrackedData<Boolean> SHOOTING = DataTracker.registerData(CheeseBirdEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private int fireballStrength = 1;
+    public int getFireballStrength() {
+        return this.fireballStrength;
+    }
+    public void setShooting(boolean shooting) {
+        this.dataTracker.set(SHOOTING, shooting);
+    }
+    static class ShootFireballGoal
+            extends Goal {
+        private final CheeseBirdEntity cheeseBird;
+        public int cooldown;
+
+        public ShootFireballGoal(CheeseBirdEntity cheeseBird) {
+            this.cheeseBird = cheeseBird;
+        }
+
+        @Override
+        public boolean canStart() {
+            return this.cheeseBird.getTarget() != null;
+        }
+
+        @Override
+        public void start() {
+            this.cooldown = 0;
+        }
+
+        @Override
+        public void stop() {
+            this.cheeseBird.setShooting(false);
+        }
+
+        @Override
+        public boolean shouldRunEveryTick() {
+            return true;
+        }
+
+        @Override
+        public void tick() {
+            LivingEntity livingEntity = this.cheeseBird.getTarget();
+            if (livingEntity == null) {
+                return;
+            }
+            double d = 64.0;
+            if (livingEntity.squaredDistanceTo(this.cheeseBird) < 4096.0 && this.cheeseBird.canSee(livingEntity)) {
+                World world = this.cheeseBird.world;
+                ++this.cooldown;
+                if (this.cooldown == 10 && !this.cheeseBird.isSilent()) {
+                    world.syncWorldEvent(null, WorldEvents.BLOCK_WAXED, this.cheeseBird.getBlockPos(), 0);
+                }
+                if (this.cooldown == 20) {
+                    double e = 4.0;
+                    Vec3d vec3d = this.cheeseBird.getRotationVec(1.0f);
+                    double f = livingEntity.getX() - (this.cheeseBird.getX() + vec3d.x * 4.0);
+                    double g = livingEntity.getBodyY(0.5) - (0.5 + this.cheeseBird.getBodyY(0.5));
+                    double h = livingEntity.getZ() - (this.cheeseBird.getZ() + vec3d.z * 4.0);
+                    if (!this.cheeseBird.isSilent()) {
+                        world.syncWorldEvent(null, WorldEvents.BLOCK_WAXED, this.cheeseBird.getBlockPos(), 0);
+                    }
+                    FireballEntity fireballEntity = new FireballEntity(world, (LivingEntity)this.cheeseBird, f, g, h, this.cheeseBird.getFireballStrength());
+                    fireballEntity.setPosition(this.cheeseBird.getX() + vec3d.x * 4.0, this.cheeseBird.getBodyY(0.5) + 0.5, fireballEntity.getZ() + vec3d.z * 4.0);
+                    world.spawnEntity(fireballEntity);
+                    this.cooldown = -40;
+                }
+            } else if (this.cooldown > 0) {
+                --this.cooldown;
+            }
+            this.cheeseBird.setShooting(this.cooldown > 10);
         }
     }
 

@@ -76,6 +76,7 @@
 
   "entity.cheesysponge.cheese":"Cheese Monster",
   "entity.cheesysponge.cheese_boss":"Cheese Boss",
+  "entity.cheesysponge.cheese_bird":"Cheese Bird",
   "entity.minecraft.villager.blastmaster": "Blastmaster"
 
 }
