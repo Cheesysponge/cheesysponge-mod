@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:sponge_chestplate"
+    },
+    "title": "Sponge Armor?",
+    "description": "Armor made out of sponge wood. I wonder what happens if I get a full set.",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:spongetree",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:sponge_chestplate",
+              "cheesysponge:sponge_leggings",
+              "cheesysponge:sponge_boots",
+              "cheesysponge:sponge_helmet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

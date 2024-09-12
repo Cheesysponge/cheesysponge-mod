@@ -16,8 +16,9 @@ import java.util.Map;
 public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
-                    .put(ModArmorMaterials.CHEESY_SPONGE,
-                            new StatusEffectInstance(StatusEffects.HASTE, 400, 0)).build();
+                    .put(ModArmorMaterials.CHEESY_SPONGE, new StatusEffectInstance(StatusEffects.HASTE, 400, 0))
+                    .put(ModArmorMaterials.SPONGE, new StatusEffectInstance(StatusEffects.SPEED, 400, 0))
+                    .build();
 
     public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
         super(material, slot, settings);
@@ -45,6 +46,9 @@ public class ModArmorItem extends ArmorItem {
 
             if (hasCorrectArmorOn(mapArmorMaterial, player)) {
                 addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
+                if(mapArmorMaterial == ModArmorMaterials.SPONGE){
+                    addStatusEffectForMaterial(player, mapArmorMaterial, new StatusEffectInstance(StatusEffects.WATER_BREATHING, 400, 0));
+                }
             }
         }
     }
