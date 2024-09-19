@@ -19,6 +19,9 @@ public class ModEntitySpawn {
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.JUNGLE),
                 SpawnGroup.CREATURE, ModEntities.CHEESE_BOSS, 300, 1, 1);
 
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DESERT,BiomeKeys.BADLANDS),
+                SpawnGroup.CREATURE, ModEntities.CHEESE_BIRD, 200, 1, 1);
+
         SpawnRestriction.register(ModEntities.CHEESE_BOSS, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, TameableEntity::isValidNaturalSpawn);
     }
 }

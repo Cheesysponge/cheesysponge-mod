@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:burning_cheese"
+    },
+    "title": "Make a Mistake",
+    "description": "Punch a Cheese Boss",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:cheesysponge",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "entity": {
+          "type": "cheesysponge:cheese_boss"
+        }
+      }
+    }
+  }
+}
+}
