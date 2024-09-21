@@ -73,8 +73,8 @@ public class ModBlocks {
             new SpongeWeedBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque()), ModItemGroup.CHEESY_SPONGE);
     public static final Block SPONGE_LOG = registerBlock("sponge_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
-    public static final Block BOX = registerBlock("cheese_box",
-            new ShulkerBoxBlock(DyeColor.YELLOW,FabricBlockSettings.copy(Blocks.SHULKER_BOX).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
+    public static final Block CHEESE_BOX = registerBlock("cheese_box",
+            new ModShulkerBox(FabricBlockSettings.copy(Blocks.SHULKER_BOX).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
     public static final Block SPONGE_WOOD = registerBlock("sponge_wood",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD).strength(4.0f).requiresTool()), ModItemGroup.CHEESY_SPONGE);
     public static final Block STRIPPED_SPONGE_LOG = registerBlock("stripped_sponge_log",

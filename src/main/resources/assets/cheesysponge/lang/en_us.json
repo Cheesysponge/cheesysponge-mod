@@ -36,6 +36,7 @@
   "block.cheesysponge.sponge_leaves": "Sponge Leaves",
   "block.cheesysponge.sponge_sapling": "Sponge Sapling",
   "block.cheesysponge.cheese_blaster": "Cheese Blaster",
+  "block.cheesysponge.cheese_box": "Cheese Box",
   "itemGroup.cheesysponge.cheesy_sponge": "Cheesy & Sponge",
   "item.cheesysponge.sponge_rod.no_valuables": "No Valuables Found",
   "item.cheesysponge.cheesy_sponge_rod": "Cheesy Sponge Rod",
@@ -60,6 +61,11 @@
   "item.cheesysponge.sponge_boots": "Sponge Boots",
   "item.cheesysponge.sponge_chestplate": "Sponge Chestplate",
   "item.cheesysponge.sponge_leggings": "Sponge Leggings",
+
+  "item.cheesysponge.cheese_helmet": "Cheese Helmet",
+  "item.cheesysponge.cheese_boots": "Cheese Boots",
+  "item.cheesysponge.cheese_chestplate": "Cheese Chestplate",
+  "item.cheesysponge.cheese_leggings": "Cheese Leggings",
 
   "item.cheesysponge.data_tablet": "Data Tablet",
 

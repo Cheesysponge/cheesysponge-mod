@@ -1,6 +1,7 @@
 package name.cheesysponge.item.custom;
 
 import name.cheesysponge.item.ModItems;
+import name.cheesysponge.sound.ModSounds;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -11,8 +12,9 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
-    CHEESY_SPONGE("cheesy_sponge", 34, new int[]{3, 6, 8, 3}, 30, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0f, 0.1f, () -> Ingredient.ofItems(ModItems.CHEESY_SPONGE)),
-    SPONGE("sponge", 28, new int[]{3, 6, 7, 3}, 30, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 1.0f, 0.5f, () -> Ingredient.ofItems(ModItems.CHEESY_SPONGE));
+    CHEESY_SPONGE("cheesy_sponge", 34, new int[]{3, 6, 8, 3}, 30, ModSounds.CHEESY_SPONGE_SOUNDS.getFallSound(), 3.0f, 0.1f, () -> Ingredient.ofItems(ModItems.CHEESY_SPONGE)),
+    SPONGE("sponge", 28, new int[]{3, 6, 7, 3}, 30, ModSounds.CHEESY_SPONGE_SOUNDS.getFallSound(), 1.0f, 0.5f, () -> Ingredient.ofItems(ModItems.SPONGE_INGOT)),
+    CHEESE("cheese", 32, new int[]{3, 6, 8, 3}, 30, ModSounds.CHEESY_SPONGE_SOUNDS.getFallSound(), 2.0f, 1f, () -> Ingredient.ofItems(ModItems.BURNING_CHEESE));
 
     private static final int[] BASE_DURABILITY;
     private final String name;

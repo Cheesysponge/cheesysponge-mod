@@ -11,11 +11,16 @@ import net.minecraft.util.registry.Registry;
 
 public class ModBlockEntities {
     public static BlockEntityType<CheeseBlasterBlockEntity> CHEESE_BLASTER;
+    public static BlockEntityType<CheeseBoxEntity> CHEESE_BOX;
 
     public static void registerAllBlockEntities(){
         CHEESE_BLASTER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 new Identifier(SpongeMod.MOD_ID, "cheese_blaster"),
                 FabricBlockEntityTypeBuilder.create(CheeseBlasterBlockEntity::new,
                         ModBlocks.CHEESE_BLASTER).build(null));
+        CHEESE_BOX = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                new Identifier(SpongeMod.MOD_ID, "cheese_box"),
+                FabricBlockEntityTypeBuilder.create(CheeseBoxEntity::new,
+                        ModBlocks.CHEESE_BOX).build(null));
     }
 }

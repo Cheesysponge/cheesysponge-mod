@@ -18,6 +18,7 @@ public class ModArmorItem extends ArmorItem {
             (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
                     .put(ModArmorMaterials.CHEESY_SPONGE, new StatusEffectInstance(StatusEffects.HASTE, 400, 0))
                     .put(ModArmorMaterials.SPONGE, new StatusEffectInstance(StatusEffects.SPEED, 400, 0))
+                    .put(ModArmorMaterials.CHEESE, new StatusEffectInstance(StatusEffects.ABSORPTION, 400, 0))
                     .build();
 
     public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
