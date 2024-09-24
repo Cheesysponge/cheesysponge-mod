@@ -53,13 +53,13 @@ public class CheeseBirdEntity extends FlyingEntity
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return FlyingEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 18.0f)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 200.0D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 19.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 4.0f)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.5f);
     }
     protected void initGoals() {
-        this.goalSelector.add(1, new CheeseBirdEntity.ShootFireballGoal(this));
+        this.goalSelector.add(3, new CheeseBirdEntity.ShootFireballGoal(this));
         this.goalSelector.add(1, new CheeseBirdEntity.StartAttackGoal());
         this.goalSelector.add(2, new CheeseBirdEntity.SwoopMovementGoal());
         this.goalSelector.add(3, new CheeseBirdEntity.CircleMovementGoal());
@@ -375,7 +375,7 @@ public class CheeseBirdEntity extends FlyingEntity
         this.dataTracker.startTracking(SHOOTING, false);
     }
     private static final TrackedData<Boolean> SHOOTING = DataTracker.registerData(CheeseBirdEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    private int fireballStrength = 1;
+    private int fireballStrength = 5;
     public int getFireballStrength() {
         return this.fireballStrength;
     }

@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:cheese_chestplate"
+    },
+    "title": "Cheese Armor",
+    "description": "Armor made out of cheese. I wonder what happens if I get a full set.",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:burningcheese",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:cheese_chestplate",
+              "cheesysponge:cheese_leggings",
+              "cheesysponge:cheese_boots",
+              "cheesysponge:cheese_helmet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

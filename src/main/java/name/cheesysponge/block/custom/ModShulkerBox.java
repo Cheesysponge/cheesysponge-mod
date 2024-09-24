@@ -67,7 +67,7 @@ public class ModShulkerBox extends BlockWithEntity {
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof CheeseBoxEntity shulkerBoxBlockEntity) {
-            if (!world.isClient && !shulkerBoxBlockEntity.isEmpty()) {
+            if (!world.isClient ) {
                 ItemStack itemStack = new ItemStack(ModBlocks.CHEESE_BOX);
                 blockEntity.setStackNbt(itemStack);
                 if (shulkerBoxBlockEntity.hasCustomName()) {

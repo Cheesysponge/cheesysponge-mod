@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#U#"
+  ],
+  "key": {
+    "#": {
+      "item": "cheesysponge:burning_cheese"
+    },
+    "U": {
+      "item": "minecraft:ice"
+    }
+  },
+  "result": {
+    "item": "cheesysponge:cheese_helmet"
+  }
+}

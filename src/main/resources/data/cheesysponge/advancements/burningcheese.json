@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "cheesysponge:burning_cheese"
+    },
+    "title": "Flamin' Hot Cheese",
+    "description": "I Wonder What'll Happen If I Eat This",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "cheesysponge:cheesysponge",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "cheesysponge:burning_cheese"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
