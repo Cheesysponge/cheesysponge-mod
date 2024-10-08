@@ -32,7 +32,18 @@ public class CheeseBlasterRecipe implements Recipe<SimpleInventory> {
 
         return false;
     }
-
+    public Ingredient getTopInput() {
+        return recipeItems.get(0);
+    }
+    public Ingredient getBottomInput() {
+        return recipeItems.get(1);
+    }
+    public ItemStack getResultItem() {
+        return this.output;
+    }
+    public Ingredient getMiddleInput() {
+        return recipeItems.get(1);
+    }
     @Override
     public ItemStack craft(SimpleInventory inventory) {
         return output;

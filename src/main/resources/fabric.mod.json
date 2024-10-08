@@ -20,13 +20,14 @@
 		],
 		"client": [
 			"name.cheesysponge.CheesyClientMod"
-		]
+		],
+		"rei_client": ["name.cheesysponge.compat.ModREIClientPlugin"]
 	},
 	"mixins": [
 		"cheesysponge.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.21",
+		"fabricloader": ">=0.14.9",
 		"minecraft": "~1.19",
 		"java": ">=17",
 		"fabric": "*"
