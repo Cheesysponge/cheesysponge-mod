@@ -21,7 +21,8 @@
 		"client": [
 			"name.cheesysponge.CheesyClientMod"
 		],
-		"rei_client": ["name.cheesysponge.compat.ModREIClientPlugin"]
+		"rei_client": ["name.cheesysponge.compat.ModREIClientPlugin"],
+		"fabric-datagen": ["name.cheesysponge.datagen.ModDataGeneration"]
 	},
 	"mixins": [
 		"cheesysponge.mixins.json"

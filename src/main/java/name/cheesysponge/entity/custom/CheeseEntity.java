@@ -34,13 +34,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+
 
 import java.util.UUID;
 import java.util.function.Predicate;
@@ -64,10 +58,16 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.TurtleEntity;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.object.PlayState;
 
 
-public class CheeseEntity extends TameableEntity implements IAnimatable, Angerable {
-    private AnimationFactory factory = new AnimationFactory(this);
+public class CheeseEntity extends TameableEntity implements GeoEntity, Angerable, GeoAnimatable {
+    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
 
     public CheeseEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
@@ -141,32 +141,31 @@ public class CheeseEntity extends TameableEntity implements IAnimatable, Angerab
 
         return bl;
     }
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+    private PlayState predicate(AnimationState event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.cheese.walk", true));
+            event.getController().setAnimation(RawAnimation.begin().then("animation.cheese.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
 
         if (this.isSitting()){
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.cheese.sitting", true));
+            event.getController().setAnimation(RawAnimation.begin().then("animation.cheese.sitting", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.cheese.idle", true));
+        event.getController().setAnimation(RawAnimation.begin().then("animation.cheese.idle", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
 
     @Override
-    public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController(this, "controller",
+    public void registerControllers(AnimatableManager.ControllerRegistrar animationData) {
+        animationData.add(new AnimationController(this, "controller",
                 0, this::predicate));
     }
 
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
     }
-
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.ENTITY_DOLPHIN_AMBIENT;

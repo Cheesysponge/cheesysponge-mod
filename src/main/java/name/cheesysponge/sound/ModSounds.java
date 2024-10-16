@@ -4,8 +4,8 @@ import name.cheesysponge.SpongeMod;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 public class ModSounds {
     public static SoundEvent SPONGE_ROD_FOUND_BLOCK = registerSoundEvent("sponge_rod_found_block");
     public static SoundEvent CHEESY_SPONGE_LAMP_BREAK = registerSoundEvent("cheesy_sponge_lamp_break");
@@ -19,7 +19,7 @@ public class ModSounds {
             ModSounds.CHEESY_SPONGE_LAMP_HIT, ModSounds.CHEESY_SPONGE_LAMP_FALL);
     private static SoundEvent registerSoundEvent(String name){
         Identifier id = new Identifier(SpongeMod.MOD_ID, name);
-        return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent((id)));
+        return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of((id)));
     }
 
 }

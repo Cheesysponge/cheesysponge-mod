@@ -3,8 +3,8 @@ package name.cheesysponge.world.structure;
 import com.mojang.serialization.Codec;
 import name.cheesysponge.SpongeMod;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.structure.Structure;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;import net.minecraft.world.gen.structure.Structure;
 import net.minecraft.world.gen.structure.StructureType;
 
 public class ModStructures {
@@ -23,6 +23,6 @@ public class ModStructures {
 
     // Helper method to register since compiler will complain about typing if we did () -> SkyStructures.CODEC directly.
     private static <S extends Structure> StructureType<S> register(Identifier id, Codec<S> codec) {
-        return Registry.register(Registry.STRUCTURE_TYPE, id, () -> codec);
+        return Registry.register(Registries.STRUCTURE_TYPE, id, () -> codec);
     }
 }

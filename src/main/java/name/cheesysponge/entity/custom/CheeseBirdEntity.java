@@ -25,21 +25,21 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.object.PlayState;
+
 
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.List;
 
 public class CheeseBirdEntity extends FlyingEntity
-        implements Monster, IAnimatable {
-    private AnimationFactory factory = new AnimationFactory(this);
+        implements Monster, GeoEntity, GeoAnimatable {
+    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
     CheeseBirdMovementType movementType = CheeseBirdMovementType.CIRCLE;
     Vec3d targetPosition = Vec3d.ZERO;
 
@@ -66,28 +66,31 @@ public class CheeseBirdEntity extends FlyingEntity
         this.targetSelector.add(1, new CheeseBirdEntity.FindTargetGoal());
 
     }
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+    private PlayState predicate(AnimationState event) {
 
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.flying", true));
+            event.getController().setAnimation(RawAnimation.begin().then("animation.model.flying", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
         else {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.sitting", true));
+            event.getController().setAnimation(RawAnimation.begin().then("animation.model.sitting", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
     }
 
     @Override
-    public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController(this, "controller",
+    public void registerControllers(AnimatableManager.ControllerRegistrar animationData) {
+        animationData.add(new AnimationController(this, "controller",
                 0, this::predicate));
     }
 
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
     }
+
+
+
 
     class StartAttackGoal
             extends Goal {

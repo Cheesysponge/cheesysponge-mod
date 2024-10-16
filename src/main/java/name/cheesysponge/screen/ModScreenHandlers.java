@@ -2,10 +2,8 @@ package name.cheesysponge.screen;
 
 import name.cheesysponge.SpongeMod;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
-
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class ModScreenHandlers {
     public static ScreenHandlerType<CheeseBlasterScreenHandler> CHEESE_BLASTER_SCREEN_HANDLER;

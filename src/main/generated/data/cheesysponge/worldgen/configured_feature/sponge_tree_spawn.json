@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "cheesysponge:sponge_tree",
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": "cheesysponge:sponge_tree"
+      }
+    ]
+  }
+}

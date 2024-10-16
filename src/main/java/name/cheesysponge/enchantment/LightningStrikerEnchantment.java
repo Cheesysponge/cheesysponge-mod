@@ -5,6 +5,7 @@ import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.*;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.EvokerFangsEntity;
 import net.minecraft.server.command.EffectCommand;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -48,7 +49,10 @@ public class LightningStrikerEnchantment extends Enchantment {
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE,400,1));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED,200,2));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST,100,1));
-                EntityType.EVOKER_FANGS.spawn(world,null,null,null,position, SpawnReason.TRIGGERED,true,true);
+                EvokerFangsEntity fangs =  new EvokerFangsEntity(EntityType.EVOKER_FANGS, world);
+                fangs.setPos(target.getX(),target.getY(),target.getZ());
+                world.spawnEntity(fangs);
+
             }
             if(level == 6) {
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING,3200,1));
@@ -57,8 +61,12 @@ public class LightningStrikerEnchantment extends Enchantment {
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED,400,3));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST,200,1));
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE,100,1));
-                EntityType.EVOKER_FANGS.spawn(world,null,null,null,position, SpawnReason.TRIGGERED,true,true);
-                EntityType.EVOKER_FANGS.spawn(world,null,null,null,position, SpawnReason.TRIGGERED,true,true);
+                EvokerFangsEntity fangs =  new EvokerFangsEntity(EntityType.EVOKER_FANGS, world);
+
+                fangs.setPos(target.getX(),target.getY(),target.getZ());
+                world.spawnEntity(fangs);
+                world.spawnEntity(fangs);
+
             }
 
 

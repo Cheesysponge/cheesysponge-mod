@@ -38,14 +38,7 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.explosion.Explosion;
-import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+
 
 import java.util.Collection;
 import java.util.UUID;
@@ -69,10 +62,17 @@ import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.TurtleEntity;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.object.PlayState;
 
 
-public class CheeseBossEntity extends TameableEntity implements IAnimatable{
-    private AnimationFactory factory = new AnimationFactory(this);
+public class CheeseBossEntity extends TameableEntity implements GeoEntity, GeoAnimatable {
+    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
     private static final TrackedData<Boolean> IGNITED = DataTracker.registerData(CheeseBossEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Integer> FUSE_SPEED = DataTracker.registerData(CheeseBossEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
@@ -149,31 +149,33 @@ public class CheeseBossEntity extends TameableEntity implements IAnimatable{
         return bl;
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+    private PlayState predicate(AnimationState event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.jumping", true));
+            event.getController().setAnimation(RawAnimation.begin().then("animation.model.jumping", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
 
         if (this.isSitting()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.resting", true));
+            event.getController().setAnimation(RawAnimation.begin().then("animation.model.resting", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.resting", true));
+        event.getController().setAnimation(RawAnimation.begin().then("animation.model.resting", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
 
     @Override
-    public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController(this, "controller",
+    public void registerControllers(AnimatableManager.ControllerRegistrar animationData) {
+        animationData.add(new AnimationController(this, "controller",
                 0, this::predicate));
     }
 
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return factory;
     }
+
+
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -330,7 +332,7 @@ public class CheeseBossEntity extends TameableEntity implements IAnimatable{
     }
     private void explode() {
         if (!this.world.isClient) {
-            Explosion.DestructionType destructionType = this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
+            World.ExplosionSourceType destructionType = this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? World.ExplosionSourceType.MOB : World.ExplosionSourceType.NONE;
             float f = 1.0f;
             this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), (float)this.explosionRadius * f, destructionType);
             this.spawnEffectsCloud();
