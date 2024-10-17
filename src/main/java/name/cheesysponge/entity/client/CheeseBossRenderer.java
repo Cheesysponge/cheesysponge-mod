@@ -8,9 +8,11 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import software.bernie.geckolib.cache.object.BakedGeoModel;
+import software.bernie.geckolib.renderer.DynamicGeoEntityRenderer;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class CheeseBossRenderer extends GeoEntityRenderer<CheeseBossEntity> {
+public class CheeseBossRenderer extends DynamicGeoEntityRenderer<CheeseBossEntity> {
     public CheeseBossRenderer(EntityRendererFactory.Context ctx) {
         super(ctx, new CheeseBossModel());
     }
@@ -38,4 +40,15 @@ public class CheeseBossRenderer extends GeoEntityRenderer<CheeseBossEntity> {
 //        return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder,
 //                packedLightIn, textureLocation);
 //    }
+
+    @Override
+    public void preRender(MatrixStack poseStack, CheeseBossEntity animatable, BakedGeoModel model, VertexConsumerProvider bufferSource, VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        super.preRender(poseStack, animatable, model, bufferSource, buffer, isReRender, partialTick, packedLight, packedOverlay, red, green, blue, alpha);
+
+            if(animatable.isBaby()) {
+                poseStack.scale(0.6f, 0.6f, 0.6f);
+        } else {
+            poseStack.scale(1.4f, 1.4f, 1.4f);
+        }
+    }
 }
