@@ -108,6 +108,7 @@ public class CheeseEntity extends TameableEntity implements GeoEntity, Angerable
         this.dataTracker.startTracking(SITTING, false);
     }
 
+
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new SitGoal(this));
@@ -130,8 +131,12 @@ public class CheeseEntity extends TameableEntity implements GeoEntity, Angerable
         this.targetSelector.add(1,new AnimalMateGoal(this,1.0));
     }
 
-
-
+//    @Override
+//    public void tick() {
+//        if (this.isBaby()){
+//        }
+//        super.tick();
+//    }
 
     public boolean tryAttack(Entity target) {
         boolean bl = target.damage(DamageSource.mob(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));

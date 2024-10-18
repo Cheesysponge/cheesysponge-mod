@@ -38,6 +38,7 @@ public class SpongeMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 
 		ModPaintings.registerPaintings();
+		ModVillagers.registerVillagers();
 
 		ModRegistries.registerModStuffs();
 		ModLootTableModifiers.modifyLootTables();
@@ -51,7 +52,6 @@ public class SpongeMod implements ModInitializer {
 
 		ModParticles.registerParticles();
 		ModEnchantments.registerModEnchantments();
-		ModVillagers.registerVillagers();
 		GeckoLib.initialize();
 
 
