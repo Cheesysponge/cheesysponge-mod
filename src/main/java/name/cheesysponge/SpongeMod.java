@@ -38,7 +38,7 @@ public class SpongeMod implements ModInitializer {
 		ModBlocks.registerModBlocks();
 
 		ModPaintings.registerPaintings();
-
+		ModVillagers.registerVillagers();
 		ModRegistries.registerModStuffs();
 		ModLootTableModifiers.modifyLootTables();
 		ModWorldGen.generateModWorldGen();
