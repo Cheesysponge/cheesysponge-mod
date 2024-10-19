@@ -36,7 +36,7 @@ public class ModPlacedFeatures {
         register(context, SPONGE_TREE_CHECKED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SPONGE_TREE_KEY),
                 List.of(net.minecraft.world.gen.feature.PlacedFeatures.wouldSurvive(ModBlocks.SPONGE_SAPLING)));
         register(context, SPONGE_TREE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SPONGE_TREE_KEY),
-                VegetationPlacedFeatures.modifiers(PlacedFeatures.createCountExtraModifier(1, 0.1f, 2)));
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(1, 0.1f, 2), ModBlocks.SPONGE_SAPLING));
 
         register(context, CHEESYSPONGE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.CHEESYSPONGE_ORE_KEY),
                 modifiersWithCount(16, // VeinsPerChunk

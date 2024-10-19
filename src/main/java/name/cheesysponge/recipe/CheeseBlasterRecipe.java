@@ -6,6 +6,7 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
@@ -44,8 +45,10 @@ public class CheeseBlasterRecipe implements Recipe<SimpleInventory> {
     public Ingredient getMiddleInput() {
         return recipeItems.get(1);
     }
+
+
     @Override
-    public ItemStack craft(SimpleInventory inventory) {
+    public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
         return output;
     }
 
@@ -54,8 +57,10 @@ public class CheeseBlasterRecipe implements Recipe<SimpleInventory> {
         return true;
     }
 
+
+
     @Override
-    public ItemStack getOutput() {
+    public ItemStack getOutput(DynamicRegistryManager registryManager) {
         return output.copy();
     }
 
@@ -72,6 +77,10 @@ public class CheeseBlasterRecipe implements Recipe<SimpleInventory> {
     @Override
     public RecipeType<?> getType() {
         return Type.INSTANCE;
+    }
+
+    public ItemStack getOutput() {
+        return output.copy();
     }
 
     public static class Type implements RecipeType<CheeseBlasterRecipe> {

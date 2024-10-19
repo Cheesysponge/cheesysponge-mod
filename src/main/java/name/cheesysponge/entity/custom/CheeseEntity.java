@@ -23,6 +23,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.scoreboard.AbstractTeam;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
@@ -32,6 +33,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -56,7 +58,6 @@ import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.passive.AnimalEntity;
 
 import net.minecraft.entity.passive.PassiveEntity;
-import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.TurtleEntity;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
@@ -139,7 +140,7 @@ public class CheeseEntity extends TameableEntity implements GeoEntity, Angerable
 //    }
 
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
+        boolean bl = target.damage(this.getDamageSources().mobAttack(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         if (bl) {
             this.applyDamageEffects(this, target);
         }
@@ -306,4 +307,13 @@ public class CheeseEntity extends TameableEntity implements GeoEntity, Angerable
         this.setAngerTime(ANGER_TIME_RANGE.get(this.random));
     }
 
+    @Override
+    public EntityView method_48926() {
+        return null;
+    }
+//
+//    @Override
+//    public EntityView method_48926() {
+//        return null;
+//    }
 }

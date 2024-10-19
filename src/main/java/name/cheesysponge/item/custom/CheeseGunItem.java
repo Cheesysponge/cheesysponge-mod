@@ -67,7 +67,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
             CheeseGunItem.setCharged(itemStack, false);
             return TypedActionResult.consume(itemStack);
         }
-        if (!user.getArrowType(itemStack).isEmpty()) {
+        if (!user.getProjectileType(itemStack).isEmpty()) {
             if (!CheeseGunItem.isCharged(itemStack)) {
                 this.charged = false;
                 this.loaded = false;
@@ -100,7 +100,7 @@ public class CheeseGunItem extends CrossbowItem implements Vanishable {
         int i = EnchantmentHelper.getLevel(Enchantments.MULTISHOT, projectile);
         int j = i == 0 ? 1 : 3;
         boolean bl = shooter instanceof PlayerEntity && ((PlayerEntity)shooter).getAbilities().creativeMode;
-        ItemStack itemStack = shooter.getArrowType(projectile);
+        ItemStack itemStack = shooter.getProjectileType(projectile);
         ItemStack itemStack2 = itemStack.copy();
         for (int k = 0; k < j; ++k) {
             if (k > 0) {

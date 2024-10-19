@@ -8,7 +8,6 @@ import name.cheesysponge.item.custom.*;
 import name.cheesysponge.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 
@@ -31,25 +30,24 @@ public class ModItems {
     public static final Item CHEESY_SPONGE_SHOVEL = registerItem("cheesy_sponge_shovel", new ShovelItem(ModToolMaterials.CHEESYSPONGE,14,-3.5f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
     public static final Item CHEESY_SPONGE_MAGIC_SWORD = registerItem("cheesy_sponge_magic_sword", new ModSlownessSwordItem(ModToolMaterials.CHEESYSPONGE,4,-2.3f,new FabricItemSettings().rarity(Rarity.EPIC).fireproof().maxCount(1)));
 
-    public static final Item CHEESY_SPONGE_HELMET = registerItem("cheesy_sponge_helmet", new ModArmorItem(ModArmorMaterials.CHEESY_SPONGE, EquipmentSlot.HEAD,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item CHEESY_SPONGE_CHESTPLATE = registerItem("cheesy_sponge_chestplate", new ModArmorItem(ModArmorMaterials.CHEESY_SPONGE, EquipmentSlot.CHEST,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item CHEESY_SPONGE_LEGGINGS = registerItem("cheesy_sponge_leggings", new ModArmorItem(ModArmorMaterials.CHEESY_SPONGE, EquipmentSlot.LEGS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item CHEESY_SPONGE_BOOTS = registerItem("cheesy_sponge_boots", new ModArmorItem(ModArmorMaterials.CHEESY_SPONGE, EquipmentSlot.FEET,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));public static final Item DATA_TABLET = registerItem("data_tablet", new DataTabletItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item SPONGE_HELMET = registerItem("sponge_helmet", new ModArmorItem(ModArmorMaterials.SPONGE, EquipmentSlot.HEAD,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item SPONGE_CHESTPLATE = registerItem("sponge_chestplate", new ModArmorItem(ModArmorMaterials.SPONGE, EquipmentSlot.CHEST,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item SPONGE_LEGGINGS = registerItem("sponge_leggings", new ModArmorItem(ModArmorMaterials.SPONGE, EquipmentSlot.LEGS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item SPONGE_BOOTS = registerItem("sponge_boots", new ModArmorItem(ModArmorMaterials.SPONGE, EquipmentSlot.FEET,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item CHEESE_HELMET = registerItem("cheese_helmet", new ModArmorItem(ModArmorMaterials.CHEESE, EquipmentSlot.HEAD,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item CHEESE_CHESTPLATE = registerItem("cheese_chestplate", new ModArmorItem(ModArmorMaterials.CHEESE, EquipmentSlot.CHEST,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item CHEESE_LEGGINGS = registerItem("cheese_leggings", new ModArmorItem(ModArmorMaterials.CHEESE, EquipmentSlot.LEGS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item CHEESE_BOOTS = registerItem("cheese_boots", new ModArmorItem(ModArmorMaterials.CHEESE, EquipmentSlot.FEET,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item CHEESY_SPONGE_HELMET = registerItem("cheesy_sponge_helmet", new ModArmorItem(ModArmorMaterials.CHEESY_SPONGE, ArmorItem.Type.HELMET,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item CHEESY_SPONGE_CHESTPLATE = registerItem("cheesy_sponge_chestplate", new ModArmorItem(ModArmorMaterials.CHEESY_SPONGE, ArmorItem.Type.CHESTPLATE,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item CHEESY_SPONGE_LEGGINGS = registerItem("cheesy_sponge_leggings", new ModArmorItem(ModArmorMaterials.CHEESY_SPONGE, ArmorItem.Type.LEGGINGS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item CHEESY_SPONGE_BOOTS = registerItem("cheesy_sponge_boots", new ModArmorItem(ModArmorMaterials.CHEESY_SPONGE, ArmorItem.Type.BOOTS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item DATA_TABLET = registerItem("data_tablet", new DataTabletItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item SPONGE_HELMET = registerItem("sponge_helmet", new ModArmorItem(ModArmorMaterials.SPONGE, ArmorItem.Type.HELMET,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item SPONGE_CHESTPLATE = registerItem("sponge_chestplate", new ModArmorItem(ModArmorMaterials.SPONGE, ArmorItem.Type.CHESTPLATE,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item SPONGE_LEGGINGS = registerItem("sponge_leggings", new ModArmorItem(ModArmorMaterials.SPONGE, ArmorItem.Type.LEGGINGS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item SPONGE_BOOTS = registerItem("sponge_boots", new ModArmorItem(ModArmorMaterials.SPONGE, ArmorItem.Type.BOOTS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item CHEESE_HELMET = registerItem("cheese_helmet", new ModArmorItem(ModArmorMaterials.CHEESE, ArmorItem.Type.HELMET,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item CHEESE_CHESTPLATE = registerItem("cheese_chestplate", new ModArmorItem(ModArmorMaterials.CHEESE, ArmorItem.Type.CHESTPLATE,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item CHEESE_LEGGINGS = registerItem("cheese_leggings", new ModArmorItem(ModArmorMaterials.CHEESE, ArmorItem.Type.LEGGINGS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item CHEESE_BOOTS = registerItem("cheese_boots", new ModArmorItem(ModArmorMaterials.CHEESE, ArmorItem.Type.BOOTS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
     public static final Item SPONGE_SEEDS = registerItem("sponge_seeds", new AliasedBlockItem(ModBlocks.SPONGE_WEED, new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item CHEESE_BOW = registerItem("cheese_bow", new CheeseBowItem(new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1).maxDamage(600)));
     public static final Item HYPE_MUSIC_DISC = registerItem("hype_music_disc", new ModMusicDiscItem(7, ModSounds.HYPE_MUSIC,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxDamage(1000),147));
     public static final Item CHEESY_SPONGE_STAFF = registerItem("cheesy_sponge_staff", new ModSlownessSwordItem(ModToolMaterials.CHEESYSPONGE,4,-2.3f,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item SPONGE_WOOD_SIGN = registerItem("sponge_wood_sign",
-            new SignItem(new FabricItemSettings().maxCount(16),
-                    ModBlocks.SPONGE_WOOD_SIGN_BLOCK, ModBlocks.SPONGE_WOOD_WALL_SIGN_BLOCK));
+
     public static final Item CHEESE_BUCKET = registerItem("cheese_bucket",
             new BucketItem(ModFluids.CHEESE_STILL, new FabricItemSettings().maxCount(1).food(ModFoodComponents.LIQUID_CHEESE)));
     public static final Item CHEESE_GUN = registerItem("cheese_gun",

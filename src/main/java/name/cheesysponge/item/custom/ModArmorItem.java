@@ -2,12 +2,12 @@ package name.cheesysponge.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -21,8 +21,8 @@ public class ModArmorItem extends ArmorItem {
                     .put(ModArmorMaterials.CHEESE, new StatusEffectInstance(StatusEffects.ABSORPTION, 400, 0))
                     .build();
 
-    public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
-        super(material, slot, settings);
+    public ModArmorItem(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings) {
+        super(material, type, settings);
     }
 
     @Override
@@ -36,7 +36,6 @@ public class ModArmorItem extends ArmorItem {
                 }
             }
         }
-
         super.inventoryTick(stack, world, entity, slot, selected);
     }
 

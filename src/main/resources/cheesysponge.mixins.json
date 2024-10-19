@@ -6,8 +6,7 @@
     "BlockEntityTypeMixin",
     "BrewingRecipeRegistryMixin",
     "ExampleMixin",
-    "ModEntityDataSaver",
-    "SignTypeAccessor"
+    "ModEntityDataSaver"
   ],
   "injectors": {
     "defaultRequire": 1

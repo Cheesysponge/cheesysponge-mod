@@ -34,6 +34,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.EntityView;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
@@ -140,15 +141,13 @@ public class CheeseBossEntity extends TameableEntity implements GeoEntity, GeoAn
 
 
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this), (float) ((int) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
+        boolean bl = target.damage(this.getDamageSources().mobAttack(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         if (bl) {
             this.applyDamageEffects(this, target);
-            this.explode();
         }
 
         return bl;
     }
-
     private PlayState predicate(AnimationState event) {
         if (event.isMoving()) {
             event.getController().setAnimation(RawAnimation.begin().then("animation.model.jumping", Animation.LoopType.LOOP));
@@ -352,5 +351,8 @@ public class CheeseBossEntity extends TameableEntity implements GeoEntity, GeoAn
     }
 
 
-
+    @Override
+    public EntityView method_48926() {
+        return null;
+    }
 }
