@@ -3,13 +3,13 @@
 	"id": "cheesysponge",
 	"version": "${version}",
 	"name": "cheesysponge",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A spongy cheese mod",
 	"authors": [
 		"Cheesysponge"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/cheese-sponges",
+		"sources": "https://github.com/Cheesysponge/cheesysponge-mod"
 	},
 	"license": "MIT",
 	"icon": "assets/cheesysponge/icon.png",
@@ -27,12 +27,11 @@
 	"mixins": [
 		"cheesysponge.mixins.json"
 	],
-	"depends": {
-		"fabricloader": ">=0.14.9",
-		"minecraft": "~1.19",
-		"java": ">=17",
-		"fabric": "*"
-	},
+	 "depends": {
+		 "fabricloader": ">=${loader_version}",
+		 "fabric": "*",
+		 "minecraft": "${minecraft_version}"
+	 },
 	"suggests": {
 		"another-mod": "*"
 	}
