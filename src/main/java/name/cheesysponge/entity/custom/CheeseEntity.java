@@ -205,18 +205,18 @@ public class CheeseEntity extends TameableEntity implements GeoEntity, Angerable
         }
 
         if (item == itemForTaming && !isTamed()) {
-            if (this.world.isClient()) {
+            if (this.getWorld().isClient()) {
                 return ActionResult.CONSUME;
             } else {
                 if (!player.getAbilities().creativeMode) {
                     itemstack.decrement(1);
                 }
 
-                if (!this.world.isClient()) {
+                if (!this.getWorld().isClient()) {
                     super.setOwner(player);
                     this.navigation.recalculatePath();
                     this.setTarget(null);
-                    this.world.sendEntityStatus(this, (byte)7);
+                    this.getWorld().sendEntityStatus(this, (byte)7);
                     setSit(true);
                 }
 
@@ -224,7 +224,7 @@ public class CheeseEntity extends TameableEntity implements GeoEntity, Angerable
             }
         }
 
-        if(isTamed() && !this.world.isClient() && hand == Hand.MAIN_HAND) {
+        if(isTamed() && !this.getWorld().isClient() && hand == Hand.MAIN_HAND) {
             setSit(!isSitting());
             return ActionResult.SUCCESS;
         }

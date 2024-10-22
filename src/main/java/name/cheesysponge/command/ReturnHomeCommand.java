@@ -9,6 +9,8 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 
+import java.util.function.Supplier;
+
 public class ReturnHomeCommand {
     public static void register(CommandDispatcher<ServerCommandSource> serverCommandSourceCommandDispatcher,
                                 CommandRegistryAccess commandRegistryAccess,
@@ -27,10 +29,10 @@ public class ReturnHomeCommand {
             int[] playerPos = player.getPersistentData().getIntArray("homepos");
             context.getSource().getPlayer().requestTeleport(playerPos[0], playerPos[1], playerPos[2]);
 
-            context.getSource().sendFeedback( Text.literal("Player returned Home!"), true);
+            context.getSource().sendFeedback((Supplier<Text>) Text.literal("Player returned Home!"), true);
             return 1;
         } else {
-            context.getSource().sendFeedback( Text.literal("No Home Position has been Set!"), true);
+            context.getSource().sendFeedback((Supplier<Text>) Text.literal("No Home Position has been Set!"), true);
             return -1;
         }
     }

@@ -5,53 +5,35 @@
 
 package name.cheesysponge.block.custom;
 
-import java.util.Iterator;
-import java.util.List;
-
 import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.block.entity.CheeseBoxEntity;
-import name.cheesysponge.item.ModItems;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.*;
-import net.minecraft.block.entity.ShulkerBoxBlockEntity.AnimationStage;
-import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.PiglinBrain;
-import net.minecraft.entity.mob.ShulkerEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.loot.context.LootContext;
-import net.minecraft.loot.context.LootContextParameters;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.*;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.Properties;
+import net.minecraft.state.property.Property;
 import net.minecraft.util.*;
-import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-
-import static net.minecraft.block.ShulkerBoxBlock.CONTENTS;
-import static net.minecraft.block.ShulkerBoxBlock.getItemStack;
 
 public class ModShulkerBox extends BlockWithEntity {
     public static final DirectionProperty FACING;
@@ -86,19 +68,19 @@ public class ModShulkerBox extends BlockWithEntity {
         super.onBreak(world, pos, state, player);
     }
 
-    public List<ItemStack> getDroppedStacks(BlockState state, LootContext.Builder builder) {
-        BlockEntity blockEntity = (BlockEntity)builder.getNullable(LootContextParameters.BLOCK_ENTITY);
-        if (blockEntity instanceof ShulkerBoxBlockEntity shulkerBoxBlockEntity) {
-            builder = builder.putDrop(CONTENTS, (context, consumer) -> {
-                for(int i = 0; i < shulkerBoxBlockEntity.size(); ++i) {
-                    consumer.accept(shulkerBoxBlockEntity.getStack(i));
-                }
-
-            });
-        }
-
-        return super.getDroppedStacks(state, builder);
-    }
+//    public List<ItemStack> getDroppedStacks(BlockState state, LootContext.Builder builder) {
+//        BlockEntity blockEntity = (BlockEntity)builder.getNullable(LootContextParameters.BLOCK_ENTITY);
+//        if (blockEntity instanceof ShulkerBoxBlockEntity shulkerBoxBlockEntity) {
+//            builder = builder.putDrop(CONTENTS, (context, consumer) -> {
+//                for(int i = 0; i < shulkerBoxBlockEntity.size(); ++i) {
+//                    consumer.accept(shulkerBoxBlockEntity.getStack(i));
+//                }
+//
+//            });
+//        }
+//
+//        return super.getDroppedStacks(state, builder);
+//    }
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {

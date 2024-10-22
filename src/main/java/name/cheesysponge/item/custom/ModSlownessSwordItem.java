@@ -73,7 +73,7 @@ public class ModSlownessSwordItem extends SwordItem implements Vanishable{
                 k *= n / m;
                 l *= n / m;
                 playerEntity.addVelocity((double)h, (double)k, (double)l);
-                user.world.syncWorldEvent(WorldEvents.BLOCK_WAXED, user.getBlockPos(), 0);
+                user.getWorld().syncWorldEvent(WorldEvents.BLOCK_WAXED, user.getBlockPos(), 0);
                 spawnFoundParticles(user, user.getBlockPos());
 
 

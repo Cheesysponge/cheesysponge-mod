@@ -117,7 +117,7 @@ public class CheeseBirdEntity extends FlyingEntity
 
         @Override
         public void stop() {
-            CheeseBirdEntity.this.circlingCenter = CheeseBirdEntity.this.world.getTopPosition(Heightmap.Type.MOTION_BLOCKING, CheeseBirdEntity.this.circlingCenter).up(10 + CheeseBirdEntity.this.random.nextInt(20));
+            CheeseBirdEntity.this.circlingCenter = CheeseBirdEntity.this.getWorld().getTopPosition(Heightmap.Type.MOTION_BLOCKING, CheeseBirdEntity.this.circlingCenter).up(10 + CheeseBirdEntity.this.random.nextInt(20));
         }
 
         @Override
@@ -135,8 +135,8 @@ public class CheeseBirdEntity extends FlyingEntity
 
         private void startSwoop() {
             CheeseBirdEntity.this.circlingCenter = CheeseBirdEntity.this.getTarget().getBlockPos().up(20 + CheeseBirdEntity.this.random.nextInt(20));
-            if (CheeseBirdEntity.this.circlingCenter.getY() < CheeseBirdEntity.this.world.getSeaLevel()) {
-                CheeseBirdEntity.this.circlingCenter = new BlockPos(CheeseBirdEntity.this.circlingCenter.getX(), CheeseBirdEntity.this.world.getSeaLevel() + 1, CheeseBirdEntity.this.circlingCenter.getZ());
+            if (CheeseBirdEntity.this.circlingCenter.getY() < CheeseBirdEntity.this.getWorld().getSeaLevel()) {
+                CheeseBirdEntity.this.circlingCenter = new BlockPos(CheeseBirdEntity.this.circlingCenter.getX(), CheeseBirdEntity.this.getWorld().getSeaLevel() + 1, CheeseBirdEntity.this.circlingCenter.getZ());
             }
         }
     }
@@ -243,11 +243,11 @@ public class CheeseBirdEntity extends FlyingEntity
             if (this.isNearTarget()) {
                 this.adjustDirection();
             }
-            if (CheeseBirdEntity.this.targetPosition.y < CheeseBirdEntity.this.getY() && !CheeseBirdEntity.this.world.isAir(CheeseBirdEntity.this.getBlockPos().down(1))) {
+            if (CheeseBirdEntity.this.targetPosition.y < CheeseBirdEntity.this.getY() && !CheeseBirdEntity.this.getWorld().isAir(CheeseBirdEntity.this.getBlockPos().down(1))) {
                 this.yOffset = Math.max(1.0f, this.yOffset);
                 this.adjustDirection();
             }
-            if (CheeseBirdEntity.this.targetPosition.y > CheeseBirdEntity.this.getY() && !CheeseBirdEntity.this.world.isAir(CheeseBirdEntity.this.getBlockPos().up(1))) {
+            if (CheeseBirdEntity.this.targetPosition.y > CheeseBirdEntity.this.getY() && !CheeseBirdEntity.this.getWorld().isAir(CheeseBirdEntity.this.getBlockPos().up(1))) {
                 this.yOffset = Math.min(-1.0f, this.yOffset);
                 this.adjustDirection();
             }
@@ -328,7 +328,7 @@ public class CheeseBirdEntity extends FlyingEntity
                 CheeseBirdEntity.this.tryAttack(livingEntity);
                 CheeseBirdEntity.this.movementType = CheeseBirdEntity.CheeseBirdMovementType.CIRCLE;
                 if (!CheeseBirdEntity.this.isSilent()) {
-                    CheeseBirdEntity.this.world.syncWorldEvent(WorldEvents.BLOCK_WAXED, CheeseBirdEntity.this.getBlockPos(), 0);
+                    CheeseBirdEntity.this.getWorld().syncWorldEvent(WorldEvents.BLOCK_WAXED, CheeseBirdEntity.this.getBlockPos(), 0);
                 }
             } else if (CheeseBirdEntity.this.horizontalCollision || CheeseBirdEntity.this.hurtTime > 0) {
                 CheeseBirdEntity.this.movementType = CheeseBirdEntity.CheeseBirdMovementType.CIRCLE;
@@ -351,7 +351,7 @@ public class CheeseBirdEntity extends FlyingEntity
                 return false;
             }
             this.delay = CheeseBirdEntity.FindTargetGoal.toGoalTicks(60);
-            List<PlayerEntity> list = CheeseBirdEntity.this.world.getPlayers(this.PLAYERS_IN_RANGE_PREDICATE, CheeseBirdEntity.this, CheeseBirdEntity.this.getBoundingBox().expand(16.0, 64.0, 16.0));
+            List<PlayerEntity> list = CheeseBirdEntity.this.getWorld().getPlayers(this.PLAYERS_IN_RANGE_PREDICATE, CheeseBirdEntity.this, CheeseBirdEntity.this.getBoundingBox().expand(16.0, 64.0, 16.0));
             if (!list.isEmpty()) {
                 list.sort(Comparator.comparing(Entity::getY).reversed());
                 for (PlayerEntity playerEntity : list) {
@@ -422,7 +422,7 @@ public class CheeseBirdEntity extends FlyingEntity
             }
             double d = 64.0;
             if (livingEntity.squaredDistanceTo(this.cheeseBird) < 4096.0 && this.cheeseBird.canSee(livingEntity)) {
-                World world = this.cheeseBird.world;
+                World world = this.cheeseBird.getWorld();
                 ++this.cooldown;
                 if (this.cooldown == 10 && !this.cheeseBird.isSilent()) {
                     world.syncWorldEvent(null, WorldEvents.BLOCK_WAXED, this.cheeseBird.getBlockPos(), 0);
@@ -434,11 +434,11 @@ public class CheeseBirdEntity extends FlyingEntity
                     double g = livingEntity.getBodyY(0.5) - (0.5 + this.cheeseBird.getBodyY(0.5));
                     double h = livingEntity.getZ() - (this.cheeseBird.getZ() + vec3d.z * 4.0);
                     if (!this.cheeseBird.isSilent()) {
-                        world.syncWorldEvent(null, WorldEvents.BLOCK_WAXED, this.cheeseBird.getBlockPos(), 0);
+                        this.cheeseBird.getWorld().syncWorldEvent(null, WorldEvents.BLOCK_WAXED, this.cheeseBird.getBlockPos(), 0);
                     }
-                    FireballEntity fireballEntity = new FireballEntity(world, (LivingEntity)this.cheeseBird, f, g, h, this.cheeseBird.getFireballStrength());
+                    FireballEntity fireballEntity = new FireballEntity(this.cheeseBird.getWorld(), this.cheeseBird, f, g, h, this.cheeseBird.getFireballStrength());
                     fireballEntity.setPosition(this.cheeseBird.getX() + vec3d.x * 4.0, this.cheeseBird.getBodyY(0.5) + 0.5, fireballEntity.getZ() + vec3d.z * 4.0);
-                    world.spawnEntity(fireballEntity);
+                    this.cheeseBird.getWorld().spawnEntity(fireballEntity);
                     this.cooldown = -40;
                 }
             } else if (this.cooldown > 0) {

@@ -10,6 +10,8 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
+import java.util.function.Supplier;
+
 public class SetHomeCommand {
     public static void register(CommandDispatcher<ServerCommandSource> serverCommandSourceCommandDispatcher,
                                 CommandRegistryAccess commandRegistryAccess,
@@ -26,7 +28,7 @@ public class SetHomeCommand {
         player.getPersistentData().putIntArray("homepos",
                 new int[] {playerPos.getX(), playerPos.getY(), playerPos.getZ() });
 
-        context.getSource().sendFeedback( Text.literal("Set home at " + pos), true);
+        context.getSource().sendFeedback((Supplier<Text>) Text.literal("Set home at " + pos), true);
         return 1;
     }
 }

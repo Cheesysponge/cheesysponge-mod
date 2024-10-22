@@ -45,14 +45,14 @@ public class ModItems {
     public static final Item CHEESE_BOOTS = registerItem("cheese_boots", new ModArmorItem(ModArmorMaterials.CHEESE, ArmorItem.Type.BOOTS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
     public static final Item SPONGE_SEEDS = registerItem("sponge_seeds", new AliasedBlockItem(ModBlocks.SPONGE_WEED, new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item CHEESE_BOW = registerItem("cheese_bow", new CheeseBowItem(new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1).maxDamage(600)));
-    public static final Item HYPE_MUSIC_DISC = registerItem("hype_music_disc", new ModMusicDiscItem(7, ModSounds.HYPE_MUSIC,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxDamage(1000),147));
+    public static final Item HYPE_MUSIC_DISC = registerItem("hype_music_disc", new ModMusicDiscItem(7, ModSounds.HYPE_MUSIC,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxDamage(1000),146));
     public static final Item CHEESY_SPONGE_STAFF = registerItem("cheesy_sponge_staff", new ModSlownessSwordItem(ModToolMaterials.CHEESYSPONGE,4,-2.3f,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
 
     public static final Item CHEESE_BUCKET = registerItem("cheese_bucket",
             new BucketItem(ModFluids.CHEESE_STILL, new FabricItemSettings().maxCount(1).food(ModFoodComponents.LIQUID_CHEESE)));
     public static final Item CHEESE_GUN = registerItem("cheese_gun",
             new CheeseGunItem(new FabricItemSettings().maxCount(1)));
-
+    public static final ItemGroup reference = ModItemGroup.CHEESY_SPONGE;
     public static final Item CHEESE_SPAWN_EGG = registerItem("cheese_spawn_egg",
             new SpawnEggItem(ModEntities.CHEESE,0xe2ff3d, 0xfcba03,
                     new FabricItemSettings().maxCount(64)));
@@ -64,13 +64,15 @@ public class ModItems {
                     new FabricItemSettings().maxCount(64)));
     public static final Item INVISIBLE_SHIELD = registerItem("invisible_shield", new ShieldItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1).maxDamage(1400)));
 
+    public static final Item[] items = new Item[] {SPONGE_INGOT, CHEESY_SPONGE, RAW_CHEESY_SPONGE, CHEESY_SPONGE_ROD, BURNING_CHEESE, CHEESY_SPONGE_SWORD, CHEESY_SPONGE_AXE, CHEESY_SPONGE_PICKAXE, CHEESY_SPONGE_HOE, CHEESY_SPONGE_SHOVEL, CHEESY_SPONGE_MAGIC_SWORD, CHEESY_SPONGE_HELMET, CHEESY_SPONGE_CHESTPLATE, CHEESY_SPONGE_LEGGINGS, CHEESY_SPONGE_BOOTS, DATA_TABLET, SPONGE_HELMET, SPONGE_CHESTPLATE, SPONGE_LEGGINGS, SPONGE_BOOTS, CHEESE_HELMET, CHEESE_CHESTPLATE, CHEESE_LEGGINGS, CHEESE_BOOTS, SPONGE_SEEDS, CHEESE_BOW, HYPE_MUSIC_DISC, CHEESY_SPONGE_STAFF, CHEESE_BUCKET, CHEESE_GUN, CHEESE_SPAWN_EGG, CHEESE_BOSS_SPAWN_EGG, CHEESE_BIRD_SPAWN_EGG, INVISIBLE_SHIELD};
+
     private static Item registerItem(String name, Item item) {
-        addToItemGroup(ModItemGroup.CHEESY_SPONGE,item);
+        //addToItemGroup(ModItemGroup.CHEESY_SPONGE,item);
         return Registry.register(Registries.ITEM, new Identifier(SpongeMod.MOD_ID, name), item);
     }
-    public static void addToItemGroup(ItemGroup group, Item item) {
-        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
-    }
+//    public static void addToItemGroup(ItemGroup group, Item item) {
+//        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
+//    }
     public static void registerModItems() {
         SpongeMod.LOGGER.info("Registering Mod Items for " + SpongeMod.MOD_ID);
     }

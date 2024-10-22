@@ -204,12 +204,12 @@ public class CheeseBossEntity extends TameableEntity implements GeoEntity, GeoAn
         ItemStack itemstack = player.getStackInHand(hand);
         Item item = itemstack.getItem();
         if (itemstack.isOf(Items.FLINT_AND_STEEL)) {
-            this.world.playSound(player, this.getX(), this.getY(), this.getZ(), SoundEvents.ITEM_FLINTANDSTEEL_USE, this.getSoundCategory(), 1.0f, this.random.nextFloat() * 0.4f + 0.8f);
-            if (!this.world.isClient) {
+            this.getWorld().playSound(player, this.getX(), this.getY(), this.getZ(), SoundEvents.ITEM_FLINTANDSTEEL_USE, this.getSoundCategory(), 1.0f, this.random.nextFloat() * 0.4f + 0.8f);
+            if (!this.getWorld().isClient) {
                 this.ignite();
                 itemstack.damage(1, player, player2 -> player.sendToolBreakStatus(hand));
             }
-            return ActionResult.success(this.world.isClient);
+            return ActionResult.success(this.getWorld().isClient);
         }
         Item itemForTaming = Item.fromBlock(ModBlocks.CHEESY_BLOCK);
         if (isBreedingItem(itemstack)) {
@@ -217,18 +217,18 @@ public class CheeseBossEntity extends TameableEntity implements GeoEntity, GeoAn
         }
 
         if (item == itemForTaming && !isTamed()) {
-            if (this.world.isClient()) {
+            if (this.getWorld().isClient()) {
                 return ActionResult.CONSUME;
             } else {
                 if (!player.getAbilities().creativeMode) {
                     itemstack.decrement(1);
                 }
 
-                if (!this.world.isClient()) {
+                if (!this.getWorld().isClient()) {
                     super.setOwner(player);
                     this.navigation.recalculatePath();
                     this.setTarget(null);
-                    this.world.sendEntityStatus(this, (byte) 7);
+                    this.getWorld().sendEntityStatus(this, (byte) 7);
                     setSit(true);
                 }
 
@@ -236,7 +236,7 @@ public class CheeseBossEntity extends TameableEntity implements GeoEntity, GeoAn
             }
         }
 
-        if (isTamed() && !this.world.isClient() && hand == Hand.MAIN_HAND) {
+        if (isTamed() && !this.getWorld().isClient() && hand == Hand.MAIN_HAND) {
             setSit(!isSitting());
             return ActionResult.SUCCESS;
         }
@@ -317,7 +317,7 @@ public class CheeseBossEntity extends TameableEntity implements GeoEntity, GeoAn
     private void spawnEffectsCloud() {
         Collection<StatusEffectInstance> collection = this.getStatusEffects();
         if (!collection.isEmpty()) {
-            AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(this.world, this.getX(), this.getY(), this.getZ());
+            AreaEffectCloudEntity areaEffectCloudEntity = new AreaEffectCloudEntity(this.getWorld(), this.getX(), this.getY(), this.getZ());
             areaEffectCloudEntity.setRadius(2.5f);
             areaEffectCloudEntity.setRadiusOnUse(-0.5f);
             areaEffectCloudEntity.setWaitTime(10);
@@ -326,14 +326,14 @@ public class CheeseBossEntity extends TameableEntity implements GeoEntity, GeoAn
             for (StatusEffectInstance statusEffectInstance : collection) {
                 areaEffectCloudEntity.addEffect(new StatusEffectInstance(statusEffectInstance));
             }
-            this.world.spawnEntity(areaEffectCloudEntity);
+            this.getWorld().spawnEntity(areaEffectCloudEntity);
         }
     }
     private void explode() {
-        if (!this.world.isClient) {
-            World.ExplosionSourceType destructionType = this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? World.ExplosionSourceType.MOB : World.ExplosionSourceType.NONE;
+        if (!this.getWorld().isClient) {
+            World.ExplosionSourceType destructionType = this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? World.ExplosionSourceType.MOB : World.ExplosionSourceType.NONE;
             float f = 1.0f;
-            this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), (float)this.explosionRadius * f, destructionType);
+            this.getWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), (float)this.explosionRadius * f, destructionType);
             this.spawnEffectsCloud();
         }
     }
