@@ -42,11 +42,11 @@ public class ModPlacedFeatures {
                 modifiersWithCount(16, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80))));
         register(context, NETHER_CHEESYSPONGE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_CHEESYSPONGE_ORE_KEY),
-                modifiersWithCount(16, // VeinsPerChunk
-                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(-80), YOffset.aboveBottom(80))));
+                modifiersWithCount(4, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(-80), YOffset.aboveBottom(50))));
         register(context, END_CHEESYSPONGE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.END_CHEESYSPONGE_ORE_KEY),
-                modifiersWithCount(16, // VeinsPerChunk
-                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(-80), YOffset.aboveBottom(80))));
+                modifiersWithCount(4, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(-80), YOffset.aboveBottom(50))));
 
 
 

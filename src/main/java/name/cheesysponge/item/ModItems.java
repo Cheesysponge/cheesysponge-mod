@@ -9,6 +9,7 @@ import name.cheesysponge.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 import net.minecraft.util.Rarity;
@@ -26,8 +27,8 @@ public class ModItems {
 
     public static final Item CHEESY_SPONGE_PICKAXE = registerItem("cheesy_sponge_pickaxe", new ModPickaxeItem(ModToolMaterials.CHEESYSPONGE,1,-2.8f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
 
-    public static final Item CHEESY_SPONGE_HOE = registerItem("cheesy_sponge_hoe", new ModHoeItem(ModToolMaterials.CHEESYSPONGE,3,20f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
-    public static final Item CHEESY_SPONGE_SHOVEL = registerItem("cheesy_sponge_shovel", new ShovelItem(ModToolMaterials.CHEESYSPONGE,14,-3.5f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item CHEESY_SPONGE_HOE = registerItem("cheesy_sponge_hoe", new ModHoeItem(ModToolMaterials.CHEESYSPONGE,2,10f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item CHEESY_SPONGE_SHOVEL = registerItem("cheesy_sponge_shovel", new ShovelItem(ModToolMaterials.CHEESYSPONGE,13,-3.5f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
     public static final Item CHEESY_SPONGE_MAGIC_SWORD = registerItem("cheesy_sponge_magic_sword", new ModSlownessSwordItem(ModToolMaterials.CHEESYSPONGE,4,-2.3f,new FabricItemSettings().rarity(Rarity.EPIC).fireproof().maxCount(1)));
 
     public static final Item CHEESY_SPONGE_HELMET = registerItem("cheesy_sponge_helmet", new ModArmorItem(ModArmorMaterials.CHEESY_SPONGE, ArmorItem.Type.HELMET,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
@@ -45,7 +46,7 @@ public class ModItems {
     public static final Item CHEESE_BOOTS = registerItem("cheese_boots", new ModArmorItem(ModArmorMaterials.CHEESE, ArmorItem.Type.BOOTS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
     public static final Item SPONGE_SEEDS = registerItem("sponge_seeds", new AliasedBlockItem(ModBlocks.SPONGE_WEED, new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item CHEESE_BOW = registerItem("cheese_bow", new CheeseBowItem(new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1).maxDamage(600)));
-    public static final Item HYPE_MUSIC_DISC = registerItem("hype_music_disc", new ModMusicDiscItem(7, ModSounds.HYPE_MUSIC,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxDamage(1000),146));
+    public static final Item HYPE_MUSIC_DISC = registerItem("hype_music_disc", new MusicDiscItem(1, SoundEvents.MUSIC_DISC_13, (new FabricItemSettings()).maxCount(1).rarity(Rarity.RARE), 100));
     public static final Item CHEESY_SPONGE_STAFF = registerItem("cheesy_sponge_staff", new ModSlownessSwordItem(ModToolMaterials.CHEESYSPONGE,4,-2.3f,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
 
     public static final Item CHEESE_BUCKET = registerItem("cheese_bucket",
