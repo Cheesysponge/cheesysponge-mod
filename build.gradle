@@ -36,6 +36,8 @@ repositories {
 	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 	maven {url = "https://maven.kyrptonaught.dev"}
 	maven { url "https://api.modrinth.com/maven" }
+	maven { url = "https://jitpack.io" }
+
 
 }
 
@@ -78,6 +80,12 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
+
+	modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+
+	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
+//
+	modImplementation "com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}"
 
 	modImplementation "net.kyrptonaught:customportalapi:${project.portal_version}"
 	include "net.kyrptonaught:customportalapi:${project.portal_version}"

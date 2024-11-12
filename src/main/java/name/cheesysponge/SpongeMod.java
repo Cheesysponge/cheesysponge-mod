@@ -21,9 +21,13 @@ import name.cheesysponge.world.gen.ModWorldGen;
 import name.cheesysponge.world.structure.ModStructures;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.item.ItemGroups;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.bernie.geckolib.GeckoLib;
+
+import static name.cheesysponge.item.ModItems.INVISIBLE_SHIELD;
 
 public class SpongeMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -36,6 +40,8 @@ public class SpongeMod implements ModInitializer {
 	public void onInitialize() {
 		ModConfiguredFeatures.registerConfiguredFeatures();
 		ModItems.registerModItems();
+
+
 		ModBlocks.registerModBlocks();
 		ModItemGroup.registerItemGroups();
 

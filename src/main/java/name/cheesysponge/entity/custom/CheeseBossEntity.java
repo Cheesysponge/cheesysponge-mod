@@ -225,7 +225,7 @@ public class CheeseBossEntity extends TameableEntity implements GeoEntity, GeoAn
                 }
 
                 if (!this.getWorld().isClient()) {
-                    super.setOwner(player);
+                    //super.setOwner(player);
                     this.navigation.recalculatePath();
                     this.setTarget(null);
                     this.getWorld().sendEntityStatus(this, (byte) 7);

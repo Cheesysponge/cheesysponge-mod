@@ -3,9 +3,7 @@ package name.cheesysponge.entity.custom;
 import name.cheesysponge.entity.ModEntities;
 import name.cheesysponge.item.ModItems;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -19,9 +17,11 @@ import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.DyeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.scoreboard.AbstractTeam;
@@ -29,6 +29,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
@@ -38,6 +39,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 
+import java.util.Objects;
 import java.util.UUID;
 import java.util.function.Predicate;
 
@@ -64,6 +66,7 @@ import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.object.PlayState;
 
 
@@ -196,44 +199,81 @@ public class CheeseEntity extends TameableEntity implements GeoEntity, Angerable
             DataTracker.registerData(CheeseEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     @Override
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
-        ItemStack itemstack = player.getStackInHand(hand);
-        Item item = itemstack.getItem();
-
-        Item itemForTaming = ModItems.CHEESY_SPONGE;
-        if (isBreedingItem(itemstack)){
-            return super.interactMob(player, hand);
+        ItemStack itemStack = player.getStackInHand(hand);
+        Item item = itemStack.getItem();
+        if (this.getWorld().isClient) {
+            boolean bl = this.isOwner(player) || this.isTamed() || itemStack.isOf(ModItems.CHEESY_SPONGE) && !this.isTamed() && !this.hasAngerTime();
+            return bl ? ActionResult.CONSUME : ActionResult.PASS;
         }
-
-        if (item == itemForTaming && !isTamed()) {
-            if (this.getWorld().isClient()) {
-                return ActionResult.CONSUME;
-            } else {
+        if (this.isTamed()) {
+            ActionResult actionResult;
+            if (itemStack.isOf(ModItems.CHEESY_SPONGE) && this.getHealth() < this.getMaxHealth()) {
                 if (!player.getAbilities().creativeMode) {
-                    itemstack.decrement(1);
+                    itemStack.decrement(1);
                 }
-
-                if (!this.getWorld().isClient()) {
-                    super.setOwner(player);
-                    this.navigation.recalculatePath();
-                    this.setTarget(null);
-                    this.getWorld().sendEntityStatus(this, (byte)7);
-                    setSit(true);
-                }
-
+                this.heal(Objects.requireNonNull(item.getFoodComponent()).getHunger());
                 return ActionResult.SUCCESS;
             }
-        }
-
-        if(isTamed() && !this.getWorld().isClient() && hand == Hand.MAIN_HAND) {
-            setSit(!isSitting());
+            if ((actionResult = super.interactMob(player, hand)).isAccepted() && !this.isBaby() || !this.isOwner(player)) return actionResult;
+            this.setSitting(!this.isSitting());
+            this.jumping = false;
+            this.navigation.stop();
+            this.setTarget(null);
             return ActionResult.SUCCESS;
         }
-
-        if (itemstack.getItem() == itemForTaming) {
-            return ActionResult.PASS;
+        if (!itemStack.isOf(ModItems.CHEESY_SPONGE) || this.hasAngerTime()) return super.interactMob(player, hand);
+        if (!player.getAbilities().creativeMode) {
+            itemStack.decrement(1);
         }
-
-        return super.interactMob(player, hand);
+        if (this.random.nextInt(3) == 0) {
+            //this.setOwner(player);
+            this.navigation.stop();
+            this.setTarget(null);
+            this.setSitting(true);
+            this.getWorld().sendEntityStatus(this, EntityStatuses.ADD_POSITIVE_PLAYER_REACTION_PARTICLES);
+            return ActionResult.SUCCESS;
+        } else {
+            this.getWorld().sendEntityStatus(this, EntityStatuses.ADD_NEGATIVE_PLAYER_REACTION_PARTICLES);
+        }
+        return ActionResult.SUCCESS;
+//        ItemStack itemstack = player.getStackInHand(hand);
+//        Item item = itemstack.getItem();
+//
+//        Item itemForTaming = ModItems.CHEESY_SPONGE;
+//        if (isBreedingItem(itemstack)){
+//            return super.interactMob(player, hand);
+//        }
+//
+//        if (item == itemForTaming && !isTamed()) {
+//            if (this.getWorld().isClient()) {
+//                return ActionResult.CONSUME;
+//            } else {
+//                if (!player.getAbilities().creativeMode) {
+//                    itemstack.decrement(1);
+//                }
+//
+//                if (!this.getWorld().isClient()) {
+//                    super.setOwner(player);
+//                    this.navigation.recalculatePath();
+//                    this.setTarget(null);
+//                    this.getWorld().sendEntityStatus(this, (byte)7);
+//                    setSit(true);
+//                }
+//
+//                return ActionResult.SUCCESS;
+//            }
+//        }
+//
+//        if(isTamed() && !this.getWorld().isClient() && hand == Hand.MAIN_HAND) {
+//            setSit(!isSitting());
+//            return ActionResult.SUCCESS;
+//        }
+//
+//        if (itemstack.getItem() == itemForTaming) {
+//            return ActionResult.PASS;
+//        }
+//
+//        return super.interactMob(player, hand);
     }
 
     public void setSit(boolean sitting) {
