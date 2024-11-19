@@ -3,6 +3,7 @@ package name.cheesysponge.block;
 import name.cheesysponge.SpongeMod;
 import name.cheesysponge.block.custom.*;
 import name.cheesysponge.fluid.ModFluids;
+import name.cheesysponge.item.ModFoodComponents;
 import name.cheesysponge.item.ModItemGroup;
 import name.cheesysponge.sound.ModSounds;
 
@@ -125,17 +126,27 @@ public static final Block[] blocks = new Block[] {CHEESYSPONGE_BLOCK, CHEESYSPON
 
     private static Item registerBlockItem(String name, Block block, String tooltipKey) {
         //registerBlockItem(name, block , group);
-
-        Item item = Registry.register(Registries.ITEM, new Identifier(SpongeMod.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings()) {
-                    @Override
-                    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-                        tooltip.add(Text.translatable(tooltipKey));
-                    }
-                });
+        Item item = null;
+        if(name.contains("chees")) {
+            item = Registry.register(Registries.ITEM, new Identifier(SpongeMod.MOD_ID, name),
+                    new BlockItem(block, new FabricItemSettings().food(ModFoodComponents.CHEESE)) {
+                        @Override
+                        public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+                            tooltip.add(Text.translatable(tooltipKey));
+                        }
+                    });
+        }
+        else {
+            item = Registry.register(Registries.ITEM, new Identifier(SpongeMod.MOD_ID, name),
+                    new BlockItem(block, new FabricItemSettings()) {
+                        @Override
+                        public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+                            tooltip.add(Text.translatable(tooltipKey));
+                        }
+                    });
+        }
         //ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
         return item;
-
     }
 
     private static Block registerBlock(String name, Block block){
@@ -147,8 +158,15 @@ public static final Block[] blocks = new Block[] {CHEESYSPONGE_BLOCK, CHEESYSPON
     }
 
     private static Item registerBlockItem(String name, Block block) {
-        Item item = Registry.register(Registries.ITEM, new Identifier(SpongeMod.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings()));
+        Item item = null;
+        if(name.contains("chees")) {
+            item = Registry.register(Registries.ITEM, new Identifier(SpongeMod.MOD_ID, name),
+                    new BlockItem(block, new FabricItemSettings().food(ModFoodComponents.CHEESE)));
+        }
+        else{
+            item = Registry.register(Registries.ITEM, new Identifier(SpongeMod.MOD_ID, name),
+                    new BlockItem(block, new FabricItemSettings()));
+        }
         //ItemGroupEvents.modifyEntriesEvent(tab).register(entries -> entries.add(item));
         return item;
     }

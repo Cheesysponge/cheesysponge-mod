@@ -6,10 +6,7 @@ import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.entity.ModEntities;
 import name.cheesysponge.fluid.ModFluids;
 import name.cheesysponge.item.custom.*;
-import name.cheesysponge.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.*;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
@@ -20,9 +17,9 @@ import net.minecraft.registry.Registry;
 
 public class ModItems {
     public static final Item SPONGE_INGOT = registerItem("sponge_ingot", new Item(new FabricItemSettings().food(ModFoodComponents.SPONGE_CLUMP)));
-    public static final Item CHEESY_SPONGE = registerItem("cheesy_sponge", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(12)));
-    public static final Item RAW_CHEESY_SPONGE = registerItem("raw_cheesy_sponge", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(12)));
-    public static final Item CHEESY_SPONGE_ROD = registerItem("cheesy_sponge_rod", new SpongeRodItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1).maxDamage(400)));
+    public static final Item CHEESY_SPONGE = registerItem("cheesy_sponge", new Item(new FabricItemSettings().food(ModFoodComponents.CHEESE).rarity(Rarity.UNCOMMON).fireproof().maxCount(12)));
+    public static final Item RAW_CHEESY_SPONGE = registerItem("raw_cheesy_sponge", new Item(new FabricItemSettings().food(ModFoodComponents.CHEESE).rarity(Rarity.UNCOMMON).fireproof().maxCount(12)));
+    public static final Item CHEESY_SPONGE_ROD = registerItem("cheesy_sponge_rod", new SpongeRodItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).food(ModFoodComponents.CHEESE).fireproof().maxCount(1).maxDamage(400)));
     public static final Item BURNING_CHEESE = registerItem("burning_cheese", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(5).food(ModFoodComponents.BURNING_CHEESE)));
     public static final Item CHEESY_SPONGE_SWORD = registerItem("cheesy_sponge_sword", new SwordItem(ModToolMaterials.CHEESYSPONGE,3,-2.3f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
     public static final Item CHEESY_SPONGE_AXE = registerItem("cheesy_sponge_axe", new ModAxeItem(ModToolMaterials.CHEESYSPONGE,6,-2.9f,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
@@ -48,7 +45,7 @@ public class ModItems {
     public static final Item CHEESE_BOOTS = registerItem("cheese_boots", new ModArmorItem(ModArmorMaterials.CHEESE, ArmorItem.Type.BOOTS,new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
     public static final Item SPONGE_SEEDS = registerItem("sponge_seeds", new AliasedBlockItem(ModBlocks.SPONGE_WEED, new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item CHEESE_BOW = registerItem("cheese_bow", new CheeseBowItem(new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1).maxDamage(600)));
-    public static final Item HYPE_MUSIC_DISC = registerItem("hype_music_disc", new MusicDiscItem(1, SoundEvents.MUSIC_DISC_13, (new FabricItemSettings()).maxCount(1).rarity(Rarity.RARE), 100));
+    public static final Item HYPE_MUSIC_DISC = registerItem("hype_music_disc", new MusicDiscItem(1, SoundEvents.MUSIC_DISC_13, (new FabricItemSettings()).maxCount(1).rarity(Rarity.RARE).food(ModFoodComponents.LIQUID_CHEESE), 100));
     public static final Item CHEESY_SPONGE_STAFF = registerItem("cheesy_sponge_staff", new ModSlownessSwordItem(ModToolMaterials.CHEESYSPONGE,4,-2.3f,new  FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
 
     public static final Item CHEESE_BUCKET = registerItem("cheese_bucket",

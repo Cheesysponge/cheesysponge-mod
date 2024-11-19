@@ -31,12 +31,12 @@ public enum  ModArmorMaterials implements StringIdentifiable,ArmorMaterial {
         map.put(Type.CHESTPLATE, 6);
         map.put(Type.HELMET, 2);
     }), 30, ModSounds.CHEESY_SPONGE_SOUNDS.getFallSound(), 0f, 0f, () -> Ingredient.ofItems(ModItems.SPONGE_INGOT)),
-    CHEESE("cheese", 28, Util.make(new EnumMap(Type.class), (map) -> {
+    CHEESE("cheese", 24, Util.make(new EnumMap(Type.class), (map) -> {
         map.put(Type.BOOTS, 3);
         map.put(Type.LEGGINGS, 6);
         map.put(Type.CHESTPLATE, 8);
         map.put(Type.HELMET, 3);
-    }), 30, ModSounds.CHEESY_SPONGE_SOUNDS.getFallSound(), 1.0f, 0.2f, () -> Ingredient.ofItems(ModItems.BURNING_CHEESE));
+    }), 30, ModSounds.CHEESY_SPONGE_SOUNDS.getFallSound(), 4f, 0.2f, () -> Ingredient.ofItems(ModItems.BURNING_CHEESE));
 
 
 
