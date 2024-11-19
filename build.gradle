@@ -82,6 +82,8 @@ dependencies {
 	modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
 
 	modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+	include "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+
 
 	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
 //

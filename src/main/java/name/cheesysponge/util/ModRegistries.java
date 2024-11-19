@@ -3,7 +3,9 @@ package name.cheesysponge.util;
 import name.cheesysponge.SpongeMod;
 import name.cheesysponge.block.ModBlocks;
 import name.cheesysponge.command.ReturnHomeCommand;
+import name.cheesysponge.command.ReturnHomeTwoCommand;
 import name.cheesysponge.command.SetHomeCommand;
+import name.cheesysponge.command.SetHomeTwoCommand;
 import name.cheesysponge.entity.ModEntities;
 import name.cheesysponge.entity.custom.CheeseBirdEntity;
 import name.cheesysponge.entity.custom.CheeseBossEntity;
@@ -15,9 +17,11 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffer;
@@ -32,7 +36,7 @@ public class ModRegistries {
         registerFlammableBlock();
         registerCustomTrades();
         registerAttributes();
-
+        registerCompostables();
     }
 
 
@@ -57,9 +61,22 @@ public class ModRegistries {
 
         registry.add(ModItems.BURNING_CHEESE, 20000);
     }
+    private static void registerCompostables() {
+        SpongeMod.LOGGER.info("Registering Compostables for " + SpongeMod.MOD_ID);
+        CompostingChanceRegistry registry = CompostingChanceRegistry.INSTANCE;
+        registry.add((ItemConvertible) ModItems.SPONGE_SEEDS, 1F);
+        registry.add((ItemConvertible) ModItems.SPONGE_INGOT, 1F);
+        registry.add((ItemConvertible) ModBlocks.SPONGE_SAPLING, 1F);
+        registry.add((ItemConvertible) ModBlocks.SPONGE_LEAVES, 1F);
+
+
+    }
     private static void registerCommands() {
         CommandRegistrationCallback.EVENT.register(SetHomeCommand::register);
+        CommandRegistrationCallback.EVENT.register(SetHomeTwoCommand::register);
         CommandRegistrationCallback.EVENT.register(ReturnHomeCommand::register);
+        CommandRegistrationCallback.EVENT.register(ReturnHomeTwoCommand::register);
+
     }
 
     private static void registerEvents() {

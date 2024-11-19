@@ -13,18 +13,20 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class SetHomeCommand {
+public class SetHomeTwoCommand {
     public static void register(CommandDispatcher<ServerCommandSource> serverCommandSourceCommandDispatcher,
                                 CommandRegistryAccess commandRegistryAccess,
                                 CommandManager.RegistrationEnvironment registrationEnvironment) {
         serverCommandSourceCommandDispatcher.register(CommandManager.literal("homeset")
-                .then(CommandManager.literal("0").executes(SetHomeCommand::run)));
+                .then(CommandManager.literal("1").executes(SetHomeTwoCommand::run)));
     }
 
     public static int run(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
         IEntityDataSaver player = (IEntityDataSaver)context.getSource().getPlayer();
         BlockPos playerPos = context.getSource().getPlayer().getBlockPos();
         String pos = "(" + playerPos.getX() + ", " + playerPos.getY() + ", " + playerPos.getZ() + ")";
+
+
         int n = 0;
         RegistryKey<World> world = context.getSource().getWorld().getRegistryKey();
         if(world == World.OVERWORLD){
@@ -39,12 +41,10 @@ public class SetHomeCommand {
             n =3;
         }
         assert player != null;
-        player.getPersistentData().putIntArray("homepos",
+        player.getPersistentData().putIntArray("homepose",
                 new int[] {playerPos.getX(), playerPos.getY(), playerPos.getZ(),n });
 
-        //context.getSource().sendMe((Supplier<Text>) Text.literal("Set home at " + pos), true);
         context.getSource().getPlayer().sendMessage(Text.literal("Set home at " + pos), true);
-
         return 1;
     }
 }

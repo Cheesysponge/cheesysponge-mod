@@ -10,7 +10,7 @@ public class ModFoodComponents {
 
     public static final FoodComponent SPONGE_CLUMP = new FoodComponent.Builder().hunger(6).saturationModifier(0.8f).build();
 
-    public static final FoodComponent BANANA = new FoodComponent.Builder().hunger(4).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(StatusEffects.HASTE,6000,1),1f).build();
+    public static final FoodComponent BANANA = new FoodComponent.Builder().hunger(6).saturationModifier(0.8f).statusEffect(new StatusEffectInstance(StatusEffects.HASTE,9000,1),1f).build();
 
 
 

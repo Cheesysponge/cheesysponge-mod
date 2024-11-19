@@ -3,24 +3,27 @@ package name.cheesysponge.command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
 import name.cheesysponge.util.IEntityDataSaver;
 import name.cheesysponge.world.dimension.ModDimensions;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 import java.util.function.Supplier;
 
-public class ReturnHomeCommand {
+public class ReturnHomeTwoCommand {
+    private static final SimpleCommandExceptionType INVALID_POSITION_EXCEPTION = new SimpleCommandExceptionType(
+            Text.translatable("commands.teleport.invalidPosition")
+    );
     public static void register(CommandDispatcher<ServerCommandSource> serverCommandSourceCommandDispatcher,
                                 CommandRegistryAccess commandRegistryAccess,
                                 CommandManager.RegistrationEnvironment registrationEnvironment) {
         serverCommandSourceCommandDispatcher.register(CommandManager.literal("homereturn")
-                .then(CommandManager.literal("0").executes(ReturnHomeCommand::run)));
+                .then(CommandManager.literal("1").executes(ReturnHomeTwoCommand::run)));
     }
 
     private static int run(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
@@ -28,9 +31,9 @@ public class ReturnHomeCommand {
 
         // not 0 means it contains SOMETHING
         assert player != null;
-        int[] homepos = player.getPersistentData().getIntArray("homepos");
+        int[] homepos = player.getPersistentData().getIntArray("homepose");
 
-        int[] playerPos = player.getPersistentData().getIntArray("homepos");
+        int[] playerPos = player.getPersistentData().getIntArray("homepose");
         RegistryKey<World> world = context.getSource().getWorld().getRegistryKey();
         if(playerPos[3] == 1){
             world = World.OVERWORLD;
