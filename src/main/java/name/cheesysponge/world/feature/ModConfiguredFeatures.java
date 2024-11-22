@@ -38,6 +38,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> NETHER_CHEESYSPONGE_ORE_KEY = registerKey("nether_cheesysponge_ore");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> END_CHEESYSPONGE_ORE_KEY = registerKey("end_cheesysponge_ore");
+    public static final RegistryKey<ConfiguredFeature<?,?>> PURE_END_CHEESE_ORE_KEY = registerKey("pure_end_cheese_ore");
+
 
 //    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> SPONGE_TREE =
 //            ConfiguredFeatures.register("sponge_tree", Feature.TREE, new TreeFeatureConfig.Builder(
@@ -75,6 +77,8 @@ public class ModConfiguredFeatures {
         RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         RuleTest netherReplaceables = new TagMatchRuleTest(BlockTags.BASE_STONE_NETHER);
         RuleTest endstoneReplaceables = new BlockMatchRuleTest(Blocks.END_STONE);
+        RuleTest otherEndstoneReplaceables = new BlockMatchRuleTest(Blocks.END_STONE);
+
 
         List<OreFeatureConfig.Target> overworldCheesyspongeOres =
                 List.of(OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.CHEESYSPONGE_ORE.getDefaultState()),
@@ -83,6 +87,8 @@ public class ModConfiguredFeatures {
                 List.of(OreFeatureConfig.createTarget(netherReplaceables, ModBlocks.NETHER_CHEESYSPONGE_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> endCheesyspongeOres =
                 List.of(OreFeatureConfig.createTarget(endstoneReplaceables, ModBlocks.END_CHEESYSPONGE_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> pureEndCheeseOres =
+                List.of(OreFeatureConfig.createTarget(otherEndstoneReplaceables, ModBlocks.END_PURE_CHEESE_ORE.getDefaultState()));
 
         register(context, SPONGE_TREE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlocks.SPONGE_LOG),
@@ -98,6 +104,8 @@ public class ModConfiguredFeatures {
         register(context, CHEESYSPONGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldCheesyspongeOres, 12));
         register(context, NETHER_CHEESYSPONGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherCheesyspongeOres, 12));
         register(context, END_CHEESYSPONGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(endCheesyspongeOres, 12));
+        register(context, PURE_END_CHEESE_ORE_KEY, Feature.ORE, new OreFeatureConfig(pureEndCheeseOres, 4));
+
 
 
 

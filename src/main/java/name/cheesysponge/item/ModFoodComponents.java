@@ -5,6 +5,12 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 
 public class ModFoodComponents {
+    public static final FoodComponent PURE_CHEESE = new FoodComponent.Builder().hunger(4).saturationModifier(1.2f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100000, 0), 0.9f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 100000, 0), 0.9f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 100000, 0), 0.9f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING, 100000, 0), 0.9f).alwaysEdible().build();
+
     public static final FoodComponent BURNING_CHEESE = new FoodComponent.Builder().hunger(4).saturationModifier(1.2f).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 1), 0.9f).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 0), 0.9f).alwaysEdible().build();
     public static final FoodComponent LIQUID_CHEESE = new FoodComponent.Builder().hunger(4).saturationModifier(1.2f).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 1), 0.9f).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 600, 2), 0.9f).alwaysEdible().build();
 

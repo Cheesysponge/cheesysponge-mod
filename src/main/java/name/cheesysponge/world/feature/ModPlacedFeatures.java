@@ -30,6 +30,9 @@ public class ModPlacedFeatures {
 
     public static final RegistryKey<PlacedFeature> END_CHEESYSPONGE_ORE_PLACED_KEY = registerKey("end_cheesysponge_ore_placed");
 
+    public static final RegistryKey<PlacedFeature> PURE_END_CHEESE_ORE_PLACED_KEY = registerKey("pure_end_cheese_ore_placed");
+
+
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
@@ -45,8 +48,11 @@ public class ModPlacedFeatures {
                 modifiersWithCount(4, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(-80), YOffset.aboveBottom(50))));
         register(context, END_CHEESYSPONGE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.END_CHEESYSPONGE_ORE_KEY),
-                modifiersWithCount(4, // VeinsPerChunk
-                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(-80), YOffset.aboveBottom(50))));
+                modifiersWithCount(6, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(-40), YOffset.aboveBottom(50))));
+        register(context, PURE_END_CHEESE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PURE_END_CHEESE_ORE_KEY),
+                modifiersWithCount(3, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(-60), YOffset.aboveBottom(55))));
 
 
 

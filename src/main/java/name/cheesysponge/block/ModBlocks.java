@@ -44,6 +44,8 @@ public class ModBlocks {
             new ExperienceDroppingBlock(FabricBlockSettings.copy(Blocks.SPONGE).strength(4f).requiresTool().luminance((state) -> 16), UniformIntProvider.create(2,6)));
     public static final Block END_CHEESYSPONGE_ORE = registerBlock("end_cheesysponge_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copy(Blocks.SPONGE).strength(4f).requiresTool().luminance((state) -> 16), UniformIntProvider.create(2,6)));
+    public static final Block END_PURE_CHEESE_ORE = registerBlock("end_pure_cheese_ore",
+            new ExperienceDroppingBlock(FabricBlockSettings.copy(Blocks.SPONGE).strength(4f).requiresTool().luminance((state) -> 0), UniformIntProvider.create(4,8)));
     public static final Block NETHER_CHEESYSPONGE_ORE = registerBlock("nether_cheesysponge_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copy(Blocks.SPONGE).strength(4f).requiresTool().luminance((state) -> 16), UniformIntProvider.create(2,6)));
     public static final Block CHEESY_BLOCK = registerBlock("cheesy_block",
@@ -109,7 +111,7 @@ public class ModBlocks {
 //
 //    public static final Block SPONGE_WOOD_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("sponge_wood_wall_sign",
 //            new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), ModSignTypes.SPONGE_WOOD));
-public static final Block[] blocks = new Block[] {CHEESYSPONGE_BLOCK, CHEESYSPONGE_ORE, DEEPSLATE_CHEESYSPONGE_ORE, END_CHEESYSPONGE_ORE, NETHER_CHEESYSPONGE_ORE, CHEESY_BLOCK, CHEESY_SPONGE_BUTTON, CHEESY_SPONGE_PRESSURE_PLATE, CHEESY_SPONGE_FENCE, CHEESY_SPONGE_FENCE_GATE, CHEESY_SPONGE_WALL, CHEESY_SPONGE_SLAB, CHEESY_SPONGE_STAIRS, CHEESY_SPONGE_DOOR, CHEESY_SPONGE_TRAPDOOR, CHEESY_SPONGE_FLOWER, CHEESY_SPONGE_LAMP, CHEESY_SPONGE_GLASS, SPONGE_LOG, CHEESE_BOX, SPONGE_WOOD, STRIPPED_SPONGE_LOG, STRIPPED_SPONGE_WOOD, SPONGE_PLANKS, SPONGE_LEAVES, SPONGE_SAPLING, CHEESE_BLASTER};
+public static final Block[] blocks = new Block[] {END_PURE_CHEESE_ORE,CHEESYSPONGE_BLOCK, CHEESYSPONGE_ORE, DEEPSLATE_CHEESYSPONGE_ORE, END_CHEESYSPONGE_ORE, NETHER_CHEESYSPONGE_ORE, CHEESY_BLOCK, CHEESY_SPONGE_BUTTON, CHEESY_SPONGE_PRESSURE_PLATE, CHEESY_SPONGE_FENCE, CHEESY_SPONGE_FENCE_GATE, CHEESY_SPONGE_WALL, CHEESY_SPONGE_SLAB, CHEESY_SPONGE_STAIRS, CHEESY_SPONGE_DOOR, CHEESY_SPONGE_TRAPDOOR, CHEESY_SPONGE_FLOWER, CHEESY_SPONGE_LAMP, CHEESY_SPONGE_GLASS, SPONGE_LOG, CHEESE_BOX, SPONGE_WOOD, STRIPPED_SPONGE_LOG, STRIPPED_SPONGE_WOOD, SPONGE_PLANKS, SPONGE_LEAVES, SPONGE_SAPLING, CHEESE_BLASTER};
 
     public static final Block CHEESE_FLUID_BLOCK = registerBlockWithoutBlockItem("cheese_fluid_block",
             new ModFluidBlock(ModFluids.CHEESE_STILL, FabricBlockSettings.copy(Blocks.WATER)

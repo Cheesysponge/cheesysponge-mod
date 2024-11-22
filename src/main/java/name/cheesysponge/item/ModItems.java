@@ -16,6 +16,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 public class ModItems {
+    public static final Item PURE_CHEESE = registerItem("pure_cheese", new Item(new FabricItemSettings().food(ModFoodComponents.PURE_CHEESE).rarity(Rarity.UNCOMMON).fireproof().maxCount(12)));
     public static final Item SPONGE_INGOT = registerItem("sponge_ingot", new Item(new FabricItemSettings().food(ModFoodComponents.SPONGE_CLUMP)));
     public static final Item CHEESY_SPONGE = registerItem("cheesy_sponge", new Item(new FabricItemSettings().food(ModFoodComponents.CHEESE).rarity(Rarity.UNCOMMON).fireproof().maxCount(12)));
     public static final Item RAW_CHEESY_SPONGE = registerItem("raw_cheesy_sponge", new Item(new FabricItemSettings().food(ModFoodComponents.CHEESE).rarity(Rarity.UNCOMMON).fireproof().maxCount(12)));
@@ -67,7 +68,7 @@ public class ModItems {
     public static final Item BANANA = registerItem("banana", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(63).food(ModFoodComponents.BANANA)));
 
 
-    public static final Item[] items = new Item[] {SPONGE_INGOT, CHEESY_SPONGE, RAW_CHEESY_SPONGE, CHEESY_SPONGE_ROD, BURNING_CHEESE, CHEESY_SPONGE_SWORD, CHEESY_SPONGE_AXE, CHEESY_SPONGE_PICKAXE, CHEESY_SPONGE_HOE, CHEESY_SPONGE_SHOVEL, CHEESY_SPONGE_MAGIC_SWORD, CHEESY_SPONGE_HELMET, CHEESY_SPONGE_CHESTPLATE, CHEESY_SPONGE_LEGGINGS, CHEESY_SPONGE_BOOTS, DATA_TABLET, SPONGE_HELMET, SPONGE_CHESTPLATE, SPONGE_LEGGINGS, SPONGE_BOOTS, CHEESE_HELMET, CHEESE_CHESTPLATE, CHEESE_LEGGINGS, CHEESE_BOOTS, SPONGE_SEEDS, CHEESE_BOW, HYPE_MUSIC_DISC, CHEESY_SPONGE_STAFF, CHEESE_BUCKET, CHEESE_GUN, CHEESE_SPAWN_EGG, CHEESE_BOSS_SPAWN_EGG, CHEESE_BIRD_SPAWN_EGG, INVISIBLE_SHIELD, BANANA};
+    public static final Item[] items = new Item[] {PURE_CHEESE,SPONGE_INGOT, CHEESY_SPONGE, RAW_CHEESY_SPONGE, CHEESY_SPONGE_ROD, BURNING_CHEESE, CHEESY_SPONGE_SWORD, CHEESY_SPONGE_AXE, CHEESY_SPONGE_PICKAXE, CHEESY_SPONGE_HOE, CHEESY_SPONGE_SHOVEL, CHEESY_SPONGE_MAGIC_SWORD, CHEESY_SPONGE_HELMET, CHEESY_SPONGE_CHESTPLATE, CHEESY_SPONGE_LEGGINGS, CHEESY_SPONGE_BOOTS, DATA_TABLET, SPONGE_HELMET, SPONGE_CHESTPLATE, SPONGE_LEGGINGS, SPONGE_BOOTS, CHEESE_HELMET, CHEESE_CHESTPLATE, CHEESE_LEGGINGS, CHEESE_BOOTS, SPONGE_SEEDS, CHEESE_BOW, HYPE_MUSIC_DISC, CHEESY_SPONGE_STAFF, CHEESE_BUCKET, CHEESE_GUN, CHEESE_SPAWN_EGG, CHEESE_BOSS_SPAWN_EGG, CHEESE_BIRD_SPAWN_EGG, INVISIBLE_SHIELD, BANANA};
 
     private static Item registerItem(String name, Item item) {
         //addToItemGroup(ModItemGroup.CHEESY_SPONGE,item);

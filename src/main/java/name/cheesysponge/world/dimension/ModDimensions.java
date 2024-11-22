@@ -21,7 +21,7 @@ public class ModDimensions {
 
     public static void register(){
         SpongeMod.LOGGER.debug("😀 Registering ModDimensions for " + SpongeMod.MOD_ID + "!!!!!");
-        CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.SPONGE_LEAVES)
+        CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.CHEESYSPONGE_BLOCK)
                 .destDimID(CHEESEDIM_DIMENSION_KEY.getValue())
                 .tintColor(227, 207, 30)
                 .lightWithItem(ModItems.CHEESY_SPONGE_STAFF)
